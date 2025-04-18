@@ -1,0 +1,141 @@
+{
+    "billType": {
+        "B": {
+            "id": 1,
+            "name": "Bill",
+            "abbreviation": "B",
+            "description": "A bill is a proposal for new legislation or an amendment to existing legislation."
+        },
+        "R": {
+            "id": 2,
+            "name": "Resolution",
+            "abbreviation": "R",
+            "description": "A resolution is a formal expression of opinion or intention by a legislative body."
+        },
+        "CR": {
+            "id": 3,
+            "name": "Concurrent Resolution",
+            "abbreviation": "CR",
+            "description": "A concurrent resolution is a legislative measure adopted by both houses of a bicameral legislature."
+        },
+        "JR": {
+            "id": 4,
+            "name": "Joint Resolution",
+            "abbreviation": "JR",
+            "description": "A joint resolution is a legislative measure that requires approval by both houses of a bicameral legislature and is presented to the executive for approval."
+        },
+        "JRCA": {
+            "id": 5,
+            "name": "Joint Resolution Constitutional Amendment",
+            "abbreviation": "JRCA",
+            "description": "A joint resolution proposing an amendment to the Constitution."
+        },
+        "EO": {
+            "id": 6,
+            "name": "Executive Order",
+            "abbreviation": "EO",
+            "description": "An executive order is a directive issued by the Governor to manage the operations of the State government."
+        },
+        "CA": {
+            "id": 7,
+            "name": "Constitutional Amendment",
+            "abbreviation": "CA",
+            "description": "A constitutional amendment is a formal change to the Constitution."
+        },
+        "M": {
+            "id": 8,
+            "name": "Memorial",
+            "abbreviation": "M",
+            "description": "A memorial is a formal request or petition to the legislature."
+        },
+        "CL": {
+            "id": 9,
+            "name": "Claim",
+            "abbreviation": "CL",
+            "description": "A claim is a formal request for compensation or reimbursement."
+        },
+        "C": {
+            "id": 10,
+            "name": "Commendation",
+            "abbreviation": "C",
+            "description": "A commendation is a formal expression of praise or recognition."
+        },
+        "CSR": {
+            "id": 11,
+            "name": "Committee Study Request",
+            "abbreviation": "CSR",
+            "description": "A committee study request is a formal request for a committee to conduct a study on a specific issue."
+        },
+        "JM": {
+            "id": 12,
+            "name": "Joint Memorial",
+            "abbreviation": "JM",
+            "description": "A joint memorial is a formal request or petition to the legislature, adopted by both houses."
+        },
+        "P": {
+            "id": 13,
+            "name": "Proclamation",
+            "abbreviation": "P",
+            "description": "A proclamation is an official announcement or declaration."
+        },
+        "SR": {
+            "id": 14,
+            "name": "Study Request",
+            "abbreviation": "SR",
+            "description": "A study request is a formal request for a committee to conduct a study on a specific issue."
+        },
+        "A": {
+            "id": 15,
+            "name": "Address",
+            "abbreviation": "A",
+            "description": "An address is a formal speech or statement delivered to the legislature."
+        },
+        "CM": {
+            "id": 16,
+            "name": "Concurrent Memorial",
+            "abbreviation": "CM",
+            "description": "A concurrent memorial is a formal request or petition to the legislature, adopted by both houses."
+        },
+        "I": {
+            "id": 17,
+            "name": "Initiative",
+            "abbreviation": "I",
+            "description": "An initiative is a proposal for new legislation or an amendment to existing legislation, submitted by the public."
+        },
+        "PET": {
+            "id": 18,
+            "name": "Petition",
+            "abbreviation": "PET",
+            "description": "A petition is a formal request or appeal to the legislature."
+        },
+        "SB": {
+            "id": 19,
+            "name": "Study Bill",
+            "abbreviation": "SB",
+            "description": "A study bill is a proposal for new legislation or an amendment to existing legislation, submitted for study and consideration."
+        },
+        "IP": {
+            "id": 20,
+            "name": "Initiative Petition",
+            "abbreviation": "IP",
+            "description": "An initiative petition is a formal request for a public vote on a proposed law or amendment to existing law."
+        },
+        "RB": {
+            "id": 21,
+            "name": "Repease Bill",
+            "abbreviation": "RB",
+            "description": "A repease bill is a proposal for the repeal of existing legislation."
+        },
+        "RM": {
+            "id": 22,
+            "name": "Remonstration",
+            "abbreviation": "RM",
+            "description": "A remonstration is a formal protest or objection to a proposed law or action."
+        },
+        "CB": {
+            "id": 23,
+            "name": "Committee Bill",
+            "abbreviation": "CB",
+            "description": "A committee bill is a proposal for new legislation or an amendment to existing legislation, submitted by a committee."
+        }
+}

@@ -1,0 +1,7 @@
+description:
+outcome:
+stage:
+party:
+district:
+sponsorUrl:
+tldr:

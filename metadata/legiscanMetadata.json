@@ -1,0 +1,56 @@
+{
+    "Y20092010": {
+        "year": "2009-2010",
+        "session": "Regular Session",
+        "modified": "11-30-2010",
+        "exported": "12-31-2021"
+    },
+    "Y20112012": {
+        "year": "2011-2012",
+        "session": "Regular Session",
+        "modified": "09-30-2012",
+        "exported": "12-31-2021"
+    },
+    "Y20132014": {
+        "year": "2013-2014",
+        "session": "Regular Session",
+        "modified": "09-30-2014",
+        "exported": "12-31-2021"
+    },
+    "Y20152016": {
+        "year": "2015-2016",
+        "session": "Regular Session",
+        "modified": "11-30-2016",
+        "exported": "12-31-2021"
+    },
+    "Y20172018": {
+        "year": "2017-2018",
+        "session": "Regular Session",
+        "modified": "09-30-2018",
+        "exported": "12-31-2021"
+    },
+    "Y20192020": {
+        "year": "2019-2020",
+        "session": "Regular Session",
+        "modified": "09-30-2020",
+        "exported": "12-31-2021"
+    },
+    "Y20212022": {
+        "year": "2021-2022",
+        "session": "Regular Session",
+        "modified": "10-24-2022",
+        "exported": "12-11-2022"
+    },
+    "Y20232024": {
+        "year": "2023-2024",
+        "session": "Regular Session",
+        "modified": "11-30-2024",
+        "exported": "12-08-2024"
+    },
+    "Y20252026": {
+        "year": "2025-2026",
+        "session": "Regular Session",
+        "modified": "04-11-2025",
+        "exported": "04-13-2025"
+    }
+}
