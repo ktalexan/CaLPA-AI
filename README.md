@@ -1,6 +1,6 @@
 # CaLPA: California Legislative Policy Analysis
 
-AI and Labor Inititatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
+AI and Labor Initiatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
 
 Dr. Kostas Alexandridis, GISP
 
@@ -8,8 +8,7 @@ Dr. Kostas Alexandridis, GISP
 
 ----
 
-### Description
-
+## Description
 
 This project provides a comprehensive analysis of legislative bills in the California Legislature (Assembly and Senate), over a number of legislative sessions. Specifically, it analyzes legislative bill information that contains "artificial intelligence" as a keyword on any of the legislative bill contents. The data are collected over the following periods (sessions):
 
@@ -29,7 +28,6 @@ This project provides a comprehensive analysis of legislative bills in the Calif
 :sparkle: This
 
 :information_source: Additional information
-
 
 ## Features
 
@@ -95,8 +93,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 For questions or feedback, please contact [Dr. Kostas Alexandridis](mailto:ktalexan@outlook.com).
 
-
 ## Next Level Navigation
 
 :card_index_dividers:[Admin](./admin/) | :card_index_dividers:[Analysis](./analysis/) | :card_index_dividers:[Data](./data/) | :card_index_dividers:[Graphics](./graphics/) | :card_index_dividers:[Metadata](./metadata/) | :card_index_dividers:[Scripts](./scripts/)
-
