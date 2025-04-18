@@ -1,8 +1,8 @@
-# CaLPA: California Legislative Policy Analysis
+# :classical_building: CaLPA: California Legislative Policy Analysis
 
-AI and Labor Initiatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
+:label: AI and Labor Initiatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
 
-Dr. Kostas Alexandridis, GISP
+:bust_in_silhouette: Dr. Kostas Alexandridis, GISP
 
 ![Static Badge](https://img.shields.io/badge/Policy%20Analysis-GitHub?style=plastic&logo=github&logoSize=auto&label=GitHub&labelColor=navy) ![GitHub License](https://img.shields.io/github/license/ktalexan/PolicyAnalysis?style=plastic&labelColor=black) ![Shield Badge: Language-R](https://img.shields.io/static/v1?style=plastic&label=language&message=R&logo=R&color=blue&logoColor=blue&labelColor=black)
 

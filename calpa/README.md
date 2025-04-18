@@ -1,5 +1,5 @@
-# CaLPA: Main Python Module and Classes
+# :classical_building: CaLPA: Main Python Module and Classes
 
-This folder contains the main Python module, classes and functions for the CaLPA project
+:label: This folder contains the main Python module, classes and functions for the CaLPA project
 
 ----

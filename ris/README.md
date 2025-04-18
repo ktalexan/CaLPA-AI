@@ -1,5 +1,5 @@
-# CaLPA: RIS Bibliographic Data Folder
+# :classical_building: CaLPA: RIS Bibliographic Data Folder
 
-This folder contains RIS-formatted bibliographic data of the legislative bill information of the CaLPA project.
+:label: This folder contains RIS-formatted bibliographic data of the legislative bill information of the CaLPA project.
 
 ----

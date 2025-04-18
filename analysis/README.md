@@ -1,5 +1,5 @@
-# CaLPA: Analysis Project Files
+# :classical_building: CaLPA: Analysis Project Files
 
-Project analysis folder for the CaLPA project.
+:label: Project analysis folder for the CaLPA project.
 
 -----

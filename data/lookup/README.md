@@ -1,5 +1,5 @@
-# CaLPA: Lookup Data Folder
+# :classical_building: CaLPA: Lookup Data Folder
 
-This folder contains lookup data and lists for legislative queries of the CaLPA project.
+:label: This folder contains lookup data and lists for legislative queries of the CaLPA project.
 
 ----

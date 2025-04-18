@@ -1,5 +1,5 @@
-# CaLPA: Administrative Files
+# :classical_building: CaLPA: Administrative Files
 
-Administrative folder and files for the CaLPA project
+:label: Administrative folder and files for the CaLPA project
 
 ----
