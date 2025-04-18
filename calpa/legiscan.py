@@ -131,7 +131,7 @@ class LegiScan:
         # see if API key available as environment variable
         if apiKey is None:
             apiKey = os.getenv("LEGISCAN_API_KEY")
-        self.key = apiKey.strip()
+        #self.key = apiKey.strip()
 
     # endregion
 
