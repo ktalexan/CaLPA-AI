@@ -1,4 +1,4 @@
-# :classical_building: CaLPA: Main Graphics Project Folder
+# :open_file_folder: CaLPA: Main Graphics Project Folder
 
 :label: This folder contains the main graphics and visualization data for the analysis performed of the CaLPA project.
 

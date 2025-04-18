@@ -1,5 +1,5 @@
-# CaLPA: Visualizations and Presentations
+# :open_file_folder: CaLPA: Visualizations and Presentations
 
-This folder contains presentation and visualization files and materials for the CaLPA project analysis.
+:label: This folder contains presentation and visualization files and materials for the CaLPA project analysis.
 
 ----

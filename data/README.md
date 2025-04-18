@@ -1,4 +1,4 @@
-# :classical_building: CaLPA: Project Data Folder
+# :open_file_folder: CaLPA: Project Data Folder
 
 :label: This is main root data folder for the CaLPA Project
 
