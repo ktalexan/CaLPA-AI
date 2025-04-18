@@ -174,53 +174,38 @@ class Calpa:
         prjDirs = {}
 
         # Define the project directories
-        prjDirs["pathPrj"] = homeDir  # Main project directory
-        prjDirs["pathAdmin"] = os.path.join(
-            homeDir, "admin"
-        )  # Administrative directory
-        prjDirs["pathAnalysis"] = os.path.join(
-            homeDir, "analysis"
-        )  # Analysis directory
-        prjDirs["pathData"] = os.path.join(homeDir, "data")  # Data directory
-        prjDirs["pathDataDocs"] = os.path.join(
-            homeDir, "data", "documents"
-        )  # Data documents directory
-        prjDirs["pathDataLegiscan"] = os.path.join(
-            homeDir, "data", "legiscan"
-        )  # Data legiscan directory
-        prjDirs["pathDataLookup"] = os.path.join(
-            homeDir, "data", "lookup"
-        )  # Data lookup directory
-        prjDirs["pathDataMd"] = os.path.join(
-            homeDir, "data", "markdown"
-        )  # Data markdown directory
-        prjDirs["pathDataRis"] = os.path.join(
-            homeDir, "data", "ris"
-        )  # Data ris directory
-        prjDirs["pathGraphics"] = os.path.join(
-            homeDir, "graphics"
-        )  # Graphics directory
-        prjDirs["pathGraphicsFigs"] = os.path.join(
-            homeDir, "graphics", "figures"
-        )  # Graphics figures directory
-        prjDirs["pathGraphicsPres"] = os.path.join(
-            homeDir, "graphics", "presentations"
-        )  # Graphics presentation directory
-        prjDirs["pathMetadata"] = os.path.join(
-            homeDir, "metadata"
-        )  # Metadata directory
-        prjDirs["pathScriptsMd"] = os.path.join(
-            homeDir, "markdown"
-        )  # Scripts markdown directory
-        prjDirs["pathScriptsCalpa"] = os.path.join(
-            homeDir, "calpa"
-        )  # Scripts python directory for Calpa module
-        prjDirs["pathScriptsLegiscan"] = os.path.join(
-            homeDir, "legiscan"
-        )  # Scripts python directory for LegiScan module
-        prjDirs["pathScriptsRis"] = os.path.join(
-            homeDir, "ris"
-        )  # Scripts ris directory
+        # Main project directory
+        prjDirs["pathPrj"] = homeDir
+        # Administrative directory
+        prjDirs["pathAdmin"] = os.path.join(homeDir, "admin")
+        # Analysis directory
+        prjDirs["pathAnalysis"] = os.path.join(homeDir, "analysis")
+        # Data directory
+        prjDirs["pathData"] = os.path.join(homeDir, "data")
+        # Data documents directory
+        prjDirs["pathDataDocs"] = os.path.join(homeDir, "data", "docs")
+        # Data legiscan directory
+        prjDirs["pathDataLegis"] = os.path.join(homeDir, "data", "legis")
+        # Data lookup directory
+        prjDirs["pathDataLookup"] = os.path.join(homeDir, "data", "lookup")
+        # Data markdown directory
+        prjDirs["pathDataMd"] = os.path.join(homeDir, "data", "md")
+        # Data ris directory
+        prjDirs["pathDataBbl"] = os.path.join(homeDir, "data", "bbl")
+        # Graphics directory
+        prjDirs["pathGraphics"] = os.path.join(homeDir, "graphics")
+        # Graphics figures directory
+        prjDirs["pathGraphicsFigs"] = os.path.join(homeDir, "graphics", "figs")
+        # Graphics presentation directory
+        prjDirs["pathGraphicsVisual"] = os.path.join(homeDir, "graphics", "visual")
+        # Metadata directory
+        prjDirs["pathMetadata"] = os.path.join(homeDir, "metadata")
+        # Scripts markdown directory
+        prjDirs["pathScriptsMd"] = os.path.join(homeDir, "markdown")
+        # Scripts python directory for LegiScan module
+        prjDirs["pathScriptsCalpa"] = os.path.join(homeDir, "calpa")
+        # Scripts ris directory
+        prjDirs["pathScriptsRis"] = os.path.join(homeDir, "ris")
 
         # Print the project directories on the console
         print("Directory Global Settings:\n")
@@ -231,20 +216,19 @@ class Calpa:
         print(f"- Analysis: {prjDirs['pathAnalysis']}")
         print("Scripts:")
         print(f"- Python Calpa Module: {prjDirs['pathScriptsCalpa']}")
-        print(f"- Python LegiScan Module: {prjDirs['pathScriptsLegiscan']}")
         print(f"- Markdown Scripts: {prjDirs['pathScriptsMd']}")
         print(f"- RIS Scripts: {prjDirs['pathScriptsRis']}")
         print("Data:")
         print(f"- Main Data: {prjDirs['pathData']}")
         print(f"- Documents: {prjDirs['pathDataDocs']}")
-        print(f"- LegiScan: {prjDirs['pathDataLegiscan']}")
+        print(f"- LegiScan: {prjDirs['pathDataLegis']}")
         print(f"- LookUp: {prjDirs['pathDataLookup']}")
         print(f"- Markdown: {prjDirs['pathDataMd']}")
-        print(f"- RIS: {prjDirs['pathDataRis']}")
+        print(f"- RIS: {prjDirs['pathDataBbl']}")
         print("Graphics:")
         print(f"- Main Graphics: {prjDirs['pathGraphics']}")
         print(f"- Figures: {prjDirs['pathGraphicsFigs']}")
-        print(f"- Presentations: {prjDirs['pathGraphicsPres']}")
+        print(f"- Presentations: {prjDirs['pathGraphicsVisual']}")
 
         # Returns the project directories dictionary
         return prjDirs

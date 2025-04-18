@@ -33,6 +33,35 @@ except ImportError as exc:
 
 # a helpful list of valid legiscan state abbreviations (no Puerto Rico)
 stateCodes = [
+    "AL",
+    "AK",
+    "AS",
+    "AZ",
+    "CA",
+    "CO",
+    "CT",
+    "DC",
+    "DE",
+    "FL",
+    "FM",
+    "GA",
+    "GU",
+    "HI",
+    "IA",
+    "ID",
+    "IL",
+    "IN",
+    "KS",
+    "KY",
+    "LA",
+    "MA",
+    "MD",
+    "ME",
+    "MH",
+    "MN",
+    "MO",
+    "MP",
+    "MS",
     "AK",
     "AL",
     "AR",
@@ -131,7 +160,7 @@ class LegiScan:
         # see if API key available as environment variable
         if apiKey is None:
             apiKey = os.getenv("LEGISCAN_API_KEY")
-        #self.key = apiKey.strip()
+        self.key = apiKey.strip() if apiKey else None
 
     # endregion
 
@@ -162,6 +191,36 @@ class LegiScan:
         if data["status"] == "ERROR":
             raise LegiScanError(data["alert"]["message"])
         return data
+
+    # endregion
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: getStoredSessions
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def getStoredSessions(self):
+        """Get a list of stored sessions for a given project."""
+        filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionList.json")
+        if os.path.exists(filePath):
+            with open(filePath, "r", encoding="utf-8") as f:
+                sessionList = json.load(f)
+        else:
+            sessionList = {}
+        return sessionList
+
+    # endregion
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: getStoredPeople
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def getStoredPeople(self):
+        """Get a list of stored people for a given project."""
+        filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionPeople.json")
+        if os.path.exists(filePath):
+            with open(filePath, "r", encoding="utf-8") as f:
+                sessionPeople = json.load(f)
+        else:
+            sessionPeople = {}
+        return sessionPeople
 
     # endregion
 
