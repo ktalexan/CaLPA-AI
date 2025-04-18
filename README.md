@@ -1,4 +1,5 @@
 # CaLPA: California Legislative Policy Analysis
+
 AI and Labor Inititatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
 
 Dr. Kostas Alexandridis, GISP
