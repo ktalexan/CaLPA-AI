@@ -177,5 +177,5 @@ cython_debug/
 pylintrc
 
 # vscode workspace settings
-.code-workspace
+CaLPA.code-workspace
 .vscode/settings.json
