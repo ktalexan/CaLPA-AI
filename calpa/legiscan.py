@@ -249,6 +249,21 @@ class LegiScan:
             raise ValueError("Project must be AI or LC.")
 
     # endregion
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: getStoredDatasetList
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def getStoredDatasetList(self):
+        """Get a list of stored datasets for a given project."""
+        filePath = os.path.join(os.getcwd(), "data", "lookup", "datasetList.json")
+        if os.path.exists(filePath):
+            with open(filePath, "r", encoding="utf-8") as f:
+                datasetList = json.load(f)
+        else:
+            datasetList = {}
+        return datasetList
+
+    # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: updateStoredBills
@@ -301,6 +316,22 @@ class LegiScan:
             dataDict["people"][key] = obj
         return dataDict
 
+    # endregion
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: getDatasetList
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def getDatasetList(self, state="CA"):
+        """Get list of datasets for a given state."""
+        url = self._url("getDatasetList", {"state": state})
+        data = self._get(url)["datasetlist"]
+        # return a dictionary of datasets with the dataset ID as the key
+        dataDict = {}
+        for obj in data:
+            key = f"{obj['year_start']}-{obj['year_end']}"
+            dataDict[key] = obj
+        return dataDict
+    
     # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
