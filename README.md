@@ -12,18 +12,18 @@
 
 This project provides a comprehensive analysis of legislative bills in the California Legislature (Assembly and Senate), over a number of legislative sessions. Specifically, it analyzes legislative bill information that contains "artificial intelligence" as a keyword on any of the legislative bill contents. The data are collected over the following periods (sessions):
 
-| Legislative Session | No of Bills |
-|:------:|:-------------:|
-| :watch:2009-2010 | 0 |
-| :watch:2011-2012 | 0 |
-| :watch:2013-2014 | 3 |
-| :watch:2015-2016 | 0 |
-| :watch:2017-2018 | 16 |
-| :watch:2019-2020 | |
-| :watch:2021-2022 | |
-| :watch:2023-2024 | 64 |
-| :watch:2025-2026 | 41 |
-| *Total*: | *157* |
+| Legislative Session | AI Bills | LC Bills
+|:------:|:-------------:|:-------------:|
+| :watch:2009-2010 | 0 | 0 |
+| :watch:2011-2012 | 0 | 0 |
+| :watch:2013-2014 | 3 | 0 |
+| :watch:2015-2016 | 0 | 0 |
+| :watch:2017-2018 | 5 | 0 |
+| :watch:2019-2020 | 16 | 0 |
+| :watch:2021-2022 | 15 | 0 |
+| :watch:2023-2024 | 81 | 0 |
+| :watch:2025-2026 | 39 | 57 |
+| *Total*: | *159* | *57* |
 
 :sparkle: This
 
