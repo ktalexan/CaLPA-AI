@@ -214,219 +214,76 @@ class LegiScan:
         return data
 
     # endregion
-
+    
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: getStoredSessions
+    # region Function: getStoredData
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredSessions(self):
-        """Get a list of stored sessions for a given project.
-
-        This function reads a JSON file containing session data
+    def getStoredData(self, type, project=None, raw=None):
+        """Get a list of stored data for a given type.
+        
+        This function reads a JSON file containing data of the specified type
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
 
         Args:
-            None
+            type (str): The type of data to retrieve. Must be one of ("session", "people", "bills", "dataset", "master").
+                - "session", it retrieves session data.
+                - "people", it retrieves people data.
+                - "bills", it retrieves bill data.
+                - "dataset", it retrieves dataset data.
+                - "master", it retrieves master list data.
+            
+            project (str): Optional. The project type. Must be one of ("AI", "LC").
+                - If "bills" is specified, this argument is required.
+            
+            raw (bool): Optional. If True, retrieves raw data for the master list, otherwise it retrieves the full master list.
+                - If "master" is specified, this argument is required.
 
         Returns:
-            sessionList (dict): A dictionary containing session data.
+            dataDict (dict): A dictionary containing data of the specified type.
 
         Raises:
             None
 
         Example:
-            >>> sessionList = calpa.getStoredSessions()
+            >>> sessionList = calpa.getStoredData("session")
+            >>> sessionPeople = calpa.getStoredData("people")
+            >>> aiBills = calpa.getStoredData("bills", project="AI")
+            >>> datasetList = calpa.getStoredData("dataset") 
+            >>> masterList = calpa.getStoredData("master", raw=False)
         """
-        filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionList.json")
+        if type not in ("session", "people", "bills", "dataset", "master"):
+            raise ValueError("Type must be one of ('session', 'people', 'bills', 'dataset').")
+        match type:
+            case "session":
+                filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionListStored.json")
+            case "people":
+                filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionPeopleStored.json")
+            case "bills":
+                if project == "AI":
+                    filePath = os.path.join(os.getcwd(), "data", "lookup", "aiBillListStored.json")
+                elif project == "LC":
+                    filePath = os.path.join(os.getcwd(), "data", "lookup", "lcBillListStored.json")
+                else:
+                    raise ValueError("Project must be AI or LC.")
+            case "dataset":
+                filePath = os.path.join(os.getcwd(), "data", "lookup", "datasetListStored.json")
+            case "master":
+                if raw is False:
+                    filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListStored.json")
+                elif raw is True:
+                    filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListRawStored.json")
+                else:
+                    raise ValueError("Must specify whether to get raw or not.")
+        
         if os.path.exists(filePath):
             with open(filePath, "r", encoding="utf-8") as f:
-                sessionList = json.load(f)
+                dataDict = json.load(f)
         else:
-            sessionList = {}
-        return sessionList
-
-    # endregion
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: getStoredPeople
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredPeople(self):
-        """Get a list of stored people for a given project.
-
-        This function reads a JSON file containing person data
-        and returns the data as a dictionary. If the file does not exist,
-        it returns an empty dictionary.
-
-        Args:
-            None
-
-        Returns:
-            sessionPeople (dict): A dictionary containing person data.
-
-        Raises:
-            None
-
-        Example:
-            >>> sessionPeople = calpa.getStoredPeople()
-        """
-        filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionPeople.json")
-        if os.path.exists(filePath):
-            with open(filePath, "r", encoding="utf-8") as f:
-                sessionPeople = json.load(f)
-        else:
-            sessionPeople = {}
-        return sessionPeople
-
-    # endregion
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: getStoredBills
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredBills(self, project):
-        """Get a list of stored bills for a given project.
-
-        This function reads a JSON file containing bill data
-        and returns the data as a dictionary. If the file does not exist,
-        it returns an empty dictionary.
-
-        Args:
-            project (str): The project name (AI or LC).
-
-        Returns:
-            aiBills (dict): A dictionary containing bill data.
-
-        Raises:
-            None
-
-        Example:
-            >>> aiBills = calpa.getStoredBills("AI")
-        """
-        if project == "AI":
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "aiBillList.json")
-            if os.path.exists(filePath):
-                with open(filePath, "r", encoding="utf-8") as f:
-                    aiBills = json.load(f)
-            else:
-                aiBills = {}
-            return aiBills
-        elif project == "LC":
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "lcBillList.json")
-            if os.path.exists(filePath):
-                with open(filePath, "r", encoding="utf-8") as f:
-                    lcBills = json.load(f)
-            else:
-                lcBills = {}
-            return lcBills
-        else:
-            raise ValueError("Project must be AI or LC.")
-
-    # endregion
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: getStoredDatasetList
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredDatasetList(self):
-        """Get a list of stored datasets for a given project.
-
-        This function reads a JSON file containing dataset data
-        and returns the data as a dictionary. If the file does not exist,
-        it returns an empty dictionary.
-
-        Args:
-            None
-
-        Returns:
-            datasetList (dict): A dictionary containing dataset data.
-
-        Raises:
-            None
-
-        Example:
-            >>> datasetList = calpa.getStoredDatasetList()
-        """
-        filePath = os.path.join(os.getcwd(), "data", "lookup", "datasetList.json")
-        if os.path.exists(filePath):
-            with open(filePath, "r", encoding="utf-8") as f:
-                datasetList = json.load(f)
-        else:
-            datasetList = {}
-        return datasetList
-
-    # endregion
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: getStoredMasterList
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredMasterList(self, raw=False):
-        """Get a list of stored bills for a given session identifier.
-
-        This function reads a JSON file containing bill data
-        and returns the data as a dictionary. If the file does not exist,
-        it returns an empty dictionary.
-
-        Args:
-            sessionId (str): The session identifier (optional, default is None).
-
-        Returns:
-            masterList (dict): A dictionary containing bill data.
-
-        Raises:
-            None
-
-        Example:
-            >>> masterList = calpa.getStoredMasterList(sessionId="12345")
-        """
-        # if raw is False, get the masterList.json file otherwise get the masterListRaw.json file
-        if raw is False:
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "masterList.json")
-        elif raw is True:
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListRaw.json")
-        else:
-            raise ValueError("Must specify wheter to get raw or not.")
-        # check if the file exists and read it
-        if os.path.exists(filePath):
-            with open(filePath, "r", encoding="utf-8") as f:
-                masterList = json.load(f)
-        else:
-            masterList = {}
-        return masterList
-
-    # endregion
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: updateStoredBills
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def updateStoredBills(self, project, billId, billNumber):
-        """Update the stored bills for a given project.
-
-        This function updates the JSON file containing bill data
-        with the new bill data. If the file does not exist, it creates a new one.
-
-        Args:
-            project (str): The project name (AI or LC).
-            billId (str): The bill identifier.
-            billNumber (str): The bill number.
-
-        Returns:
-            True/False (bool): True if the update was successful, False otherwise.
-
-        Raises:
-            None
-
-        Example:
-            >>> calpa.updateStoredBills("AI", "12345", "AB123")
-        """
-        if project == "AI":
-            aiBills[billId] = billNumber
-            # update the legiscan.monitor aiBills with the new data
-            aiBills.update({billId: billNumber})
-        elif project == "LC":
-            lcBills[billId] = billNumber
-        else:
-            raise ValueError("Project must be AI or LC.")
-        return True
-
-    # endregion
+            dataDict = {}
+        return dataDict
+    
+    # endregion      
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getSessionList
@@ -782,7 +639,7 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: matchHash
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def matchHash(self, stored, current, hashAttr, silent=False):
+    def matchHash(self, stored, current, hash, silent=False):
         """Compare the hash values of the stored and current session lists.
 
         This function checks if the hash values of the stored and current session lists match.
@@ -792,7 +649,7 @@ class LegiScan:
         Args:
             stored (dict): The stored session list.
             current (dict): The current session list.
-            hashAttr (str): The attribute to compare the hash values.
+            hash (str): The attribute to compare the hash values Must be one of (dataset, change, text, amendment, supplement, person).
             silent (bool): If True, suppresses print statements. Defaults to False.
 
         Returns:
@@ -804,7 +661,14 @@ class LegiScan:
         Example:
             >>> matchHash(stored, current, hashAttr)
         """
+        # Check if the hash is one of ("dataset", "change", "text", "amendment", "supplement", "person"). If it is, append "_hash" at the end of it. Else raise an error
+        if hash in ("session", "dataset", "change", "text", "amendment", "supplement", "person"):
+            hashAttr = hash + "_hash"
+        else:
+            raise ValueError("hash value must be one of ('session', 'dataset', 'change', 'text', 'amendment', 'supplement', 'person').")
+        # Create an empty list of unmatched keys
         unmatched = []
+        # Loop the stored dictionary and check if the hash values match
         for key, value in stored.items():
             if current[key][hashAttr] == value[hashAttr]:
                 if not silent:
@@ -820,9 +684,12 @@ class LegiScan:
                 print("All hashes match")
             return None
         else:
+            if not silent:
+                print(f"{len(unmatched)} hashes do not match")
             return unmatched
 
     # endregion
+        
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: __str__
