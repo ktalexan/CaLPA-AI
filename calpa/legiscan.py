@@ -30,8 +30,23 @@ import json
 from urllib.parse import urlencode
 from urllib.parse import quote_plus
 
-from calpa.codebook import billStatus
-from calpa.codebook import billProgress
+from calpa.codebook import (
+    billType,
+    bodyType,
+    eventType,
+    mimeType,
+    partyType,
+    progressType,
+    reasonType,
+    roleType,
+    sastType,
+    sponsorType,
+    stateType,
+    statusType,
+    supplementType,
+    billTextType,
+    voteType
+)
 
 try:
     import requests
@@ -39,91 +54,6 @@ except ImportError as exc:
     print("\nThis program requires the Python requests module.")
     print("Install using: pip install requests\n")
     raise ImportError from exc
-
-
-# a helpful list of valid legiscan state abbreviations (no Puerto Rico)
-stateCodes = [
-    "AL",
-    "AK",
-    "AS",
-    "AZ",
-    "CA",
-    "CO",
-    "CT",
-    "DC",
-    "DE",
-    "FL",
-    "FM",
-    "GA",
-    "GU",
-    "HI",
-    "IA",
-    "ID",
-    "IL",
-    "IN",
-    "KS",
-    "KY",
-    "LA",
-    "MA",
-    "MD",
-    "ME",
-    "MH",
-    "MN",
-    "MO",
-    "MP",
-    "MS",
-    "AK",
-    "AL",
-    "AR",
-    "AZ",
-    "CA",
-    "CO",
-    "CT",
-    "DC",
-    "DE",
-    "FL",
-    "GA",
-    "HI",
-    "IA",
-    "ID",
-    "IL",
-    "IN",
-    "KS",
-    "KY",
-    "LA",
-    "MA",
-    "MD",
-    "ME",
-    "MI",
-    "MN",
-    "MO",
-    "MS",
-    "MT",
-    "NC",
-    "ND",
-    "NE",
-    "NH",
-    "NJ",
-    "NM",
-    "NV",
-    "NY",
-    "OH",
-    "OK",
-    "OR",
-    "PA",
-    "RI",
-    "SC",
-    "SD",
-    "TN",
-    "TX",
-    "UT",
-    "VA",
-    "VT",
-    "WA",
-    "WI",
-    "WV",
-    "WY",
-]
 
 # endregion
 
@@ -139,13 +69,13 @@ class LegiScanError(Exception):
 
     Attributes:
         message (str): The error message to be displayed.
-        
+
     Raises:
         ValueError: Error message if the API key is not provided.
-        
+
     Returns:
         error (str): Error message.
-    
+
     Example:
         >>> from calpa.legiscan import LegiScanError
     """
@@ -165,18 +95,18 @@ class LegiScan:
     This class provides methods to access the LegiScan API and retrieve data
     about bills, sessions, and people.  It also provides methods to store and
     retrieve data from local JSON files.
-    
+
     Attributes:
         key (str): The API key for accessing the LegiScan API.
         baseUrl (str): The base URL for the LegiScan API.
-        
+
     Raises:
         LegiScanError: Error message if the API key is not provided.
         ValueError: Error message if the project is not AI or LC.
-        
+
     Returns:
         legiscan (object): LegiScan object with API key and base URL.
-        
+
     Example:
         >>> from calpa.legiscan import LegiScan
     """
@@ -187,20 +117,20 @@ class LegiScan:
     # region Function: __init__
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def __init__(self, apiKey=None):
-        """LegiScan API.  
-        
+        """LegiScan API.
+
         State parameters should always be passed as USPS abbreviations.
         Bill numbers and abbreviations are case insensitive.
         Register for API at http://legiscan.com/legiscan
-        
+
         Args:
             apiKey (str, optional): The API key for accessing the LegiScan API.
                 Defaults to None.
-                
+
         Raises:
             LegiScanError: Error message if the API key is not provided.
             ValueError: Error message if the project is not AI or LC.
-            
+
         Returns:
             legiscan (object): LegiScan object with API key and base URL.
         """
@@ -208,6 +138,21 @@ class LegiScan:
         if apiKey is None:
             apiKey = os.getenv("LEGISCAN_API_KEY")
         self.key = apiKey.strip() if apiKey else None
+        self.billType = billType
+        self.bodyType = bodyType
+        self.eventType = eventType
+        self.mimeType = mimeType
+        self.partyType = partyType
+        self.progressType = progressType
+        self.reasonType = reasonType
+        self.roleType = roleType
+        self.sastType = sastType
+        self.sponsorType = sponsorType
+        self.stateType = stateType
+        self.statusType = statusType
+        self.supplementType = supplementType
+        self.billTextType = billTextType
+        self.voteType = voteType
 
     # endregion
 
@@ -216,17 +161,17 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def _url(self, operation, params=None):
         """Build a URL for querying the API.
-        
+
         This function takes an operation name and optional parameters, and constructs a URL for querying the LegiScan API.
-        
+
         Args:
             operation (str): The operation name for the API query.
             params (dict, optional): A dictionary of parameters for the API query.
                 Defaults to None.
-                
+
         Returns:
             url (str): The constructed URL for the API query.
-            
+
         Raises:
             ValueError: Error message if the API key is not provided.
             ValueError: Error message if the project is not AI or LC.
@@ -248,15 +193,15 @@ class LegiScan:
         This function is used to retrieve data from the LegiScan API.
         It takes a URL as input, makes a GET request to that URL, and returns
         the parsed JSON data.
-        
+
         Args:
             url (str): The URL to retrieve data from.
-            
+
         Returns:
             data (dict): The parsed JSON data.
-            
+
         Raises:
-            LegiScanError: If the request fails or if the API returns an error.            
+            LegiScanError: If the request fails or if the API returns an error.
         """
         req = requests.get(url, timeout=60)
         if not req.ok:
@@ -275,20 +220,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredSessions(self):
         """Get a list of stored sessions for a given project.
-        
-        This function reads a JSON file containing session data 
-        and returns the data as a dictionary. If the file does not exist, 
+
+        This function reads a JSON file containing session data
+        and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
-        
+
         Args:
             None
-        
+
         Returns:
             sessionList (dict): A dictionary containing session data.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> sessionList = calpa.getStoredSessions()
         """
@@ -307,20 +252,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredPeople(self):
         """Get a list of stored people for a given project.
-        
+
         This function reads a JSON file containing person data
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
-        
+
         Args:
             None
-        
+
         Returns:
             sessionPeople (dict): A dictionary containing person data.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> sessionPeople = calpa.getStoredPeople()
         """
@@ -339,20 +284,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredBills(self, project):
         """Get a list of stored bills for a given project.
-        
+
         This function reads a JSON file containing bill data
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
-        
+
         Args:
             project (str): The project name (AI or LC).
-        
+
         Returns:
             aiBills (dict): A dictionary containing bill data.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> aiBills = calpa.getStoredBills("AI")
         """
@@ -382,20 +327,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredDatasetList(self):
         """Get a list of stored datasets for a given project.
-        
+
         This function reads a JSON file containing dataset data
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
-        
+
         Args:
             None
-        
+
         Returns:
             datasetList (dict): A dictionary containing dataset data.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> datasetList = calpa.getStoredDatasetList()
         """
@@ -408,26 +353,26 @@ class LegiScan:
         return datasetList
 
     # endregion
-    
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getStoredMasterList
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredMasterList(self, raw=False):
         """Get a list of stored bills for a given session identifier.
-        
+
         This function reads a JSON file containing bill data
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
-        
+
         Args:
             sessionId (str): The session identifier (optional, default is None).
-        
+
         Returns:
             masterList (dict): A dictionary containing bill data.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> masterList = calpa.getStoredMasterList(sessionId="12345")
         """
@@ -435,7 +380,7 @@ class LegiScan:
         if raw is False:
             filePath = os.path.join(os.getcwd(), "data", "lookup", "masterList.json")
         elif raw is True:
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListRaw.json") 
+            filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListRaw.json")
         else:
             raise ValueError("Must specify wheter to get raw or not.")
         # check if the file exists and read it
@@ -445,7 +390,7 @@ class LegiScan:
         else:
             masterList = {}
         return masterList
-    
+
     # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -453,21 +398,21 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def updateStoredBills(self, project, billId, billNumber):
         """Update the stored bills for a given project.
-        
+
         This function updates the JSON file containing bill data
         with the new bill data. If the file does not exist, it creates a new one.
-        
+
         Args:
             project (str): The project name (AI or LC).
             billId (str): The bill identifier.
             billNumber (str): The bill number.
-        
+
         Returns:
             True/False (bool): True if the update was successful, False otherwise.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> calpa.updateStoredBills("AI", "12345", "AB123")
         """
@@ -488,20 +433,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getSessionList(self, state="CA"):
         """Get list of available sessions for a state.
-        
+
         This function retrieves a list of sessions for a given state.
         It returns a dictionary with the session years as keys and
         session data as values.
-        
+
         Args:
             state (str): The state abbreviation (default is "CA").
-        
+
         Returns:
             dataDict (dict): A dictionary with session years as keys and session data as values.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> sessionList = calpa.getSessionList()
         """
@@ -520,20 +465,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getSessionPeople(self, sessionId=None):
         """Get list of people for a given session identifier or state.
-        
+
         This function retrieves a list of people for a given session identifier
         or state. It returns a dictionary with the session ID as the key and
         person data as the value.
-        
+
         Args:
             sessionId (str): The session identifier (optional, default is None).
-        
+
         Returns:
             dataDict (dict): A dictionary with session ID as the key and person data as the value.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> sessionPeople = calpa.getSessionPeople(sessionId="12345")
         """
@@ -558,20 +503,20 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getDatasetList(self, state="CA"):
         """Get list of datasets for a given state.
-        
+
         This function retrieves a list of datasets for a given state.
         It returns a dictionary with the dataset years as keys and
         dataset data as values.
-        
+
         Args:
             state (str): The state abbreviation (optional, default is "CA").
-        
+
         Returns:
             dataDict (dict): A dictionary with dataset years as keys and dataset data as values.
-        
+
         Raises:
             None
-        
+
         Example:
             >>> datasetList = calpa.getDatasetList(state="CA")
         """
@@ -589,23 +534,23 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getMasterList
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getMasterList(self, sessionId=None, raw = False):
+    def getMasterList(self, sessionId=None, raw=False):
         """Get list of bills for the current session in a state
         or for a given session identifier.
-        
+
         This function retrieves a list of bills for the current session in a state
         or for a given session identifier. It returns a list of bill data.
-        
+
         Args:
             sessionId (str): The session identifier (optional, default is None).
             raw (bool): If True, returns raw data (default is False).
-            
+
         Returns:
             data (list): A list of bill data.
-        
+
         Raises:
             None
-            
+
         Example:
             >>> masterList = calpa.getMasterList(sessionId="12345", raw=True)
         """
@@ -626,8 +571,8 @@ class LegiScan:
             else:
                 label = value["number"]
                 dataDict["bills"][label] = value
-                
-        #return [data["masterlist"][i] for i in data["masterlist"]]
+
+        # return [data["masterlist"][i] for i in data["masterlist"]]
         return dataDict
 
     # endregion
@@ -641,18 +586,18 @@ class LegiScan:
         This function expects either a bill identifier or a state and bill
         number combination.  The bill identifier is preferred, and required
         for fetching bills from prior sessions.
-        
+
         Args:
             billId (str): The bill identifier (optional, default is None).
             state (str): The state abbreviation (optional, default is "CA").
             billNumber (str): The bill number (optional, default is None).
-            
+
         Returns:
             data (dict): A dictionary with bill data.
-            
+
         Raises:
             None
-        
+
         Example:
             >>> bill = calpa.getBill(billId="12345")
         """
@@ -672,16 +617,16 @@ class LegiScan:
     def getBillText(self, docId):
         """Get bill text, including date, draft revision information, and MIME type.
         Bill text is base64 encoded to allow for PDF and Word data transfers.
-        
+
         Args:
             docId (str): The document identifier.
-            
+
         Returns:
             text (str): The bill text.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> billText = calpa.getBillText(docId="12345")
         """
@@ -697,16 +642,16 @@ class LegiScan:
         """Get amendment text including date, adoption status, MIME type,
         and title/description information.  The amendment text is base64 encoded
         to allow for PDF and Word data transfer.
-        
+
         Args:
             amendmentId (str): The amendment identifier.
-            
+
         Returns:
             data (dict): A dictionary with amendment data.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> amendment = calpa.getAmendment(amendmentId="12345")
         """
@@ -722,16 +667,16 @@ class LegiScan:
         """Get supplement text including type of supplement, date, MIME type
         and text/description information.  Supplement text is base64 encoded
         to allow for PDF and Word data transfer.
-        
+
         Args:
             supplementId (str): The supplement identifier.
-            
+
         Returns:
             data (dict): A dictionary with supplement data.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> supplement = calpa.getSupplement(supplementId="12345")
         """
@@ -746,16 +691,16 @@ class LegiScan:
     def getRollCall(self, rollCallId):
         """Roll call detail for individual votes and summary information.
         This function returns the roll call information for a given roll call identifier.
-        
+
         Args:
             rollCallId (str): The roll call identifier.
-            
+
         Returns:
             data (dict): A dictionary with roll call data.
-            
+
         Raises:
             None
-        
+
         Example:
             >>> rollCall = calpa.getRollCall(rollCallId="12345")
         """
@@ -771,16 +716,16 @@ class LegiScan:
         """Sponsor information including name, role, and a followthemoney.org
         person identifier.
         This function returns the sponsor information for a given people identifier.
-        
+
         Args:
             peopleId (str): The people identifier.
-            
+
         Returns:
             data (dict): A dictionary with sponsor data.
-            
+
         Raises:
             None
-        
+
         Example:
             >>> sponsor = calpa.getSponsor(peopleId="12345")
         """
@@ -803,20 +748,20 @@ class LegiScan:
             3 = recent years
             4 = prior years
         Page is the result set page number to return.
-        
+
         Args:
             state (str): The state abbreviation (optional, default is "CA").
             billNumber (str): The bill number (optional, default is None).
             query (str): The search query string (optional, default is None).
             year (int): The year to search (default is 2).
             page (int): The page number to return (default is 1).
-            
+
         Returns:
             data (dict): A dictionary with search results.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> searchResults = calpa.search(state="CA", billNumber="AB123")
         """
@@ -839,23 +784,23 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def matchHash(self, stored, current, hashAttr, silent=False):
         """Compare the hash values of the stored and current session lists.
-        
+
         This function checks if the hash values of the stored and current session lists match.
         If they match, it prints a message indicating that the hash matches.
         If they do not match, it adds the key to a list of unmatched keys and prints a message indicating the mismatch.
-        
+
         Args:
             stored (dict): The stored session list.
             current (dict): The current session list.
             hashAttr (str): The attribute to compare the hash values.
             silent (bool): If True, suppresses print statements. Defaults to False.
-        
+
         Returns:
             unmatched (list): A list of keys with mismatched hash values.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> matchHash(stored, current, hashAttr)
         """
@@ -884,15 +829,15 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def __str__(self):
         """Return a string representation of the LegiScan object.
-        
+
         This function returns a string representation of the LegiScan object.
-        
+
         Args:
             None
-            
+
         Returns:
             str: A string representation of the LegiScan object.
-            
+
         Raises:
             None
         """
@@ -905,16 +850,16 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def __repr__(self):
         """Return a string representation of the LegiScan object.
-        
+
         Args:
             None
-        
+
         Returns:
             str: A string representation of the LegiScan object.
-            
+
         Raises:
             None
-            
+
         Example:
             >>> print(legiscan)
         """
