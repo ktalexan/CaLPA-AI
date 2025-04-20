@@ -302,7 +302,7 @@ class LegiScan:
             >>> aiBills = calpa.getStoredBills("AI")
         """
         if project == "AI":
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "aiBills.json")
+            filePath = os.path.join(os.getcwd(), "data", "lookup", "aiBillList.json")
             if os.path.exists(filePath):
                 with open(filePath, "r", encoding="utf-8") as f:
                     aiBills = json.load(f)
@@ -310,7 +310,7 @@ class LegiScan:
                 aiBills = {}
             return aiBills
         elif project == "LC":
-            filePath = os.path.join(os.getcwd(), "data", "lookup", "lcBills.json")
+            filePath = os.path.join(os.getcwd(), "data", "lookup", "lcBillList.json")
             if os.path.exists(filePath):
                 with open(filePath, "r", encoding="utf-8") as f:
                     lcBills = json.load(f)
