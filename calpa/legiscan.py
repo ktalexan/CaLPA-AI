@@ -45,7 +45,7 @@ from calpa.codebook import (
     statusType,
     supplementType,
     billTextType,
-    voteType
+    voteType,
 )
 
 try:
@@ -214,13 +214,13 @@ class LegiScan:
         return data
 
     # endregion
-    
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getStoredData
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     def getStoredData(self, type, project=None, raw=None):
         """Get a list of stored data for a given type.
-        
+
         This function reads a JSON file containing data of the specified type
         and returns the data as a dictionary. If the file does not exist,
         it returns an empty dictionary.
@@ -232,10 +232,10 @@ class LegiScan:
                 - "bills", it retrieves bill data.
                 - "dataset", it retrieves dataset data.
                 - "master", it retrieves master list data.
-            
+
             project (str): Optional. The project type. Must be one of ("AI", "LC").
                 - If "bills" is specified, this argument is required.
-            
+
             raw (bool): Optional. If True, retrieves raw data for the master list, otherwise it retrieves the full master list.
                 - If "master" is specified, this argument is required.
 
@@ -249,41 +249,68 @@ class LegiScan:
             >>> sessionList = calpa.getStoredData("session")
             >>> sessionPeople = calpa.getStoredData("people")
             >>> aiBills = calpa.getStoredData("bills", project="AI")
-            >>> datasetList = calpa.getStoredData("dataset") 
+            >>> datasetList = calpa.getStoredData("dataset")
             >>> masterList = calpa.getStoredData("master", raw=False)
         """
-        if type not in ("session", "people", "bills", "dataset", "master"):
-            raise ValueError("Type must be one of ('session', 'people', 'bills', 'dataset').")
+        if type not in ("session", "people", "dataset", "master", "bills", "data"):
+            raise ValueError(
+                "Type must be one of ('session', 'people', 'dataset', 'master', 'bills', 'data')."
+            )
         match type:
             case "session":
-                filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionListStored.json")
+                filePath = os.path.join(
+                    os.getcwd(), "data", "lookup", "sessionListStored.json"
+                )
             case "people":
-                filePath = os.path.join(os.getcwd(), "data", "lookup", "sessionPeopleStored.json")
-            case "bills":
-                if project == "AI":
-                    filePath = os.path.join(os.getcwd(), "data", "lookup", "aiBillListStored.json")
-                elif project == "LC":
-                    filePath = os.path.join(os.getcwd(), "data", "lookup", "lcBillListStored.json")
-                else:
-                    raise ValueError("Project must be AI or LC.")
+                filePath = os.path.join(
+                    os.getcwd(), "data", "lookup", "sessionPeopleStored.json"
+                )
             case "dataset":
-                filePath = os.path.join(os.getcwd(), "data", "lookup", "datasetListStored.json")
+                filePath = os.path.join(
+                    os.getcwd(), "data", "lookup", "datasetListStored.json"
+                )
             case "master":
                 if raw is False:
-                    filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListStored.json")
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "masterListStored.json"
+                    )
                 elif raw is True:
-                    filePath = os.path.join(os.getcwd(), "data", "lookup", "masterListRawStored.json")
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "masterListRawStored.json"
+                    )
                 else:
                     raise ValueError("Must specify whether to get raw or not.")
-        
+            case "bills":
+                if project == "AI":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "aiBillListStored.json"
+                    )
+                elif project == "LC":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "lcBillListStored.json"
+                    )
+                else:
+                    raise ValueError("Project must be AI or LC.")
+            case "data":
+                if project == "AI":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "legis", "json", "aiBills.json"
+                    )
+                elif project == "LC":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "legis", "json", "lcBills.json"
+                    )
+                else:
+                    raise ValueError("Project must be AI or LC.")
+
         if os.path.exists(filePath):
             with open(filePath, "r", encoding="utf-8") as f:
                 dataDict = json.load(f)
         else:
             dataDict = {}
         return dataDict
-    
-    # endregion      
+
+    # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getSessionList
@@ -662,10 +689,20 @@ class LegiScan:
             >>> matchHash(stored, current, hashAttr)
         """
         # Check if the hash is one of ("dataset", "change", "text", "amendment", "supplement", "person"). If it is, append "_hash" at the end of it. Else raise an error
-        if hash in ("session", "dataset", "change", "text", "amendment", "supplement", "person"):
+        if hash in (
+            "session",
+            "dataset",
+            "change",
+            "text",
+            "amendment",
+            "supplement",
+            "person",
+        ):
             hashAttr = hash + "_hash"
         else:
-            raise ValueError("hash value must be one of ('session', 'dataset', 'change', 'text', 'amendment', 'supplement', 'person').")
+            raise ValueError(
+                "hash value must be one of ('session', 'dataset', 'change', 'text', 'amendment', 'supplement', 'person')."
+            )
         # Create an empty list of unmatched keys
         unmatched = []
         # Loop the stored dictionary and check if the hash values match
@@ -689,7 +726,71 @@ class LegiScan:
             return unmatched
 
     # endregion
-        
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: summarizeBillSponsors
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Create a function to summarize bill sponsors
+    def summarizeBillSponsors(self, bill, output="dict"):
+        """
+        Summarize bill sponsors by type and format the output as a dictionary or markdown list.
+        Args:
+            bill (dict): The bill data containing sponsor information.
+            output (str): The format of the output, either "dict" or "md".
+        Returns:
+            dict: A dictionary containing the sponsors categorized by type.
+        Raises:
+            ValueError: If the output format is not "dict" or "md".
+        Example:
+            >>> bill = {
+                    "sponsors": [
+                        {"sponsor_type_id": 1, "name": "John Doe", "party": "D", "district": "HD-01", "ballotpedia": "John_Doe"},
+                        {"sponsor_type_id": 2, "name": "Jane Smith", "party": "R", "district": "SD-02", "ballotpedia": "Jane_Smith"}
+                    ]
+                }
+            >>> summarizeBillSponsors(bill, output="dict")
+            {'Primary Sponsor': ['John Doe (D, AD01)'], 'Co-Sponsor': ['Jane Smith (R, SD02)']}
+        """
+        # Create a dictionary to store the sponsors by type
+        sponsorList = {}
+        # Iterate through the sponsors in the bill data
+        for sponsor in bill["sponsors"]:
+            # Get the sponsor type and format it
+            spType = self.sponsorType[sponsor["sponsor_type_id"]]
+            # if the type is not in the sponsor list, create a key for it
+            if spType not in sponsorList:
+                sponsorList[spType] = []
+            # Get the sponsor name, party, ballotpedia link, and district
+            spName = sponsor["name"]
+            spParty = sponsor["party"]
+            spBallotpedia = "https://ballotpedia.org/" + sponsor["ballotpedia"]
+            # if district starts with HD, replace it with AD
+            if sponsor["district"].startswith("SD"):
+                spDistrict = sponsor["district"].replace("SD-0", "SD")
+            elif sponsor["district"].startswith("HD"):
+                spDistrict = sponsor["district"].replace("HD-0", "AD")
+            # Append the sponsor list with the sponsor name, party, district, and ballotpedia link (if markdown format)
+            if output == "dict":
+                sponsorList[spType].append(f"{spName} ({spParty}, {spDistrict})")
+            elif output == "md":
+                sponsorList[spType].append(
+                    f"[{spName} ({spParty}, {spDistrict})]({spBallotpedia})"
+                )
+            else:
+                raise ValueError("Invalid output format. Use 'dict' or 'md'.")
+        # If the format is dictionary, return the sponsor list as is
+        if output == "dict":
+            return sponsorList
+        # If the format is markdown, convert the sponsor list to a markdown list
+        elif output == "md":
+            for key in sponsorList:
+                sponsorList[key] = ", ".join(sponsorList[key])
+                print(f"- {key}(s): {sponsorList[key]}")
+            return sponsorList
+        else:
+            raise ValueError("Invalid output format. Use 'dict' or 'md'.")
+
+    # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: __str__
