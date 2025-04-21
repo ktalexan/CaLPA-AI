@@ -27,8 +27,7 @@ Example:
 # Import required libraries
 import os
 import json
-from urllib.parse import urlencode
-from urllib.parse import quote_plus
+from urllib.parse import urlencode, quote_plus
 
 from calpa.codebook import (
     billType,
@@ -205,9 +204,7 @@ class LegiScan:
         """
         req = requests.get(url, timeout=60)
         if not req.ok:
-            raise LegiScanError(
-                "Request returned {0}: {1}".format(req.status_code, url)
-            )
+            raise LegiScanError(f"Request returned {req.status_code}: {url}")
         data = json.loads(req.content)
         if data["status"] == "ERROR":
             raise LegiScanError(data["alert"]["message"])
@@ -218,7 +215,7 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: getStoredData
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def getStoredData(self, type, project=None, raw=None):
+    def getStoredData(self, dataType, project = None, raw = None):
         """Get a list of stored data for a given type.
 
         This function reads a JSON file containing data of the specified type
@@ -226,7 +223,7 @@ class LegiScan:
         it returns an empty dictionary.
 
         Args:
-            type (str): The type of data to retrieve. Must be one of ("session", "people", "bills", "dataset", "master").
+            dataType (str): The type of data to retrieve. Must be one of ("session", "people", "bills", "dataset", "master").
                 - "session", it retrieves session data.
                 - "people", it retrieves people data.
                 - "bills", it retrieves bill data.
@@ -252,11 +249,11 @@ class LegiScan:
             >>> datasetList = calpa.getStoredData("dataset")
             >>> masterList = calpa.getStoredData("master", raw=False)
         """
-        if type not in ("session", "people", "dataset", "master", "bills", "data"):
+        if dataType not in ("session", "people", "dataset", "master", "bills", "data"):
             raise ValueError(
                 "Type must be one of ('session', 'people', 'dataset', 'master', 'bills', 'data')."
             )
-        match type:
+        match dataType:
             case "session":
                 filePath = os.path.join(
                     os.getcwd(), "data", "lookup", "sessionListStored.json"
@@ -666,7 +663,7 @@ class LegiScan:
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # region Function: matchHash
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    def matchHash(self, stored, current, hash, silent=False):
+    def matchHash(self, stored, current, hashType, silent=False):
         """Compare the hash values of the stored and current session lists.
 
         This function checks if the hash values of the stored and current session lists match.
@@ -676,7 +673,7 @@ class LegiScan:
         Args:
             stored (dict): The stored session list.
             current (dict): The current session list.
-            hash (str): The attribute to compare the hash values Must be one of (dataset, change, text, amendment, supplement, person).
+            hashType (str): The attribute to compare the hash values Must be one of (dataset, change, text, amendment, supplement, person).
             silent (bool): If True, suppresses print statements. Defaults to False.
 
         Returns:
@@ -688,8 +685,8 @@ class LegiScan:
         Example:
             >>> matchHash(stored, current, hashAttr)
         """
-        # Check if the hash is one of ("dataset", "change", "text", "amendment", "supplement", "person"). If it is, append "_hash" at the end of it. Else raise an error
-        if hash in (
+        # Check if the hashType is one of ("dataset", "change", "text", "amendment", "supplement", "person"). If it is, append "_hash" at the end of it. Else raise an error
+        if hashType in (
             "session",
             "dataset",
             "change",
@@ -698,7 +695,7 @@ class LegiScan:
             "supplement",
             "person",
         ):
-            hashAttr = hash + "_hash"
+            hashAttr = hashType + "_hash"
         else:
             raise ValueError(
                 "hash value must be one of ('session', 'dataset', 'change', 'text', 'amendment', 'supplement', 'person')."
@@ -769,6 +766,8 @@ class LegiScan:
                 spDistrict = sponsor["district"].replace("SD-0", "SD")
             elif sponsor["district"].startswith("HD"):
                 spDistrict = sponsor["district"].replace("HD-0", "AD")
+            else:
+                spDistrict = None
             # Append the sponsor list with the sponsor name, party, district, and ballotpedia link (if markdown format)
             if output == "dict":
                 sponsorList[spType].append(f"{spName} ({spParty}, {spDistrict})")
@@ -809,7 +808,7 @@ class LegiScan:
         Raises:
             None
         """
-        return "<LegiScan API {0}>".format(self.key)
+        return f"<LegiScan API {self.key}>"
 
     # endregion
 
