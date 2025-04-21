@@ -1,3 +1,5 @@
+# Copilot instructions for generating code and text
+
 - @azure Rule - Use Azure Best Practices: When generating code for Azure, running terminal commands for Azure, or performing operations related to Azure, invoke your `azure_development-get_best_practices` tool if available.
 
 - When generating a tldr summary of a text or a web page:
@@ -27,7 +29,7 @@
   - Add an example of how to use the class, including the expected output.
   - If the class raises any exceptions, add a section for exceptions with the type of exception and a brief description of when it is raised.
 
-- In any code, make sure the correct naming conventions are used. Specifidcally:
+- In any code, make sure the correct naming conventions are used. Specifically:
   - Use `camelCase` for variable names and function names.
   - Use `PascalCase` for class names.
   - Use `camelCase` for constants.
@@ -55,10 +57,10 @@
 - In Python, if possible use `is` for comparison to `None` instead of `==`. For example, use `if variable is None:` instead of `if variable == None:`.
 - In Python, if possible use `is` for comparison to `True` or `False` instead of `==`. For example, use `if variable is True:` instead of `if variable == True:`.
 
-
 - In Jupyter notebooks, for markdown headings, use the following format:
   - For the main title (H1):
     - Wrap everything with: the following code snippet:
+
         ```markdown
         <div style="font-size: 35px; font-weight: bold; color: goldenrod"><div style = "background-color:indigo"><center>
         <h1 style="font-size: 50px; font-weight: bold; color:goldenrod; border-top: 3px solid goldenrod; padding-top: 10px">Title Goes Here</h1>
@@ -66,14 +68,17 @@
         <div style="font-size: 30px; font-weight: bold; color: goldenrod; border-bottom: 3px solid goldenrod; padding-bottom: 20px">version and date</div>
         </center></div>
         ```
-    - For section titles (H2), wrrap everything with: 
+
+    - For section titles (H2), wrap everything with:
+
         ```markdown
         <h1 style="font-weight:bold; color:orangered; border-bottom: 2px solid orangered">section title here</h1>
         ```
-    - For subsection titles (H3), wrap everything with: 
-        ```markdown
-        <h2 style="font-weight:bold; color:dodgerblue; border-bottom: 1px solid dodgerblue; padding-left: 25px">subsection title here</h2>
-        ```
+
+    - For subsection titles (H3), wrap everything with:
+
+      ```markdown
+      <h2 style="font-weight:bold; color:dodgerblue; border-bottom: 1px solid dodgerblue; padding-left: 25px">subsection title here</h2>
+      ```
 
 - In all code, the default indentations should be 4 spaces. Tabs insert 4 spaces. Do not use tabs for indentation. Use spaces instead.
-
