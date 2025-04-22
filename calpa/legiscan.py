@@ -28,6 +28,11 @@ Example:
 import os
 import json
 from urllib.parse import urlencode, quote_plus
+from openai import AzureOpenAI
+from dotenv import load_dotenv
+load_dotenv()
+import base64
+
 
 from calpa.codebook import (
     billType,
@@ -152,6 +157,19 @@ class LegiScan:
         self.supplementType = supplementType
         self.billTextType = billTextType
         self.voteType = voteType
+        
+        endpoint = "https://kosta-m9rqam9e-eastus2.cognitiveservices.azure.com/"
+        model_name = "gpt-4.1"
+        deployment = "gpt-4.1"
+
+        subscription_key = os.environ.get("AZURE_OPENAI_KEY")
+        api_version = "2025-01-01-preview"
+
+        self.client = AzureOpenAI(
+            api_version=api_version,
+            azure_endpoint=endpoint,
+            api_key=subscription_key,
+        )
 
     # endregion
 
@@ -788,6 +806,58 @@ class LegiScan:
             return sponsorList
         else:
             raise ValueError("Invalid output format. Use 'dict' or 'md'.")
+
+    # endregion
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: summarizeBillText
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Create a function to summarize bill text
+    def summarizeBillText(self, myBill, deployment = "gpt-4.1", max_tokens = 800, temperature = 0.5):
+        """
+        Summarizes the bill text using OpenAI's GPT-4 model.
+
+        Parameters:
+        - billText (str): The text of the bill to be summarized.
+        - model (str): The model to use for summarization.
+        - deployment (str): The deployment name for the model.
+        - max_tokens (int): The maximum number of tokens in the response.
+        - temperature (float): The temperature for sampling.
+
+        Returns:
+        - str: The summarized text.
+        """
+        # Get the last bill text from the texts object
+        myBillDocId = myBill["texts"][-1]["doc_id"]
+        
+        # Get the bill text using the getBillText function and decode it
+        billText = base64.b64decode(self.getBillText(myBillDocId)["doc"]).decode("latin-1")
+        
+        client = self.client
+        response = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": "Create a one-paragraph TL;DR summary of the following text: " + billText + "followed by a list of tags (lowercase, comma-separated, words separated by dash). Ensure that 'artificial-intelligence' is included as the first tag. Format the response as JSON with the keys 'summary' and 'tags'.",
+                }
+            ],
+            max_completion_tokens = max_tokens,
+            temperature = temperature,
+            top_p = 1.0,
+            frequency_penalty = 0.0,
+            presence_penalty = 0.0,
+            model = deployment
+        )
+        responseSummary = json.loads(response.choices[0].message.content)
+        billSummary = {
+            "bill_number": myBill["bill_number"],
+            "doc_id": myBillDocId,
+            "summary": responseSummary["summary"],
+            "tags": responseSummary["tags"].split(", "),
+            "bill_text": billText
+        }
+         
+        return billSummary
 
     # endregion
 
