@@ -20,12 +20,12 @@ In general, the lookup data folder is used to store (a) reference data and metad
 <div style="display: flex; justify-content: space-between;">
 <div style="text-align: left;">
 
-:house: [**Home**](../)
+:house: [**Home**](../../)
 
 </div>
 <div style="text-align: right;">
 
-:card_index_dividers:[**Back to Data**](./data/)
+:card_index_dividers:[**Back to Data**](../)
 
 </div>
 </div>
