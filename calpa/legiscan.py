@@ -27,6 +27,7 @@ Example:
 # Import required libraries
 import os
 import json
+import time
 from urllib.parse import urlencode, quote_plus
 from openai import AzureOpenAI
 from dotenv import load_dotenv
@@ -158,17 +159,13 @@ class LegiScan:
         self.billTextType = billTextType
         self.voteType = voteType
         
-        endpoint = "https://kosta-m9rqam9e-eastus2.cognitiveservices.azure.com/"
         model_name = "gpt-4.1"
         deployment = "gpt-4.1"
-
-        subscription_key = os.environ.get("AZURE_OPENAI_KEY")
-        api_version = "2025-01-01-preview"
-
+        
         self.client = AzureOpenAI(
-            api_version=api_version,
-            azure_endpoint=endpoint,
-            api_key=subscription_key,
+            api_version = os.environ.get("AZURE_OPENAI_API_VERSION"),
+            azure_endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT"),
+            api_key = os.environ.get("AZURE_OPENAI_KEY")
         )
 
     # endregion
@@ -828,35 +825,73 @@ class LegiScan:
         - str: The summarized text.
         """
         # Get the last bill text from the texts object
-        myBillDocId = myBill["texts"][-1]["doc_id"]
-        
+        # if it exists, otherwise return None
+        myBillDocId = None
+        if "texts" in myBill or len(myBill["texts"]) > 0:
+            # Get the last bill text from the texts object
+            myBillDocId = myBill["texts"][-1]["doc_id"]        
         # Get the bill text using the getBillText function and decode it
-        billText = base64.b64decode(self.getBillText(myBillDocId)["doc"]).decode("latin-1")
-        
-        client = self.client
-        response = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": "Create a one-paragraph TL;DR summary of the following text: " + billText + "followed by a list of tags (lowercase, comma-separated, words separated by dash). Ensure that 'artificial-intelligence' is included as the first tag. Format the response as JSON with the keys 'summary' and 'tags'.",
+        myBillDoc = None
+        # If myBillDocId is not none
+        if myBillDocId is not None:
+            myBillDoc = self.getBillText(myBillDocId)["doc"]
+        myBillText = None
+        if myBillDoc is not None:
+            myBillText = base64.b64decode(myBillDoc).decode("latin-1")
+        # Instantiate the AzureOpenAI client
+        # and call the chat completion API to summarize the bill text
+        if myBillText is not None:
+            if len(myBillText) > 3500000:
+                requestText = myBillText[:3500000]
+            else:
+                requestText = myBillText
+            client = self.client
+            response = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": f"Create a one-paragraph TL;DR summary of the following text: {requestText} followed by a list of tags (lowercase, comma-separated, words separated by dash, as a python list). Ensure that 'artificial-intelligence' is included as the first tag. Format the response as JSON with 'summary' and 'tags' keys. Do not include any other text or explanations.",
+                    }
+                ],
+                max_completion_tokens = max_tokens,
+                temperature = temperature,
+                top_p = 1.0,
+                frequency_penalty = 0.0,
+                presence_penalty = 0.0,
+                model = deployment
+            )
+            # Check if the response is valid
+            if not response.choices or len(response.choices) == 0:
+                responseSummary = {
+                    "summary": None,
+                    "tags": None
                 }
-            ],
-            max_completion_tokens = max_tokens,
-            temperature = temperature,
-            top_p = 1.0,
-            frequency_penalty = 0.0,
-            presence_penalty = 0.0,
-            model = deployment
-        )
-        responseSummary = json.loads(response.choices[0].message.content)
-        billSummary = {
-            "bill_number": myBill["bill_number"],
-            "doc_id": myBillDocId,
-            "summary": responseSummary["summary"],
-            "tags": responseSummary["tags"].split(", "),
-            "bill_text": billText
-        }
-         
+            else:
+                # Parse the response and return the summary and tags
+                responseSummary = response.choices[0].message.content
+                if responseSummary.startswith("```json"):
+                    responseSummary = responseSummary[7:-4]
+                    responseSummary = json.loads(responseSummary)
+                else:
+                    responseSummary = json.loads(responseSummary)
+                #print(responseSummary["summary"])
+                #print(responseSummary["tags"])
+            billSummary = {
+                "bill_number": myBill["bill_number"],
+                "doc_id": myBillDocId,
+                "summary": responseSummary["summary"],
+                "tags": list(responseSummary["tags"]),
+                "bill_text": myBillText
+            }
+        else:
+            billSummary = {
+                "bill_number": myBill["bill_number"],
+                "doc_id": myBillDocId,
+                "summary": None,
+                "tags": [],
+                "bill_text": myBillText
+            }
+        # Return the summary and tags as a dictionary
         return billSummary
 
     # endregion

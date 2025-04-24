@@ -69175,7 +69175,7 @@
     "2025-2026": {
         "AB93": {
             "bill_id": 1904793,
-            "change_hash": "d5c9c8d6ff674267ce3ef4d2d9e0ba1f",
+            "change_hash": "9be2d193804e657dc07d349aae575a98",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -69215,6 +69215,10 @@
                 {
                     "date": "2025-04-09",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -69228,8 +69232,13 @@
             "current_body_id": 19,
             "title": "Water resources: demands: data centers.",
             "description": "An act to add Sections 16000.4 and 16100.4 to the Business and Professions Code, and to amend Section 390.1 of, and to add Section 147.4 to, the Water Code, relating to water.",
-            "pending_committee_id": 0,
-            "committee": [],
+            "pending_committee_id": 465,
+            "committee": {
+                "committee_id": 465,
+                "chamber": "A",
+                "chamber_id": 19,
+                "name": "Local Government"
+            },
             "referrals": [
                 {
                     "date": "2025-03-24",
@@ -69295,6 +69304,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on L. GOV.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -69412,6 +69428,15 @@
                     "time": "09:00",
                     "location": "State Capitol, Room 444",
                     "description": "Assembly Water, Parks, And Wildlife Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "c8abd111",
+                    "type": "Hearing",
+                    "date": "2025-04-30",
+                    "time": "13:30",
+                    "location": "State Capitol, Room 447",
+                    "description": "Assembly Local Government Hearing"
                 }
             ]
         },
@@ -70349,7 +70374,7 @@
         },
         "AB392": {
             "bill_id": 1953081,
-            "change_hash": "e60b11e473b07d93fd6dd57885c38b68",
+            "change_hash": "7ea00084cd5568000d6939af6daf413f",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -70393,6 +70418,10 @@
                 {
                     "date": "2025-04-02",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 10
                 }
             ],
             "state": "CA",
@@ -70406,13 +70435,8 @@
             "current_body_id": 19,
             "title": "Pornographic internet websites: consent.",
             "description": "An act to add Chapter 22.6 (commencing with Section 22605) to Division 8 of the Business and Professions Code, relating to the internet.",
-            "pending_committee_id": 463,
-            "committee": {
-                "committee_id": 463,
-                "chamber": "A",
-                "chamber_id": 19,
-                "name": "Judiciary"
-            },
+            "pending_committee_id": 0,
+            "committee": [],
             "referrals": [
                 {
                     "date": "2025-03-03",
@@ -70427,6 +70451,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Judiciary"
+                },
+                {
+                    "date": "2025-04-22",
+                    "committee_id": 449,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -70478,6 +70509,20 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "From committee: Amend, and do pass as amended and re-refer to Com. on APPR. (Ayes 12. Noes 0.) (April 22).",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -70547,6 +70592,24 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3220244,
+                    "date": "2025-04-23",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/AB392/id/3220244",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB392#97AMD",
+                    "text_size": 12935,
+                    "text_hash": "e7083ec33e3c59fe398f76d3027bb054",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
             "votes": [
@@ -70563,6 +70626,21 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "url": "https://legiscan.com/CA/rollcall/AB392/id/1535040",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB392"
+                },
+                {
+                    "roll_call_id": 1554608,
+                    "date": "2025-04-22",
+                    "desc": "Do pass as amended and be re-referred to the Committee on [Appropriations]",
+                    "yea": 12,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 0,
+                    "total": 12,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB392/id/1554608",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB392"
                 }
             ],
@@ -70921,7 +70999,7 @@
         },
         "AB412": {
             "bill_id": 1955758,
-            "change_hash": "69b88b8a3f5359ff4f4bc75ce47d6f05",
+            "change_hash": "35da8a2539a858206035788933db3aac",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -70972,6 +71050,14 @@
                 },
                 {
                     "date": "2025-03-24",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-22",
                     "event": 9
                 }
             ],
@@ -71086,6 +71172,20 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on JUD. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "Re-referred to Com. on JUD.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -71191,6 +71291,24 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3217299,
+                    "date": "2025-04-21",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/AB412/id/3217299",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB412#95AMD",
+                    "text_size": 19561,
+                    "text_hash": "a68c7945095b61aa5035cac1b45dbef5",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
             "votes": [
@@ -71235,7 +71353,7 @@
         },
         "AB489": {
             "bill_id": 1964676,
-            "change_hash": "2227bf5ff8ba7805a7321aa082eda0c2",
+            "change_hash": "3987b631b5a5e30a04c2214904974636",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -71275,6 +71393,18 @@
                 {
                     "date": "2025-04-10",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -71288,12 +71418,12 @@
             "current_body_id": 19,
             "title": "Health care professions: deceptive terms or letters: artificial intelligence.",
             "description": "An act to add Chapter 15.5 (commencing with Section 4999.8) to Division 2 of the Business and Professions Code, relating to healing arts.",
-            "pending_committee_id": 3626,
+            "pending_committee_id": 449,
             "committee": {
-                "committee_id": 3626,
+                "committee_id": 449,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Privacy and Consumer Protection"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -71309,6 +71439,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Privacy and Consumer Protection"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 449,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -71350,6 +71487,20 @@
                 {
                     "date": "2025-04-10",
                     "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on APPR. with recommendation: To Consent Calendar. (Ayes 14. Noes 0.) (April 22). Re-referred to Com. on APPR.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -71574,6 +71725,21 @@
                     "chamber_id": 19,
                     "url": "https://legiscan.com/CA/rollcall/AB489/id/1533592",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB489"
+                },
+                {
+                    "roll_call_id": 1556016,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Appropriations] with recommendation: To Consent Calendar",
+                    "yea": 14,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB489/id/1556016",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB489"
                 }
             ],
             "amendments": [],
@@ -71601,7 +71767,7 @@
         },
         "AB512": {
             "bill_id": 1964699,
-            "change_hash": "56e9396563eff44de6961f5adb9f080d",
+            "change_hash": "e425bdab4f038a4948b48145f9ecaf2c",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -71631,16 +71797,12 @@
                     "event": 9
                 },
                 {
-                    "date": "2025-02-24",
+                    "date": "2025-04-11",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-21",
                     "event": 9
-                },
-                {
-                    "date": "2025-04-11",
-                    "event": 10
-                },
-                {
-                    "date": "2025-04-11",
-                    "event": 10
                 }
             ],
             "state": "CA",
@@ -71687,13 +71849,6 @@
                 },
                 {
                     "date": "2025-02-24",
-                    "action": "Referred to Com. on Health.",
-                    "chamber": "A",
-                    "chamber_id": 19,
-                    "importance": 1
-                },
-                {
-                    "date": "2025-02-24",
                     "action": "Referred to Com. on HEALTH.",
                     "chamber": "A",
                     "chamber_id": 19,
@@ -71701,14 +71856,14 @@
                 },
                 {
                     "date": "2025-04-11",
-                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on Health. Read second time and amended.",
+                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on HEALTH. Read second time and amended.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
                 },
                 {
-                    "date": "2025-04-11",
-                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on HEALTH. Read second time and amended.",
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on HEALTH.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -71783,7 +71938,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1555993,
+                    "date": "2025-04-22",
+                    "desc": "Do pass as amended and be re-referred to the Committee on [Appropriations]",
+                    "yea": 13,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 3,
+                    "total": 16,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB512/id/1555993",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB512"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -71824,10 +71995,6 @@
                 {
                     "date": "2025-02-14",
                     "event": 1
-                },
-                {
-                    "date": "2025-03-03",
-                    "event": 9
                 },
                 {
                     "date": "2025-03-03",
@@ -71875,13 +72042,6 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 0
-                },
-                {
-                    "date": "2025-03-03",
-                    "action": "Referred to Com. on Health.",
-                    "chamber": "A",
-                    "chamber_id": 19,
-                    "importance": 1
                 },
                 {
                     "date": "2025-03-03",
@@ -71972,7 +72132,17 @@
             "votes": [],
             "amendments": [],
             "supplements": [],
-            "calendar": []
+            "calendar": [
+                {
+                    "type_id": 1,
+                    "event_hash": "41d3ff10",
+                    "type": "Hearing",
+                    "date": "2025-04-29",
+                    "time": "13:30",
+                    "location": "1021 O Street, Room 1100",
+                    "description": "Assembly Health Hearing"
+                }
+            ]
         },
         "AB723": {
             "bill_id": 1971753,
@@ -72194,7 +72364,7 @@
         },
         "AB853": {
             "bill_id": 1976440,
-            "change_hash": "cd855a12bb8cb0bf91767ecef288b63d",
+            "change_hash": "2bc703f921940160a40aad0a282f73c6",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -72230,6 +72400,14 @@
                 {
                     "date": "2025-04-01",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -72243,12 +72421,12 @@
             "current_body_id": 19,
             "title": "California AI Transparency Act.",
             "description": "An act to amend Sections 22757.1 and 22757.4 of, and to add Section 22757.3.1 to, the Business and Professions Code, relating to artificial intelligence.",
-            "pending_committee_id": 3626,
+            "pending_committee_id": 463,
             "committee": {
-                "committee_id": 3626,
+                "committee_id": 463,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Privacy and Consumer Protection"
+                "name": "Judiciary"
             },
             "referrals": [
                 {
@@ -72257,6 +72435,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Privacy and Consumer Protection"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 463,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Judiciary"
                 }
             ],
             "history": [
@@ -72291,6 +72476,13 @@
                 {
                     "date": "2025-04-01",
                     "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 11. Noes 1.) (April 22). Re-referred to Com. on JUD.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -72365,7 +72557,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1556150,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Judiciary]",
+                    "yea": 11,
+                    "nay": 1,
+                    "nv": 0,
+                    "absent": 3,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB853/id/1556150",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB853"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -72676,7 +72884,7 @@
         },
         "AB979": {
             "bill_id": 1978731,
-            "change_hash": "c5b62c7930025d0312b95112a5c4a6f8",
+            "change_hash": "aed79c3d9b750069f258083f99f81a6e",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -72712,6 +72920,10 @@
                 {
                     "date": "2025-04-01",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
                 }
             ],
             "state": "CA",
@@ -72773,6 +72985,13 @@
                 {
                     "date": "2025-04-01",
                     "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -72845,6 +73064,24 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3220235,
+                    "date": "2025-04-23",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/AB979/id/3220235",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB979#97AMD",
+                    "text_size": 19474,
+                    "text_hash": "d4063f9db1c275294effbc469eadb035",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
             "votes": [],
@@ -72864,7 +73101,7 @@
         },
         "AB1018": {
             "bill_id": 1978553,
-            "change_hash": "f100816e5c551e91a66b546628dfb790",
+            "change_hash": "957cbde91cefd963933eea5ced45625b",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -72896,6 +73133,18 @@
                 {
                     "date": "2025-04-10",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -72909,12 +73158,12 @@
             "current_body_id": 19,
             "title": "Automated decision systems.",
             "description": "An act to add Chapter 24.6 (commencing with Section 22756) to Division 8 of the Business and Professions Code, to amend Section 51 of the Civil Code, and to add Article 3 (commencing with Section 12959) to Chapter 6 of Part 2.8 of Division 3 of Title 2 of the Government Code, relating to artificial intelligence.",
-            "pending_committee_id": 3626,
+            "pending_committee_id": 463,
             "committee": {
-                "committee_id": 3626,
+                "committee_id": 463,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Privacy and Consumer Protection"
+                "name": "Judiciary"
             },
             "referrals": [
                 {
@@ -72923,6 +73172,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Privacy and Consumer Protection"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 463,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Judiciary"
                 }
             ],
             "history": [
@@ -72957,6 +73213,20 @@
                 {
                     "date": "2025-04-10",
                     "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 9. Noes 3.) (April 22). Re-referred to Com. on JUD.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -73139,7 +73409,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1556161,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Judiciary]",
+                    "yea": 9,
+                    "nay": 3,
+                    "nv": 0,
+                    "absent": 3,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB1018/id/1556161",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB1018"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -73165,7 +73451,7 @@
         },
         "AB1024": {
             "bill_id": 1978559,
-            "change_hash": "7c2823438ecbe2be0a44c32900a1b17f",
+            "change_hash": "77b691f3a42679d4a3866299218bb772",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -73200,6 +73486,10 @@
                 },
                 {
                     "date": "2025-04-09",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-23",
                     "event": 9
                 }
             ],
@@ -73262,6 +73552,13 @@
                 {
                     "date": "2025-04-09",
                     "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 13. Noes 0.) (April 8). Re-referred to Com. on APPR.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "In committee: Set, first hearing. Referred to suspense file.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -73360,7 +73657,7 @@
         },
         "AB1064": {
             "bill_id": 1978599,
-            "change_hash": "a4bedb5ecbe86a0fe3909417d2e901a3",
+            "change_hash": "48514fcef2e399d518aff5b82d980ea1",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -73392,6 +73689,18 @@
                 {
                     "date": "2025-04-10",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -73405,12 +73714,12 @@
             "current_body_id": 19,
             "title": "Leading Ethical AI Development (LEAD) for Kids Act.",
             "description": "An act to add Chapter 25.1 (commencing with Section 22757.20) to Division 8 of the Business and Professions Code, relating to artificial intelligence.",
-            "pending_committee_id": 3626,
+            "pending_committee_id": 463,
             "committee": {
-                "committee_id": 3626,
+                "committee_id": 463,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Privacy and Consumer Protection"
+                "name": "Judiciary"
             },
             "referrals": [
                 {
@@ -73419,6 +73728,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Privacy and Consumer Protection"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 463,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Judiciary"
                 }
             ],
             "history": [
@@ -73456,6 +73772,27 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "Coauthors revised.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 10. Noes 3.) (April 22). Re-referred to Com. on JUD.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -73482,6 +73819,33 @@
                     "bioguide_id": "",
                     "sponsor_type_id": 1,
                     "sponsor_order": 1,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
+                    "people_id": 23217,
+                    "person_hash": "wscugc9d",
+                    "party_id": "1",
+                    "state_id": 5,
+                    "party": "D",
+                    "role_id": 1,
+                    "role": "Rep",
+                    "name": "Gail Pellerin",
+                    "first_name": "Gail",
+                    "middle_name": "",
+                    "last_name": "Pellerin",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "HD-028",
+                    "ftm_eid": 55433649,
+                    "votesmart_id": 205284,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 0,
+                    "ballotpedia": "Gail_Pellerin",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 2,
                     "committee_sponsor": 0,
                     "committee_id": 0,
                     "state_federal": 0
@@ -73527,7 +73891,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1555954,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Judiciary]",
+                    "yea": 10,
+                    "nay": 3,
+                    "nv": 0,
+                    "absent": 2,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB1064/id/1555954",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB1064"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -73553,7 +73933,7 @@
         },
         "AB1137": {
             "bill_id": 1978672,
-            "change_hash": "90060d927a35d3cbc6efa8303fe264e7",
+            "change_hash": "49adbccdeec00807caadea258dbb9e7c",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -73593,6 +73973,26 @@
                 {
                     "date": "2025-04-10",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-21",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -73606,12 +74006,12 @@
             "current_body_id": 19,
             "title": "Reporting mechanism: child sexual abuse material.",
             "description": "An act to amend Sections 3273.65, 3273.66, 3273.67, and 3345.1 of the Civil Code, relating to social media platforms.",
-            "pending_committee_id": 3626,
+            "pending_committee_id": 463,
             "committee": {
-                "committee_id": 3626,
+                "committee_id": 463,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Privacy and Consumer Protection"
+                "name": "Judiciary"
             },
             "referrals": [
                 {
@@ -73620,6 +74020,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Privacy and Consumer Protection"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 463,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Judiciary"
                 }
             ],
             "history": [
@@ -73661,6 +74068,41 @@
                 {
                     "date": "2025-04-10",
                     "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "Re-referred to Com. on P. & C.P.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "Coauthors revised.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 13. Noes 0.) (April 22). Re-referred to Com. on JUD.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -73717,6 +74159,33 @@
                     "bioguide_id": "",
                     "sponsor_type_id": 1,
                     "sponsor_order": 2,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
+                    "people_id": 25342,
+                    "person_hash": "gssoswxg",
+                    "party_id": "2",
+                    "state_id": 5,
+                    "party": "R",
+                    "role_id": 1,
+                    "role": "Rep",
+                    "name": "Alexandra Macedo",
+                    "first_name": "Alexandra",
+                    "middle_name": "",
+                    "last_name": "Macedo",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "HD-033",
+                    "ftm_eid": 59506596,
+                    "votesmart_id": 213228,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 0,
+                    "ballotpedia": "Alexandra_Macedo",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 3,
                     "committee_sponsor": 0,
                     "committee_id": 0,
                     "state_federal": 0
@@ -73778,9 +74247,43 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3217333,
+                    "date": "2025-04-21",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/AB1137/id/3217333",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB1137#96AMD",
+                    "text_size": 34367,
+                    "text_hash": "2754c7e63df9ae5aeb815a3c368c8058",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1556046,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Judiciary]",
+                    "yea": 13,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 2,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB1137/id/1556046",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB1137"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -74225,7 +74728,7 @@
         },
         "AB1242": {
             "bill_id": 1980139,
-            "change_hash": "bf07c7f35a2a0b6f1a930e9b3aa4567b",
+            "change_hash": "fa788d5e1445393bc91e43552f7e90ae",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -74259,19 +74762,15 @@
                     "event": 10
                 },
                 {
-                    "date": "2025-03-28",
+                    "date": "2025-04-01",
                     "event": 9
                 },
                 {
-                    "date": "2025-03-28",
+                    "date": "2025-04-23",
                     "event": 10
                 },
                 {
-                    "date": "2025-04-01",
-                    "event": 9
-                },
-                {
-                    "date": "2025-04-01",
+                    "date": "2025-04-23",
                     "event": 9
                 }
             ],
@@ -74286,12 +74785,12 @@
             "current_body_id": 19,
             "title": "Language access.",
             "description": "An act to amend Sections 7295.2, 7295.4, 7296.2, 7299.3, 7299.4, and 7299.6 of the Government Code, and to add Division 115 (commencing with Section 135000) to the Health and Safety Code, relating to language access.",
-            "pending_committee_id": 457,
+            "pending_committee_id": 460,
             "committee": {
-                "committee_id": 457,
+                "committee_id": 460,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Health"
+                "name": "Human Services"
             },
             "referrals": [
                 {
@@ -74300,6 +74799,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Health"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 460,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Human Services"
                 }
             ],
             "history": [
@@ -74326,20 +74832,6 @@
                 },
                 {
                     "date": "2025-03-28",
-                    "action": "Referred to Coms. on Health and HUM. S.",
-                    "chamber": "A",
-                    "chamber_id": 19,
-                    "importance": 1
-                },
-                {
-                    "date": "2025-03-28",
-                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on Health. Read second time and amended.",
-                    "chamber": "A",
-                    "chamber_id": 19,
-                    "importance": 1
-                },
-                {
-                    "date": "2025-03-28",
                     "action": "Referred to Coms. on HEALTH and HUM. S.",
                     "chamber": "A",
                     "chamber_id": 19,
@@ -74354,14 +74846,21 @@
                 },
                 {
                     "date": "2025-04-01",
-                    "action": "Re-referred to Com. on Health.",
+                    "action": "Re-referred to Com. on HEALTH.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
                 },
                 {
-                    "date": "2025-04-01",
-                    "action": "Re-referred to Com. on HEALTH.",
+                    "date": "2025-04-23",
+                    "action": "Coauthors revised.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on HUM. S. (Ayes 16. Noes 0.) (April 22). Re-referred to Com. on HUM. S.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -74391,6 +74890,60 @@
                     "bioguide_id": "",
                     "sponsor_type_id": 1,
                     "sponsor_order": 1,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
+                    "people_id": 22948,
+                    "person_hash": "nzkfbj3k",
+                    "party_id": "1",
+                    "state_id": 5,
+                    "party": "D",
+                    "role_id": 1,
+                    "role": "Rep",
+                    "name": "Mia Bonta",
+                    "first_name": "Mia",
+                    "middle_name": "",
+                    "last_name": "Bonta",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "HD-018",
+                    "ftm_eid": 53819060,
+                    "votesmart_id": 196283,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 786168,
+                    "ballotpedia": "Mia_Bonta",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 2,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
+                    "people_id": 25341,
+                    "person_hash": "j8v390fl",
+                    "party_id": "1",
+                    "state_id": 5,
+                    "party": "D",
+                    "role_id": 1,
+                    "role": "Rep",
+                    "name": "Maggy Krell",
+                    "first_name": "Maggy",
+                    "middle_name": "",
+                    "last_name": "Krell",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "HD-006",
+                    "ftm_eid": 59507303,
+                    "votesmart_id": 213154,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 0,
+                    "ballotpedia": "Maggy_Krell",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 3,
                     "committee_sponsor": 0,
                     "committee_id": 0,
                     "state_federal": 0
@@ -74436,7 +74989,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1555948,
+                    "date": "2025-04-22",
+                    "desc": "Do pass and be re-referred to the Committee on [Human Services]",
+                    "yea": 16,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 0,
+                    "total": 16,
+                    "passed": 1,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "url": "https://legiscan.com/CA/rollcall/AB1242/id/1555948",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260AB1242"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -74763,7 +75332,7 @@
         },
         "SB11": {
             "bill_id": 1893423,
-            "change_hash": "964c3b9b63afcae3520ed263748430c4",
+            "change_hash": "12a0516805da85eea47e96de8dadcd57",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -74803,6 +75372,14 @@
                 {
                     "date": "2025-04-10",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -74816,12 +75393,12 @@
             "current_body_id": 20,
             "title": "Artificial intelligence technology.",
             "description": "An act to add Chapter 22.6 (commencing with Section 22650) to Division 8 of the Business and Professions Code, to amend Section 3344 of the Civil Code, to add Article 2.5 (commencing with Section 1425) to Chapter 1 of Division 11 of the Evidence Code, and to add Chapter 9 (commencing with Section 540) to Title 13 of Part 1 of the Penal Code, relating to artificial intelligence technology.",
-            "pending_committee_id": 487,
+            "pending_committee_id": 475,
             "committee": {
-                "committee_id": 487,
+                "committee_id": 475,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Public Safety"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -74844,6 +75421,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Public Safety"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 475,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -74892,6 +75476,13 @@
                 {
                     "date": "2025-04-10",
                     "action": "From committee with author's amendments. Read second time and amended. Re-referred to Com. on PUB. S.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 6. Noes 0.) (April 22). Re-referred to Com. on APPR.",
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
@@ -74981,6 +75572,21 @@
                     "chamber_id": 20,
                     "url": "https://legiscan.com/CA/rollcall/SB11/id/1535095",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB11"
+                },
+                {
+                    "roll_call_id": 1554574,
+                    "date": "2025-04-22",
+                    "desc": "Do pass, but first be re-referred to the Committee on [Appropriations]",
+                    "yea": 6,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 0,
+                    "total": 6,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB11/id/1554574",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB11"
                 }
             ],
             "amendments": [],
@@ -75008,7 +75614,7 @@
         },
         "SB16": {
             "bill_id": 1893428,
-            "change_hash": "f81cc0aa03e69390817c9917877edecb",
+            "change_hash": "4b286f8f8a7b748e677489a17f6187c5",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75044,6 +75650,10 @@
                 {
                     "date": "2025-04-02",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
                 }
             ],
             "state": "CA",
@@ -75057,12 +75667,12 @@
             "current_body_id": 20,
             "title": "Homeless Housing, Assistance, and Prevention program: housing element: Integrated Plan for Behavioral Health Services and Outcomes.",
             "description": "An act to amend Section 65583 of the Government Code, to add Article 3 (commencing with Section 50245) to Chapter 6.5 of Part 1 of Division 31 of the Health and Safety Code, and to amend Section 5963.02 of the Welfare and Institutions Code, relating to homelessness.",
-            "pending_committee_id": 3949,
+            "pending_committee_id": 480,
             "committee": {
-                "committee_id": 3949,
+                "committee_id": 480,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Housing"
+                "name": "Health"
             },
             "referrals": [
                 {
@@ -75078,6 +75688,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Housing"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 480,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Health"
                 }
             ],
             "history": [
@@ -75129,6 +75746,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass as amended and re-refer to Com. on HEALTH. (Ayes 10. Noes 0.) (April 22).",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -75200,7 +75824,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1556156,
+                    "date": "2025-04-22",
+                    "desc": "Do pass as amended, but first amend, and re-refer to the Committee on [Health]",
+                    "yea": 10,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 11,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB16/id/1556156",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB16"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -75226,7 +75866,7 @@
         },
         "SB53": {
             "bill_id": 1904800,
-            "change_hash": "e176e1d336f456ebc20df40d849bfffa",
+            "change_hash": "bce69f960a74b75b1e9b7b7dfc4f0d31",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75405,6 +76045,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "April 21 hearing: Placed on APPR. suspense file.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -75524,6 +76171,21 @@
                     "chamber_id": 20,
                     "url": "https://legiscan.com/CA/rollcall/SB53/id/1542818",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB53"
+                },
+                {
+                    "roll_call_id": 1552907,
+                    "date": "2025-04-21",
+                    "desc": "Placed on suspense file",
+                    "yea": 6,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 7,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB53/id/1552907",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB53"
                 }
             ],
             "amendments": [],
@@ -75560,7 +76222,7 @@
         },
         "SB57": {
             "bill_id": 1908210,
-            "change_hash": "bde07d51d7c508f4a97fa2568c0f933e",
+            "change_hash": "b05f383f3384288cfc3fc14b619eac34",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75703,6 +76365,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-17",
+                    "action": "Set for hearing April 28.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -75906,7 +76575,7 @@
         },
         "SB243": {
             "bill_id": 1949687,
-            "change_hash": "dc244babb99a8c97315d14c6357277ea",
+            "change_hash": "15fbfbab1c837da5c6b2be25837eaef2",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75949,6 +76618,10 @@
                 },
                 {
                     "date": "2025-04-09",
+                    "event": 9
+                },
+                {
+                    "date": "2025-04-21",
                     "event": 9
                 }
             ],
@@ -76063,6 +76736,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "From committee with author's amendments. Read second time and amended. Re-referred to Com. on HEALTH.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -76121,6 +76801,33 @@
                     "state_federal": 0
                 },
                 {
+                    "people_id": 18070,
+                    "person_hash": "xjj237d8",
+                    "party_id": "1",
+                    "state_id": 5,
+                    "party": "D",
+                    "role_id": 2,
+                    "role": "Sen",
+                    "name": "Henry Stern",
+                    "first_name": "Henry",
+                    "middle_name": "",
+                    "last_name": "Stern",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "SD-027",
+                    "ftm_eid": 39707348,
+                    "votesmart_id": 169182,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 392392,
+                    "ballotpedia": "Henry_Stern",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 3,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
                     "people_id": 22918,
                     "person_hash": "0gl8wlir",
                     "party_id": "1",
@@ -76142,7 +76849,7 @@
                     "ballotpedia": "Akilah_Weber",
                     "bioguide_id": "",
                     "sponsor_type_id": 2,
-                    "sponsor_order": 3,
+                    "sponsor_order": 4,
                     "committee_sponsor": 0,
                     "committee_id": 0,
                     "state_federal": 0
@@ -76204,6 +76911,24 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3217366,
+                    "date": "2025-04-21",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/SB243/id/3217366",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB243#96AMD",
+                    "text_size": 12251,
+                    "text_hash": "ddd02ed2927af156585ddb7a9692f771",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
             "votes": [
@@ -76248,7 +76973,7 @@
         },
         "SB295": {
             "bill_id": 1961095,
-            "change_hash": "1b53cfcd6e0c5298db35ea726a8b3ea4",
+            "change_hash": "d5900a4506b652c965bceba1d9738188",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -76365,6 +77090,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "Set for hearing April 29.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -76478,18 +77210,18 @@
                 },
                 {
                     "type_id": 1,
-                    "event_hash": "08ae8f49",
+                    "event_hash": "601f37d7",
                     "type": "Hearing",
                     "date": "2025-04-29",
-                    "time": "08:30",
-                    "location": "1021 O Street, Room 2200",
-                    "description": "Senate Public Safety Hearing"
+                    "time": "09:30",
+                    "location": "1021 O Street, Room 2100",
+                    "description": "Senate Judiciary Hearing"
                 }
             ]
         },
         "SB354": {
             "bill_id": 1968261,
-            "change_hash": "98b2e63bebdfab1bc89985564a0ccf33",
+            "change_hash": "b8792b702b2a384aec494ad366001db3",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -76528,14 +77260,6 @@
                 },
                 {
                     "date": "2025-04-03",
-                    "event": 9
-                },
-                {
-                    "date": "2025-04-09",
-                    "event": 10
-                },
-                {
-                    "date": "2025-04-09",
                     "event": 9
                 },
                 {
@@ -76640,13 +77364,6 @@
                 },
                 {
                     "date": "2025-04-09",
-                    "action": "Set for hearing April 29 in JUD. pending receipt.",
-                    "chamber": "S",
-                    "chamber_id": 20,
-                    "importance": 0
-                },
-                {
-                    "date": "2025-04-09",
                     "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 5. Noes 2.) (April 9). Re-referred to Com. on JUD.",
                     "chamber": "S",
                     "chamber_id": 20,
@@ -76658,13 +77375,6 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
-                },
-                {
-                    "date": "2025-04-09",
-                    "action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 5. Noes 2.) (April 9). Re-referred to Com. on JUD.",
-                    "chamber": "S",
-                    "chamber_id": 20,
-                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -77077,7 +77787,7 @@
         },
         "SB420": {
             "bill_id": 1974530,
-            "change_hash": "b69bf8ea91938d1d9a54ddcefdef94f6",
+            "change_hash": "fc6c431595dc2980a92db586984bc8c0",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -77121,6 +77831,14 @@
                 {
                     "date": "2025-04-09",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -77134,12 +77852,12 @@
             "current_body_id": 20,
             "title": "Automated decision systems.",
             "description": "An act to add Chapter 24.6 (commencing with Section 22756) to Division 8 of the Business and Professions Code, and to add Article 11 (commencing with Section 10285.8) to Chapter 1 of Part 2 of Division 2 of the Public Contract Code, relating to artificial intelligence.",
-            "pending_committee_id": 479,
+            "pending_committee_id": 475,
             "committee": {
-                "committee_id": 479,
+                "committee_id": 475,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Governmental Organization"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -77162,6 +77880,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Governmental Organization"
+                },
+                {
+                    "date": "2025-04-22",
+                    "committee_id": 475,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -77220,6 +77945,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 10. Noes 4.) (April 22). Re-referred to Com. on APPR.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -77306,6 +78038,21 @@
                     "chamber_id": 20,
                     "url": "https://legiscan.com/CA/rollcall/SB420/id/1542781",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB420"
+                },
+                {
+                    "roll_call_id": 1554430,
+                    "date": "2025-04-22",
+                    "desc": "Do pass, but first be re-referred to the Committee on [Appropriations]",
+                    "yea": 10,
+                    "nay": 4,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB420/id/1554430",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB420"
                 }
             ],
             "amendments": [],
@@ -77333,7 +78080,7 @@
         },
         "SB468": {
             "bill_id": 1976550,
-            "change_hash": "f53069525eb3252ba9d35be438819fea",
+            "change_hash": "de8de49290adc228d606b5f4ee7c92a3",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -77361,6 +78108,14 @@
                 {
                     "date": "2025-02-26",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -77374,12 +78129,12 @@
             "current_body_id": 20,
             "title": "High-risk artificial intelligence systems: duty to protect personal information.",
             "description": "An act to add Title 1.81.28 (commencing with Section 1798.91.2) to Part 4 of Division 3 of the Civil Code, relating to artificial intelligence.",
-            "pending_committee_id": 482,
+            "pending_committee_id": 475,
             "committee": {
-                "committee_id": 482,
+                "committee_id": 475,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Judiciary"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -77395,6 +78150,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Judiciary"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 475,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -77425,6 +78187,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 11. Noes 0.) (April 22). Re-referred to Com. on APPR.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -77478,7 +78247,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1555963,
+                    "date": "2025-04-22",
+                    "desc": "Do pass, but first be re-referred to the Committee on [Appropriations]",
+                    "yea": 11,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 2,
+                    "total": 13,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB468/id/1555963",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB468"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -77495,7 +78280,7 @@
         },
         "SB503": {
             "bill_id": 1976585,
-            "change_hash": "a7352a062ab30528393e9f022b7872ac",
+            "change_hash": "8e0c4364214880dd369d51e51541a6c1",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -77543,6 +78328,10 @@
                 {
                     "date": "2025-04-10",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-23",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -77556,12 +78345,12 @@
             "current_body_id": 20,
             "title": "Health care services: artificial intelligence.",
             "description": "An act to add Section 1339.76 to the Health and Safety Code, relating to health care services.",
-            "pending_committee_id": 489,
+            "pending_committee_id": 482,
             "committee": {
-                "committee_id": 489,
+                "committee_id": 482,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Rules"
+                "name": "Judiciary"
             },
             "referrals": [
                 {
@@ -77591,6 +78380,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Rules"
+                },
+                {
+                    "date": "2025-04-23",
+                    "committee_id": 482,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Judiciary"
                 }
             ],
             "history": [
@@ -77660,6 +78456,20 @@
                 {
                     "date": "2025-04-10",
                     "action": "Re-referred to Com. on RLS.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "Set for hearing April 29 in JUD. pending receipt.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
+                },
+                {
+                    "date": "2025-04-23",
+                    "action": "Re-referred to Com. on JUD.",
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
@@ -78077,12 +78887,21 @@
                     "time": "13:30",
                     "location": "1021 O Street, Room 1200",
                     "description": "Senate Health Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "601f37d7",
+                    "type": "Hearing",
+                    "date": "2025-04-29",
+                    "time": "09:30",
+                    "location": "1021 O Street, Room 2100",
+                    "description": "Senate Judiciary Hearing"
                 }
             ]
         },
         "SB524": {
             "bill_id": 1978757,
-            "change_hash": "2c988942ba401b6b9e7f3cec7c53f63b",
+            "change_hash": "220cdf1872bed33c474442d6bb8d660c",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -78214,6 +79033,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "April 21 hearing: Placed on APPR. suspense file.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -78300,6 +79126,21 @@
                     "chamber_id": 20,
                     "url": "https://legiscan.com/CA/rollcall/SB524/id/1540880",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB524"
+                },
+                {
+                    "roll_call_id": 1552827,
+                    "date": "2025-04-21",
+                    "desc": "Placed on suspense file",
+                    "yea": 6,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 7,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB524/id/1552827",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB524"
                 }
             ],
             "amendments": [],
@@ -78327,7 +79168,7 @@
         },
         "SB579": {
             "bill_id": 1978812,
-            "change_hash": "ae868a623497073f6cf4b500907b10f8",
+            "change_hash": "d9fede729abbb9f5965f1e10c57701e6",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -78455,6 +79296,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-21",
+                    "action": "April 21 hearing: Placed on APPR. suspense file.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -78541,6 +79389,21 @@
                     "chamber_id": 20,
                     "url": "https://legiscan.com/CA/rollcall/SB579/id/1527011",
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB579"
+                },
+                {
+                    "roll_call_id": 1552822,
+                    "date": "2025-04-21",
+                    "desc": "Placed on suspense file",
+                    "yea": 6,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 7,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB579/id/1552822",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB579"
                 }
             ],
             "amendments": [],
@@ -78568,7 +79431,7 @@
         },
         "SB711": {
             "bill_id": 1980441,
-            "change_hash": "2addde27ac8d8ae8a1abe3cd5612b7e3",
+            "change_hash": "75c1a64c1945e41f9e5e5627798680cd",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -78760,7 +79623,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1555944,
+                    "date": "2025-04-23",
+                    "desc": "Do pass as amended, but first amend, and re-refer to the Committee on [Appropriations]",
+                    "yea": 4,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 1,
+                    "total": 5,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB711/id/1555944",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB711"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
@@ -79032,7 +79911,7 @@
         },
         "SB833": {
             "bill_id": 1980563,
-            "change_hash": "d03747180e25603901bd69278ff90d87",
+            "change_hash": "73d167db11330657a4610695527e2b68",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -79068,6 +79947,14 @@
                 {
                     "date": "2025-04-02",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 10
+                },
+                {
+                    "date": "2025-04-22",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -79081,12 +79968,12 @@
             "current_body_id": 20,
             "title": "Critical infrastructure: automated decision systems: human oversight.",
             "description": "An act to add Section 8592.51 to the Government Code, relating to state government.",
-            "pending_committee_id": 479,
+            "pending_committee_id": 475,
             "committee": {
-                "committee_id": 479,
+                "committee_id": 475,
                 "chamber": "S",
                 "chamber_id": 20,
-                "name": "Governmental Organization"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -79102,6 +79989,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "name": "Governmental Organization"
+                },
+                {
+                    "date": "2025-04-22",
+                    "committee_id": 475,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -79153,6 +80047,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-22",
+                    "action": "From committee: Do pass and re-refer to Com. on APPR. (Ayes 12. Noes 0.) (April 22). Re-referred to Com. on APPR.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -79224,7 +80125,23 @@
                     "alt_text_hash": ""
                 }
             ],
-            "votes": [],
+            "votes": [
+                {
+                    "roll_call_id": 1554538,
+                    "date": "2025-04-22",
+                    "desc": "Do pass, but first be re-referred to the Committee on [Appropriations]",
+                    "yea": 12,
+                    "nay": 0,
+                    "nv": 0,
+                    "absent": 3,
+                    "total": 15,
+                    "passed": 1,
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "url": "https://legiscan.com/CA/rollcall/SB833/id/1554538",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billVotesClient.xhtml?bill_id=202520260SB833"
+                }
+            ],
             "amendments": [],
             "supplements": [],
             "calendar": [
