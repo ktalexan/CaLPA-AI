@@ -5,3 +5,11 @@
 **:bust_in_silhouette: Kostas Alexandridis, PhD, GISP** | *:label: v.1.0, April 2025*
 
 ----
+
+
+----
+
+<div align="right">
+
+:house: [**Home**](../) >>
+</div>

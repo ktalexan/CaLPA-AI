@@ -10,3 +10,11 @@ There are two main sub-folders, containing different categories of graphical dat
 
 - [Figures and Graphs](/graphics/figs/): Contains figures, graphs and markdown tables of the analytical and summarized legislative data in the project.
 - [Visualizations and Presentations](/graphics/visual/): Contains presentation and visualization files and materials related to the CaLPA project analysis.
+
+
+----
+
+<div align="right">
+
+:house: [**Home**](../) >>
+</div>
