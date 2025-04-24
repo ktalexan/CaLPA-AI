@@ -1,4 +1,4 @@
-# :classical_building: CaLPA: California Legislative Policy Analysis
+# :balance_scale: CaLPA: California Legislative Policy Analysis
 
 :label: AI and Labor Initiatives Comprehensive legislative policy analysis of California Legislature (Senate and Assembly)
 
@@ -61,25 +61,25 @@ This project provides a comprehensive analysis of legislative bills in the Calif
 
 The following folders contain the scripts used for the California Policy Analysis project:
 
-- **[Python Module: CALPA](./calpa/)**: This folder contains the `calpa` Python module, which is used for data processing, analysis, and visualization in support of complex project tasks. The module is designed to be reusable and modular, allowing for easy integration into other projects.
-- **[Python Module: LegiScan](./legiscan/)**: This folder contains the `legiscan` Python module, which is used for data processing, analysis, and visualization in support of complex project tasks. The module is designed to be reusable and modular, allowing for easy integration into other projects.
-- **[Markdown Bill Files](./markdown/)**: This folder contains the markdown files used for documentation and custom bill visualization of each bill, for importation to the Obsidian Knowledge Base. The markdown files are typically located in the `markdown` directory.
-- **[RIS Files](./ris/)**: This folder contains the RIS files used for bibliography management and citation generation. The RIS files are typically located in the `ris` directory. These files are used to generate bibliographic references in the RIS format, which can be imported into reference management software (Zotero).
+- **[:file_folder: Python Module: CaLPA](./calpa/)**: This folder contains the `calpa` Python module, which is used for data processing, analysis, and visualization in support of complex project tasks. The module is designed to be reusable and modular, allowing for easy integration into other projects.
+- **[:file_folder: Python Module: LegiScan](./legiscan/)**: This folder contains the `legiscan` Python module, which is used for data processing, analysis, and visualization in support of complex project tasks. The module is designed to be reusable and modular, allowing for easy integration into other projects.
+- **[:file_folder: PythonMarkdown Bill Files](./markdown/)**: This folder contains the markdown files used for documentation and custom bill visualization of each bill, for importation to the Obsidian Knowledge Base. The markdown files are typically located in the `markdown` directory.
+- **[:file_folder: RIS Files](./ris/)**: This folder contains the RIS files used for bibliography management and citation generation. The RIS files are typically located in the `ris` directory. These files are used to generate bibliographic references in the RIS format, which can be imported into reference management software (Zotero).
 
 ### 2. Data Folders
 
 The following folders contain the data used for the California Policy Analysis project:
 
-- **[Data](./data/)**: This folder contains the main data files used for the analysis. The data files are typically located in the `data` directory.
-- **[Graphics](./graphics/)**: This folder contains the graphics files used for the analysis. The graphics files are typically located in the `graphics` directory.
-- **[Metadata](./metadata/)**: This folder contains the metadata files used for the analysis. The metadata files are typically located in the `metadata` directory.
+- **[:file_folder: Data](./data/)**: This folder contains the main data files used for the analysis. The data files are typically located in the `data` directory.
+- **[:file_folder: Graphics](./graphics/)**: This folder contains the graphics files used for the analysis. The graphics files are typically located in the `graphics` directory.
+- **[:file_folder: Metadata](./metadata/)**: This folder contains the metadata files used for the analysis. The metadata files are typically located in the `metadata` directory.
 
 ### 3. Admin and Analysis Folders
 
 The following folders contain the administrative and analysis files used for the California Policy Analysis project:
 
-- **[Admin](./admin/)**: This folder contains the administrative files used for the analysis. The administrative files are typically located in the `admin` directory.
-- **[Analysis](./analysis/)**: This folder contains the analysis files used for the analysis. The analysis files are typically located in the `analysis` directory.
+- **[:file_folder: Admin](./admin/)**: This folder contains the administrative files used for the analysis. The administrative files are typically located in the `admin` directory.
+- **[:file_folder: Analysis](./analysis/)**: This folder contains the analysis files used for the analysis. The analysis files are typically located in the `analysis` directory.
 
 ## Contributing
 
