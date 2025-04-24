@@ -26,13 +26,15 @@ Example:
 
 # Import required libraries
 import os
+from dotenv import load_dotenv
 import json
 import time
 from urllib.parse import urlencode, quote_plus
 from openai import AzureOpenAI
-from dotenv import load_dotenv
-load_dotenv()
 import base64
+
+# Import environment variables from .env file
+load_dotenv()
 
 
 from calpa.codebook import (
@@ -141,7 +143,7 @@ class LegiScan:
         """
         # see if API key available as environment variable
         if apiKey is None:
-            apiKey = os.getenv("LEGISCAN_API_KEY")
+            apiKey = os.environ.get("LEGISCAN_API_KEY")
         self.key = apiKey.strip() if apiKey else None
         self.billType = billType
         self.bodyType = bodyType
@@ -159,8 +161,8 @@ class LegiScan:
         self.billTextType = billTextType
         self.voteType = voteType
         
-        model_name = "gpt-4.1"
-        deployment = "gpt-4.1"
+        model_name = os.environ.get("AZURE_OPENAI_MODEL")
+        deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT")
         
         self.client = AzureOpenAI(
             api_version = os.environ.get("AZURE_OPENAI_API_VERSION"),
@@ -810,7 +812,7 @@ class LegiScan:
     # region Function: summarizeBillText
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Create a function to summarize bill text
-    def summarizeBillText(self, myBill, deployment = "gpt-4.1", max_tokens = 800, temperature = 0.5):
+    def summarizeBillText(self, myBill, deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT"), max_tokens = 800, temperature = 0.5):
         """
         Summarizes the bill text using OpenAI's GPT-4 model.
 
