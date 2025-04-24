@@ -17,28 +17,14 @@ In general, the lookup data folder is used to store (a) reference data and metad
 
 2. **Historical Data**: This includes data that is used to track the history of legislative queries and their results. This data is typically dynamic and may change frequently as new queries are made and new results are obtained.
 
-<div style="display: flex; justify-content: space-between;">
-<div style="text-align: left;">
-
-:house: [**Home**](../../)
-
-</div>
-<div style="text-align: right;"> 
-
-:card_index_dividers:[**Back to Data**](../)
-
-</div>
-</div>
-
-<div align="left">
-
-:house: [**Home**](../../)
-
-</div>
+----
 
 <div align="right">
 
-:card_index_dividers:[**Back to Data**](../)
+:card_index_dividers:  [**Back to Data**](../) >
+</div><div align="left">
+
+< :house:  [**Home**](../../)
 
 </div>
 
