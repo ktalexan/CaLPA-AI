@@ -21,5 +21,6 @@ In general, the lookup data folder is used to store (a) reference data and metad
 
 <div align="right">
 
-<< :house:[**Home**](../..)&ensp; | &ensp;[**Back to Data**](../):card_index_dividers: >>
+[**<< Home**](../..) :house:&ensp; | &ensp;:card_index_dividers: [**Back to Data >>**](../)
+
 </div>

@@ -95,4 +95,9 @@ For questions or feedback, please contact [Dr. Kostas Alexandridis](mailto:ktale
 
 ## Next Level Navigation
 
-:card_index_dividers:[Admin](./admin/) | :card_index_dividers:[Analysis](./analysis/) | :card_index_dividers:[Data](./data/) | :card_index_dividers:[Graphics](./graphics/) | :card_index_dividers:[Metadata](./metadata/) | :card_index_dividers:[Scripts](./scripts/)
+----
+<div align="center">
+
+<< :card_index_dividers: [**Admin**](./admin/)&ensp; | &ensp;:card_index_dividers: [**Analysis**](./analysis/)&ensp; | &ensp;:card_index_dividers: [**Calpa**](./calpa/)&ensp; | &ensp;:card_index_dividers: [**Data**](./data/)&ensp; | &ensp;:card_index_dividers: [**Graphics**](./graphics/)&ensp; | &ensp;:card_index_dividers: [**Markdown**](./markdown/)&ensp; | &ensp;:card_index_dividers: [**RIS**](./ris/) >>
+
+</div>

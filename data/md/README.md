@@ -9,5 +9,6 @@
 
 <div align="right">
 
-<< :house:[**Home**](../..)&ensp; | &ensp;[**Back to Data**](../):card_index_dividers: >>
+[**<< Home**](../..) :house:&ensp; | &ensp;:card_index_dividers: [**Back to Data >>**](../)
+
 </div>

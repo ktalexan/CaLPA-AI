@@ -9,5 +9,6 @@
 
 <div align="right">
 
-:house: [**Home**](../) >>
+:house: [**Home >>**](../)
+
 </div>

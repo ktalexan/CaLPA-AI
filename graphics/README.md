@@ -16,5 +16,6 @@ There are two main sub-folders, containing different categories of graphical dat
 
 <div align="right">
 
-:house: [**Home**](../) >>
+:house: [**Home >>**](../)
+
 </div>
