@@ -38,6 +38,7 @@ load_dotenv()
 
 
 from calpa.codebook import (
+    billCode,
     billType,
     bodyType,
     eventType,
@@ -145,6 +146,7 @@ class LegiScan:
         if apiKey is None:
             apiKey = os.environ.get("LEGISCAN_API_KEY")
         self.key = apiKey.strip() if apiKey else None
+        self.billCode = billCode
         self.billType = billType
         self.bodyType = bodyType
         self.eventType = eventType
@@ -266,9 +268,9 @@ class LegiScan:
             >>> datasetList = calpa.getStoredData("dataset")
             >>> masterList = calpa.getStoredData("master", raw=False)
         """
-        if dataType not in ("session", "people", "dataset", "master", "bills", "data"):
+        if dataType not in ("session", "people", "dataset", "master", "bills", "data", "summaries"):
             raise ValueError(
-                "Type must be one of ('session', 'people', 'dataset', 'master', 'bills', 'data')."
+                "Type must be one of ('session', 'people', 'dataset', 'master', 'bills', 'data', 'summaries')."
             )
         match dataType:
             case "session":
@@ -313,6 +315,17 @@ class LegiScan:
                 elif project == "LC":
                     filePath = os.path.join(
                         os.getcwd(), "data", "legis", "json", "lcBills.json"
+                    )
+                else:
+                    raise ValueError("Project must be AI or LC.")
+            case "summaries":
+                if project == "AI":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "aiBillsSummariesStored.json"
+                    )
+                elif project == "LC":
+                    filePath = os.path.join(
+                        os.getcwd(), "data", "lookup", "lcBillsSummariesStored.json"
                     )
                 else:
                     raise ValueError("Project must be AI or LC.")
@@ -745,7 +758,7 @@ class LegiScan:
     # region Function: summarizeBillSponsors
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Create a function to summarize bill sponsors
-    def summarizeBillSponsors(self, bill, output="dict"):
+    def summarizeBillSponsors(self, bill, output = "dict", silent = True):
         """
         Summarize bill sponsors by type and format the output as a dictionary or markdown list.
         Args:
@@ -801,7 +814,8 @@ class LegiScan:
         elif output == "md":
             for key in sponsorList:
                 sponsorList[key] = ", ".join(sponsorList[key])
-                print(f"- {key}(s): {sponsorList[key]}")
+                if silent is False:
+                    print(f"- {key}(s): {sponsorList[key]}")
             return sponsorList
         else:
             raise ValueError("Invalid output format. Use 'dict' or 'md'.")

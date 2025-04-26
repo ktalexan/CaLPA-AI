@@ -1,6 +1,22 @@
 # -*- coding: utf-8 -*-
 """LegiScan static numeric codes API query inference."""
 
+# Bill Code (for California only)
+billCode = {
+    "AB": "Assembly Bill",
+    "ACR": "Assembly Concurrent Resolution",
+    "AJR": "Assembly Joint Resolution",
+    "ACA": "Assembly Constitutional Amendment",
+    "AR": "Assembly Resolution",
+    "GRP": "Governor's Reorganization Plan",
+    "HR": "House Resolution",
+    "SB": "Senate Bill",
+    "SCR": "Senate Concurrent Resolution",
+    "SJR": "Senate Joint Resolution",
+    "SCA": "Senate Constitutional Amendment",
+    "SR": "Senate Resolution",
+}
+
 # Bill types by bill_type_id (bill_type_name, bill_type_abbr)
 billType = {
     1: {"type": "Bill", "abbr": "B"},
@@ -25,7 +41,7 @@ billType = {
     20: {"type": "Initiative Petition", "abbr": "IP"},
     21: {"type": "Repease Bill", "abbr": "RB"},
     22: {"type": "Remonstration", "abbr": "RM"},
-    23: {"type": "Committee Bill", "abbr": "CB"}
+    23: {"type": "Committee Bill", "abbr": "CB"},
 }
 
 # Body types by body_id (state_id, role_id, body_name, body_abbr, body_short, body_role_abbr, body_role_name) - California only
@@ -47,13 +63,11 @@ bodyType = {
         "body_short": "Senate",
         "body_role_abbr": "Sen",
         "body_role_name": "Senator",
-    }
+    },
 }
 
 # Event types by event_type_id (event_desc)
-eventType = {
-    1: "Hearing"
-}
+eventType = {1: "Hearing"}
 
 # Mime types by bill_text_mime_id (mime_type)
 mimeType = {
@@ -62,7 +76,7 @@ mimeType = {
     3: "application/wpd",
     4: "application/doc",
     5: "application/rtf",
-    6: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    6: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 }
 
 # Party types by party_id (party_desc)
@@ -96,7 +110,7 @@ partyType = {
         "abbr": "N",
         "abbr2": "NP",
         "desc": "Nonpartisan",
-    }
+    },
 }
 
 # Bill progress types by progress_event (progress_desc)
@@ -112,7 +126,7 @@ progressType = {
     9: "Committee Referral",
     10: "Committee Report Pass",
     11: "Committee Report DNP",
-    12: "Draft"
+    12: "Draft",
 }
 
 # Reason type by reason_id (reason_desc)
@@ -140,7 +154,7 @@ reasonType = {
     21: "Amendment",
     22: "Supplement",
     23: "Vote",
-    24: "Calendar"
+    24: "Calendar",
 }
 
 # Role types by role_id (role_name, role_abbr)
@@ -159,16 +173,11 @@ sastType = {
     5: "Crossfiled",
     6: "Enabling for",
     7: "Enabled by",
-    8: "Related"
+    8: "Related",
 }
 
 # Sponsor types by sponsor_type_id (sponsor_type_desc)
-sponsorType = {
-    0: "Sponsor",
-    1: "Primary Sponsor",
-    2: "Co-Sponsor",
-    3: "Joint Sponsor"
-}
+sponsorType = {0: "Sponsor", 1: "Primary Sponsor", 2: "Co-Sponsor", 3: "Joint Sponsor"}
 
 # State types by state_id (state_abbr, state_name) - California only
 stateType = {
@@ -197,7 +206,7 @@ supplementType = {
     5: "Local Mandate",
     6: "Corrections Impact",
     7: "Misc",
-    8: "Veto Letter"
+    8: "Veto Letter",
 }
 
 # Bill text types by bill_text_type_id (bill_text_name)
@@ -215,13 +224,8 @@ billTextType = {
     11: "Prefiled",
     12: "Veto Message",
     13: "Veto Response",
-    14: "Substitute"
+    14: "Substitute",
 }
 
 # Vote types by vote_id (vote_desc)
-voteType = {
-    1: "Yea",
-    2: "Nay",
-    3: "Not Voting",
-    4: "Absent"
-}
+voteType = {1: "Yea", 2: "Nay", 3: "Not Voting", 4: "Absent"}

@@ -236,8 +236,64 @@ class Calpa:
     # endregion
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region Function: Add Members Data
+    # region Function: getCaLegisLinks
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    def getCaLegisLinks(self, billPeriod, billId):
+        """Get California Legislative Links Function:
+        Generates a list of links for the California Legislative Bills based on the bill period and bill ID.
+        Args:
+            billPeriod (string): A string indicating the bill period (e.g., "2023-2024").
+            billId (string): A string indicating the bill ID (e.g., "AB123").
+        Examples:
+            >>> calpa = Calpa()
+            >>> links = calpa.getCaLegisLinks("2023-2024", "AB123")
+            >>> print(links)
+        Returns:
+            links(list): A list of strings containing the links for the California Legislative Bills.
+        """
+        # Create a new python dictionary to hold the project directories
+        links = {}
+        
+        base = "https://leginfo.legislature.ca.gov/faces/"
+        ht = ".xhtml?bill_id="
+        period = billPeriod.replace("-", "")
+        
+        
+        links["main"] = f"{base}billNavClient{ht}{period}0{billId}"
+        links["text"] = f"{base}billTextClient{ht}{period}0{billId}"
+        links["votes"] = f"{base}billVotesClient{ht}{period}0{billId}"
+        links["history"] = f"{base}billHistoryClient{ht}{period}0{billId}"
+        links["analysis"] = f"{base}billAnalysisClient{ht}{period}0{billId}"
+        links["todaysLaw"] = f"{base}billCompareClient{ht}{period}0{billId}&showamends=false"
+        links["compare"] = f"{base}billVersionsCompareClient{ht}{period}0{billId}"
+        links["status"] = f"{base}billStatusClient{ht}{period}0{billId}"
+        #links["pdf"] = f"{base}billPdf{ht}{period}{billId}&version={billPeriod.split("-")[0]}"
+        # Returns the project directories dictionary
+        return links
+
+    # endregion
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Function: convertStrToDate
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    def convertStrToDate(self, dateStr):
+        """Convert String to Date Function:
+        Converts a string to a date object.
+        Args:
+            dateStr (string): A string indicating the date (e.g., "2023-10-01").
+        Examples:
+            >>> calpa = Calpa()
+            >>> dateObj = calpa.convertStrToDate("2023-10-01")
+            >>> print(dateObj)
+        Returns:
+            dateObj(datetime): A datetime object containing the date.
+        """
+        # Convert the string to a date object
+        dateObj = datetime.strptime(dateStr, "%Y-%m-%d").date().strftime("%B %d, %Y")
+        
+        # Returns the date object
+        return dateObj
 
     # endregion
 
