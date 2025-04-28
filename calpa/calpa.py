@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region Libraries
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ START OF MODULE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+# region libraries
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Libraries ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Import required libraries
-import os, json, base64, time
+import os, json, base64, time, math
 from datetime import date, datetime
 from typing import Dict, List, Any, Optional
 from urllib.parse import urlencode, quote_plus
@@ -26,12 +27,12 @@ except ImportError as exc:
 # Import the codebook from the calpa package
 from . import codebook
 
-# endregion Libraries
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion libraries
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region f: projectMetadata
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# region Function: projectMetadata
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~ Function: Project Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a function to hold the project metadata information
 def projectMetadata(
@@ -108,12 +109,12 @@ def projectMetadata(
     # Return the metadata dictionary
     return metadata
 
-# endregion projectMetadata
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion Function: projectMetadata
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region f: projectDirectories
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# region Function: projectDirectories
+# ~~~~~~~~~~~~~~~~~~~~~~~~ Function: Project Directories ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a function to create the project directories
 def projectDirectories(
@@ -190,14 +191,12 @@ def projectDirectories(
     # Return the project directories dictionary
     return prjDirs
 
-
-# endregion projectDirectories
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region f: getCaLegisLinks
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion Function: projectDirectories
 
+
+# region Function: getLegisLinks
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~ Function: Get Legis Links ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a function to get the California Legislative links
 def getCaLegisLinks(
@@ -245,14 +244,12 @@ def getCaLegisLinks(
     # Returns the project directories dictionary
     return links
 
-
-# endregion getCaLegisLinks
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region f: convertStrToDate
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion Function: getLegisLinks
 
+
+# region Function: convertStrToDate
+# ~~~~~~~~~~~~~~~~~~~~~~~~ Function: Convert Str To Date ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a function to convert a string to a date
 def convertStrToDate(dateStr: str) -> str:
@@ -277,14 +274,12 @@ def convertStrToDate(dateStr: str) -> str:
     # Returns the date object
     return dateObj
 
-
-# endregion convertStrToDate
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region Class: LegiScanError
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion Function: convertStrToDate
 
+
+# region Class: legiscanError
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Class: LegiScan Error ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a custom exception class for LegiScan API errors
 class LegiScanError(Exception):
@@ -308,14 +303,12 @@ class LegiScanError(Exception):
 
     # No additional implementation needed
 
-
-# endregion Class: LegiScanError
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# region Class: LegiScan
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endregion Class: legiscanError
 
+
+# region Class: legiscan
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Class: LegiScan ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a class to hold the LegiScan information
 class LegiScan:
@@ -341,10 +334,10 @@ class LegiScan:
     """
 
     baseUrl = "http://api.legiscan.com/?key={0}&op={1}&{2}"
+    
 
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: __init__
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # region Method: __init__
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: __init__ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     # Create a constructor for the LegiScan class
     def __init__(self, apiKey: Optional[str] = None):
@@ -394,12 +387,13 @@ class LegiScan:
         # Initialize the project directories
         self.prjDirs = projectDirectories(os.getcwd(), silent=True)
 
-    # endregion __init__
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: _url
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: __init__
+    
+    
+    # region Method: _url
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: _url ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to build the URL for the LegiScan API
     def _url(self,
         operation: str,
@@ -433,12 +427,13 @@ class LegiScan:
             params = ""
         return self.baseUrl.format(self.key, operation, params)
 
-    # endregion _url
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: _get
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: _url
+    
+    
+    # region Method: _get
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: _get ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get and parse JSON from API for a URL
     def _get(self,
         url: str
@@ -469,13 +464,14 @@ class LegiScan:
         if data["status"] == "ERROR":
             raise LegiScanError(data["alert"]["message"])
         return data
-
-    # endregion _get
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getStoredData
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: _get
+    
+    
+    # region Method: getStoredData
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Stored Data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get stored data from JSON files
     def getStoredData(self,
         dataType: str,
@@ -571,7 +567,7 @@ class LegiScan:
         else:
             # For session, people, dataset
             filePath = os.path.join(basePath, pathComponents[0], pathComponents[1])
-
+        
         if filePath is not None and os.path.exists(filePath):
             with open(filePath, "r", encoding="utf-8") as f:
                 dataDict = json.load(f)
@@ -579,13 +575,14 @@ class LegiScan:
             dataDict = {}
         
         return dataDict
-
-    # endregion getStoredData
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getSessionList
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getStoredData
+    
+    
+    # region Method: getSessionList
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Session List ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the list of sessions from LegiScan
     def getSessionList(self):
         """Get list of sessions from LegiScan.
@@ -611,14 +608,17 @@ class LegiScan:
         for obj in data["sessions"]:
             key = f"{obj['year_start']}-{obj['year_end']}"
             dataDict[key] = obj
+        # reorder the dictionary by key in ascending order
+        dataDict = dict(sorted(dataDict.items(), key=lambda item: item[0]))
         return dataDict
-
-    # endregion getSessionList
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getSessionPeople
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getSessionList
+    
+    
+    # region Method: getSessionPeople
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Session People ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the list of people for a given session identifier or state
     def getSessionPeople(self,
         sessionId: Optional[str]  = None
@@ -653,13 +653,14 @@ class LegiScan:
             key = f"{obj['people_id']}"
             dataDict["people"][key] = obj
         return dataDict
-
-    # endregion getSessionPeople
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getDatasetList
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getSessionPeople
+    
+    
+    # region Method: getDatasetList
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Dataset List ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the list of datasets from LegiScan
     def getDatasetList(self) -> Dict[str, Any]:
         """Get list of datasets from LegiScan.
@@ -688,13 +689,14 @@ class LegiScan:
             key = f"{obj['year_start']}-{obj['year_end']}"
             dataDict[key] = obj
         return dataDict
-
-    # endregion getDatasetList
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getMasterList
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getDatasetList
+    
+    
+    # region Method: getMasterList
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Master List ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the list of bills for a given session identifier or state
     def getMasterList(self,
         sessionId: Optional[str] = None,
@@ -736,12 +738,13 @@ class LegiScan:
         # return [data["masterlist"][i] for i in data["masterlist"]]
         return dataDict
     
-    # endregion getMasterList
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getBill
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getMasterList
+    
+    
+    # region Method: getBill
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Bill ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the bill detail information for a given bill identifier and bill number
     def getBill(self,
         billId: Optional[str] = None,
@@ -773,13 +776,14 @@ class LegiScan:
         else:
             raise ValueError("Must specify bill_id or state and bill_number.")
         return self._get(url)["bill"]
-
-    # endregion getBill
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getBillText
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getBill
+    
+    
+    # region Method: getBillText
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Bill Text ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     def getBillText(self,
         docId: str
     ) -> Dict[str, Any]:
@@ -799,13 +803,14 @@ class LegiScan:
         """
         url = self._url("getBillText", {"id": docId})
         return self._get(url)["text"]
-
-    # endregion getBillText
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getAmendment
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getBillText
+    
+    
+    # region Method: getAmendment
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Amendment ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the amendment information for a given bill identifier or state and bill number
     def getAmendment(self,
         amendmentId: str
@@ -827,13 +832,14 @@ class LegiScan:
         """
         url = self._url("getAmendment", {"id": amendmentId})
         return self._get(url)["amendment"]
-
-    # endregion getAmendment
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getSupplement
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getAmendment
+    
+    
+    # region Method: getSupplement
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Supplement ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the supplement information for a given bill identifier or state and bill number
     def getSupplement(self,
         supplementId: str
@@ -855,13 +861,14 @@ class LegiScan:
         """
         url = self._url("getSupplement", {"id": supplementId})
         return self._get(url)["supplement"]
-
-    # endregion getSupplement
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getRollCall
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getSupplement
+    
+    
+    # region Method: getRollCall
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Roll Call ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the roll call information for a given bill identifier or state and bill number
     def getRollCall(self,
         rollCallId: str
@@ -882,13 +889,14 @@ class LegiScan:
         """
         data = self._get(self._url("getRollcall", {"id": rollCallId}))
         return data["roll_call"]
-
-    # endregion getRollCall
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: getSponsor
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getRollCall
+    
+    
+    # region Method: getSponsor
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Get Sponsor ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to get the sponsor information for a given bill identifier or state and bill number
     def getSponsor(self,
         peopleId: str
@@ -910,13 +918,86 @@ class LegiScan:
         """
         url = self._url("getSponsor", {"id": peopleId})
         return self._get(url)["person"]
-
-    # endregion getSponsor
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: searchBills
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: getSponsor
+    
+    
+    # region Method: aiSearchQuery
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: AI Search Query ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    # Create a function to search for bills using the LegiScan full text engine
+    def aiSearchQuery(self,
+        sessionId: int,
+        query: Optional[str] = "artificial+ADJ+intelligence",
+        threshold: Optional[int] = 50
+    ) -> Dict[str, Any]:
+        """Search for bills using the LegiScan full text engine.
+        
+        This function allows you to search for bills using a session identifier and a query string.
+        It returns a summary of the search and the results as a dictionary.
+        
+        Args:
+            sessionId (int): The session identifier.
+            query (str): The query string. (optional, default is "artificial+ADJ+intelligence").
+            threshold (int): The relevance threshold for the search results. (optional, default is 50).
+            
+        Returns:
+            results (dict): A dictionary with the search summary and the results.
+        
+        Examples:
+        >>> searchResults = calpa.aiSearchQuery(sessionId=12345, query="example query")
+        """
+        
+        # Set default AI query search term if not provided.
+        if query is None:
+            query = "artificial+ADJ+intelligence"
+        
+        # Get a quick preliminary raw search to count the number of bills
+        params = {"id": sessionId, "query": query}
+        # Get the number of bills in the search result
+        billCount = self._get(self._url("getSearchRaw", params))["searchresult"]["summary"]["count"]
+        # There is one page of search results for every 50 bills, so here we calculate the number of pages needed for the query search
+        if billCount == 0:
+            return {}
+        else:
+            pages = math.ceil(billCount / 50)
+            
+            # Initialize the results dictionary
+            results = {}
+            
+            # Depending on the number of pages, we loop through the pages and get the search results
+            for page in range(1, pages + 1):
+                # Define the new parameters for the search query
+                params = {"id": sessionId, "query": query, "page": page}
+                # Get the search results for the current page query
+                data = self._get(self._url("getSearch", params))["searchresult"]
+                # Remove the summary from the data (pop it out)
+                data.pop("summary")
+                # Loop through the search results and if they are above the threshold, add them to the results dictionary
+                for i, bill in data.items():
+                    if bill["relevance"] >= threshold:
+                        results[bill["bill_number"]] = bill
+                        # Add the bill to the monitored bills list
+                        monitorParams = {"action": "monitor", "stance": "watch", "list": bill["bill_id"]}
+                        monitorResults = self._get(self._url("setMonitor", monitorParams))["return"][str(bill["bill_id"])]
+                        print(monitorResults.replace("OK", bill["bill_number"]))
+            
+            # Once all the pages are processed, we print the number of bills added to the results
+            countResults = len(results)
+            if countResults > 0:
+                print(countResults, "bills")
+            
+            # Return the results dictionary
+            return results
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: aiSearchQuery
+    
+    
+    # region Method: searchBills
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Search Bills ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to search for bills using the LegiScan full text engine
     def searchBills(self,
         billNumber: Optional[str] = None,
@@ -957,13 +1038,14 @@ class LegiScan:
         summary = data.pop("summary")
         results = {"summary": summary, "results": [data[i] for i in data]}
         return results
-
-    # endregion searchBills
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: matchHash
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: searchBills
+    
+    
+    # region Method: matchHash
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Match Hash ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to compare the hash values of the stored and current session lists
     def matchHash(self,
         stored: Dict[str, Any],
@@ -1025,13 +1107,14 @@ class LegiScan:
             if not silent:
                 print(f"{len(unmatched)} hashes do not match")
             return unmatched
-
-    # endregion matchHash
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: summarizeBillSponsors
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: matchHash
+    
+    
+    # region Method: summarizeBillSponsors
+    # ~~~~~~~~~~~~~~~~~~~~~~~ Method: Summarize Bill Sponsors ~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to summarize bill sponsors
     def summarizeBillSponsors(self,
         bill: Dict[str, Any],
@@ -1095,11 +1178,14 @@ class LegiScan:
             return sponsorList
         else:
             raise ValueError("Invalid output format. Use 'dict' or 'md'.")
-
-    # endregion summarizeBillSponsors
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: summarizeBillText
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: summarizeBillSponsors
+    
+    
+    # region Method: summarizeBillText
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~ Method: Summarize Bill Text ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a function to summarize bill text
     def summarizeBillText(self,
         myBill: Dict[str, Any],
@@ -1211,13 +1297,14 @@ class LegiScan:
             }
         # Return the summary and tags as a dictionary
         return billSummary
-
-    # endregion summarizeBillText
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: aiBillMarkdown
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: summarizeBillText
+    
+    
+    # region Method: aiBillMarkdown
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: AI Bill Markdown ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     def aiBillMarkdown(self,
         billPeriod: str,
         billId: str,
@@ -1244,9 +1331,8 @@ class LegiScan:
             >>> aiBillMarkdown("2023-2024", "AB123", obsidianSync=True)
         """
 
-        # Part 1: Define Variables and Input Data
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+        # ~~~~~~~~~~~~~~~~~~~ Part 1: Define Variables and Input Data ~~~~~~~~~~~~~~~~~~~~
+        
         # Get the bill data from the AI bills dictionary
         myBill = billsDict[billPeriod][billId]
 
@@ -1324,9 +1410,8 @@ class LegiScan:
                 elif section == "LC":
                     lcNotes += line
 
-        # Part 2: Create the YAML Properties Section of the Markdown File
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+        # ~~~~~~~ Part 2: Create the YAML Properties Section of the Markdown File ~~~~~~~~
+        
         # Create the markdown file (path)
         mdFile = os.path.join(
             self.prjDirs["pathScriptsMd"], "AI", billPeriod, f"{billId}.md"
@@ -1441,26 +1526,21 @@ class LegiScan:
             # Close the YAML file
             mdf.write(f"---\n")
 
-            # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            # Part 3: Create the Main Markdown Content Section of the File
-            # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-            # Main Markdown Content
-            # ~~~~~~~~~~~~~~~~~~~~~~
-
+            # ~~~~~~~~~ Part 3: Create the Main Markdown Content Section of the File ~~~~~~~~~
+            
+            # ~~~~~~~~~~~~~ Main Markdown Content ~~~~~~~~~~~~~~
+            
             mdf.write("\n")
             # Session Title
             mdf.write(f"## {myBillAlias1}: {myBill['title']}\n\n")
 
-            # Begin Summary Info Box
-            # ~~~~~~~~~~~~~~~~~~~~~~~
-
+            # ~~~~~~~~~~~~~ Begin Summary Info Box ~~~~~~~~~~~~~
+            
             mdf.write(f">[!tldr] **{billId} TL;DR Summary**\n")
             mdf.write(f"> {mySummary}\n\n")
 
-            # Begin Metadata Info Box
-            # ~~~~~~~~~~~~~~~~~~~~~~~~
-
+            # ~~~~~~~~~~~~ Begin Metadata Info Box ~~~~~~~~~~~~~
+            
             mdf.write(f">[!legislative] **{billId} Metadata**\n")
 
             # Basic Bill Information
@@ -1542,10 +1622,10 @@ class LegiScan:
             )
             mdf.write(
                 f">- **Related**: [[Artificial Intelligence]], [[California Government]]\n\n")
-
-            # Citation Info Box
-            # ~~~~~~~~~~~~~~~~~~
-
+            
+            
+            # ~~~~~~~~~~~~~~~ Citation Info Box ~~~~~~~~~~~~~~~~
+            
             mdf.write(f">[!cite] **{billId} Citation**\n")
             mdf.write(f"> {myBillAlias1}: {myBill['description']}, ")
             mdf.write(f"{codebook.lookupBillCode[myBillCode]} {billId}, ")
@@ -1564,9 +1644,8 @@ class LegiScan:
             # Write the bill Notes
             mdf.write(f"{aiNotes}\n\n")
 
-            # Webpage (iframe)
-            # ~~~~~~~~~~~~~~~~~
-
+            # ~~~~~~~~~~~~~~~~ Webpage (iframe) ~~~~~~~~~~~~~~~~
+            
             mdf.write(f"## State Webpage\n\n")
             mdf.write(
                 f"""<iframe src="{myLinks['main']}" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>\n"""
@@ -1584,17 +1663,14 @@ class LegiScan:
             with open(mdFile, "r") as src:
                 with open(destFile, "w") as dest:
                     dest.write(src.read())
-
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~
-        # End of the markdown file
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    # endregion aiBillMarkdown
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: __str__
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: aiBillMarkdown
+    
+    
+    # region Method: __str__
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: __str__ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a string representation of the class
     def __str__(self):
         """Return a string representation of the LegiScan object.
@@ -1611,13 +1687,14 @@ class LegiScan:
             None
         """
         return f"<LegiScan API {self.key}>"
-
-    # endregion __str__
-
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # region f: __repr__
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: __str__
+    
+    
+    # region Method: __repr__
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: __repr__ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
     # Create a string representation of the class
     def __repr__(self):
         """Return a string representation of the LegiScan object.
@@ -1635,13 +1712,13 @@ class LegiScan:
             >>> print(legiscan)
         """
         return str(self)
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: __repr__
+    
 
-    # endregion __repr__
-
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # endregion Class: legiscan
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# End of Module
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF MODULE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
