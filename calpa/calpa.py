@@ -46,8 +46,8 @@ def projectMetadata(
         prjPart (integer): An integer indicating the project part (e.g., 0 for Maintenance Operations, 1 for Preliminary Operations, etc.). Options include:
             0: Project Maintenance Operations
             1: Preliminary Operations
-            2: Creating Bibliography Entries and Databases
-            3: Analysis Markdown Documents
+            2: Markdown Documents Analysis
+            3: Creating Bibliography Entries and Databases
             4: Data Analysis and Visualization
             Other: General Project Operations
         silent (boolean): A boolean indicating whether to print the metadata information on the console (default is False).
@@ -65,7 +65,7 @@ def projectMetadata(
     
     # Create a new python dictionary to hold basic metadata information
     metadata: Dict[str, Any] = {
-        "name": "CaLPA",
+        "name": "CaLPA-AI",
         "title": "AI Legislative Policy Analysis",
         "description": "California Legislative Policy Analysis for Artificial Intelligence Related Bills",
         "prjPart": "General Project Operations",
@@ -77,14 +77,15 @@ def projectMetadata(
         "years": "2009-2010, 2011-2012, 2013-2014, 2015-2016, 2017-2018, 2019-2020, 2021-2022, 2023-2024, 2025-2026",
         "startDate": "2010-12-02",
         "endDate": date.today().strftime("%Y-%m-%d"),
+        "repository": "https://github.com/ktalexan/CaLPA"
     }
     
     # Lookup for project parts
     prjStep = {
         0: "Project Maintenance Operations",
         1: "Preliminary Operations",
-        2: "Creating Bibliography Entries and Databases",
-        3: "Analysis Markdown Documents",
+        2: "Markdown Documents Analysis",
+        3: "Creating Bibliography Entries and Databases",
         4: "Data Analysis and Visualization"
     }
     
@@ -93,16 +94,16 @@ def projectMetadata(
     
     # Print the metadata dictionary on the console
     if not silent:
-        print("Project Global Settings:")
-        print(f"- Name: {metadata.get('name')}")
-        print(f"- Title: {metadata.get('title')}")
-        print(f"- Description: {metadata.get('description')}")
-        print(f"- Project Step: Part {prjPart} - {metadata.get('prjStep')}")
-        print(f"- Version: {metadata.get('version')}")
-        print(f"- Author: {metadata.get('author')}")
-        print(f"- Periods: {metadata.get('years')}")
-        print(f"- Start Date: {metadata.get('startDate')}")
-        print(f"- End Date: {metadata.get('endDate')}")
+        print("~" * (len(metadata.get("description")) + 2))
+        print(f" {metadata.get('title')} ({metadata.get('name')})")
+        print(f" {metadata.get('description')}")
+        print(f" Part {prjPart} - {metadata.get('prjStep')}")
+        print(f" Version {metadata.get('version')} ({metadata.get('license')}), {metadata.get('author')}")
+        print(f" GitHub Repository: {metadata.get('repository')}")
+        print(f" Last Updated: {date.today().strftime('%b %d, %Y')}")
+        print("~" * (len(metadata.get("description")) + 2))
+        print(f"\nDates: {metadata.get('startDate')} through {metadata.get('endDate')}")
+        print(f"Periods: {metadata.get('years')}")
     
     # Return the metadata dictionary
     return metadata
