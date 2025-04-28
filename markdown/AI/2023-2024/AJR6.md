@@ -14,22 +14,20 @@ tags:
   - california-legislation
   - ai-moratorium
   - ai-governance
+  - ai-safety
   - gpt-4
   - technology-policy
-  - ai-safety
-  - ai-regulation
-  - public-policy
-keywords: artificial-intelligence, california-legislation, ai-moratorium, ai-governance, gpt-4, technology-policy, ai-safety, ai-regulation, public-policy
-hashTags: '#artificial-intelligence, #california-legislation, #ai-moratorium, #ai-governance, #gpt-4, #technology-policy, #ai-safety, #ai-regulation, #public-policy'
+  - regulation
+keywords: artificial-intelligence, california-legislation, ai-moratorium, ai-governance, ai-safety, gpt-4, technology-policy, regulation
+hashTags: '#artificial-intelligence, #california-legislation, #ai-moratorium, #ai-governance, #ai-safety, #gpt-4, #technology-policy, #regulation'
 billNumber: 6
 billType: Assembly Joint Resolution
 billYear: 2023
 legislativeBody: California Legislature
 legislativePeriod: 2023-2024
-session: 2023-2024 Regular Session
 topic: "AJR-6: Artificial intelligence."
 title': "AJR-6: Relative to artificial intelligence."
-summary: "California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately halt the training of artificial intelligence (AI) systems more powerful than GPT-4 for at least six months. The resolution cites concerns about the risks posed by advanced AI, including loss of control, misinformation, job automation, and threats to democracy. It calls for this pause to allow time for the development of robust AI governance systems, safety protocols, regulatory oversight, and mechanisms to ensure AI systems are safe, transparent, and aligned with human interests before further advancements occur."
+summary: "California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately pause the training of artificial intelligence systems more powerful than GPT-4 for at least six months. The resolution cites concerns over the societal and existential risks posed by advanced AI, the lack of adequate governance, and the need for robust safety protocols and regulatory oversight. It calls for a collaborative approach between AI developers and policymakers to ensure AI systems are safe, transparent, and beneficial, and advocates for the development of comprehensive governance structures before further advancing AI capabilities."
 sponsors: Bill Essayli (R, AD63)
 coSponsors: None
 jointSponsors: None
@@ -65,19 +63,18 @@ modified:
 ## AJR-6: Artificial intelligence.
 
 >[!tldr] **AJR6 TL;DR Summary**
-> California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately halt the training of artificial intelligence (AI) systems more powerful than GPT-4 for at least six months. The resolution cites concerns about the risks posed by advanced AI, including loss of control, misinformation, job automation, and threats to democracy. It calls for this pause to allow time for the development of robust AI governance systems, safety protocols, regulatory oversight, and mechanisms to ensure AI systems are safe, transparent, and aligned with human interests before further advancements occur.
+> California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately pause the training of artificial intelligence systems more powerful than GPT-4 for at least six months. The resolution cites concerns over the societal and existential risks posed by advanced AI, the lack of adequate governance, and the need for robust safety protocols and regulatory oversight. It calls for a collaborative approach between AI developers and policymakers to ensure AI systems are safe, transparent, and beneficial, and advocates for the development of comprehensive governance structures before further advancing AI capabilities.
 
 >[!legislative] **AJR6 Metadata**
 >- **Bill Number**: AJR-6
->- **Year**: 2023
->- **Legislative Period**: 2023-2024
 >- **Legislative Body**: California Legislature, 2023-2024 Regular Session
 >- **Bill Type**: Assembly Joint Resolution
 >- **Topic**: AJR-6: Artificial intelligence.
+>- **Topic**: AJR-6: Artificial intelligence.
 >- **Title**: AJR-6: Relative to artificial intelligence.
->- **TL;DR Summary**: California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately halt the training of artificial intelligence (AI) systems more powerful than GPT-4 for at least six months. The resolution cites concerns about the risks posed by advanced AI, including loss of control, misinformation, job automation, and threats to democracy. It calls for this pause to allow time for the development of robust AI governance systems, safety protocols, regulatory oversight, and mechanisms to ensure AI systems are safe, transparent, and aligned with human interests before further advancements occur.
->- **Keywords**: artificial-intelligence, california-legislation, ai-moratorium, ai-governance, gpt-4, technology-policy, ai-safety, ai-regulation, public-policy
->- **Hash Tags**: #artificial-intelligence, #california-legislation, #ai-moratorium, #ai-governance, #gpt-4, #technology-policy, #ai-safety, #ai-regulation, #public-policy
+>- **TL;DR Summary**: California Assembly Joint Resolution No. 6, introduced by Assembly Member Essayli in May 2023, urges the U.S. government to immediately pause the training of artificial intelligence systems more powerful than GPT-4 for at least six months. The resolution cites concerns over the societal and existential risks posed by advanced AI, the lack of adequate governance, and the need for robust safety protocols and regulatory oversight. It calls for a collaborative approach between AI developers and policymakers to ensure AI systems are safe, transparent, and beneficial, and advocates for the development of comprehensive governance structures before further advancing AI capabilities.
+>- **Keywords**: artificial-intelligence, california-legislation, ai-moratorium, ai-governance, ai-safety, gpt-4, technology-policy, regulation
+>- **Hash Tags**: #artificial-intelligence, #california-legislation, #ai-moratorium, #ai-governance, #ai-safety, #gpt-4, #technology-policy, #regulation
 >- **Sponsor(s)**: [Bill Essayli (R, AD63)](https://ballotpedia.org/Bill_Essayli)
 >- **Co-Sponsor(s)**: None
 >- **Joint Sponsor(s)**: None
@@ -106,4 +103,3 @@ modified:
 ## State Webpage
 
 <iframe src="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AJR6" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>
-

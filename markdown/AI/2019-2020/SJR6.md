@@ -12,25 +12,23 @@ tags:
   - 2019-2020-regular-session
   - artificial-intelligence
   - policy
-  - advisory-committee
-  - workforce
-  - economy
-  - ethics
-  - regulation
+  - us-congress
   - california
-  - congress
+  - ethics
+  - workforce
   - technology
-keywords: artificial-intelligence, policy, advisory-committee, workforce, economy, ethics, regulation, california, congress, technology
-hashTags: '#artificial-intelligence, #policy, #advisory-committee, #workforce, #economy, #ethics, #regulation, #california, #congress, #technology'
+  - regulation
+  - innovation
+keywords: artificial-intelligence, policy, us-congress, california, ethics, workforce, technology, regulation, innovation
+hashTags: '#artificial-intelligence, #policy, #us-congress, #california, #ethics, #workforce, #technology, #regulation, #innovation'
 billNumber: 6
 billType: Senate Joint Resolution
 billYear: 2019
 legislativeBody: California Legislature
 legislativePeriod: 2019-2020
-session: 2019-2020 Regular Session
 topic: "SJR-6: Artificial intelligence."
 title': "SJR-6: Relative to artificial intelligence."
-summary: "Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy, citing the growing impact of AI on the workforce, economy, and innovation, the need for ethical standards, and the gap between technological advances and regulatory responses. The resolution highlights the widespread use of AI, global competition, and California's leadership in AI investment, emphasizing the federal government's role in preparing for future changes brought by AI."
+summary: "Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy. The resolution highlights the increasing adoption and impact of artificial intelligence on businesses, consumers, and the workforce, noting the need for ethical standards, innovation support, and federal planning to address workforce changes and technological advancements. It also points out that other countries are developing AI strategies and emphasizes California's significant role in global AI investment, while warning of a growing gap between technology and regulation."
 sponsors: Ling Ling Chang (R, SD29)
 coSponsors: None
 jointSponsors: None
@@ -66,19 +64,18 @@ modified:
 ## SJR-6: Artificial intelligence.
 
 >[!tldr] **SJR6 TL;DR Summary**
-> Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy, citing the growing impact of AI on the workforce, economy, and innovation, the need for ethical standards, and the gap between technological advances and regulatory responses. The resolution highlights the widespread use of AI, global competition, and California's leadership in AI investment, emphasizing the federal government's role in preparing for future changes brought by AI.
+> Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy. The resolution highlights the increasing adoption and impact of artificial intelligence on businesses, consumers, and the workforce, noting the need for ethical standards, innovation support, and federal planning to address workforce changes and technological advancements. It also points out that other countries are developing AI strategies and emphasizes California's significant role in global AI investment, while warning of a growing gap between technology and regulation.
 
 >[!legislative] **SJR6 Metadata**
 >- **Bill Number**: SJR-6
->- **Year**: 2019
->- **Legislative Period**: 2019-2020
 >- **Legislative Body**: California Legislature, 2019-2020 Regular Session
 >- **Bill Type**: Senate Joint Resolution
 >- **Topic**: SJR-6: Artificial intelligence.
+>- **Topic**: SJR-6: Artificial intelligence.
 >- **Title**: SJR-6: Relative to artificial intelligence.
->- **TL;DR Summary**: Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy, citing the growing impact of AI on the workforce, economy, and innovation, the need for ethical standards, and the gap between technological advances and regulatory responses. The resolution highlights the widespread use of AI, global competition, and California's leadership in AI investment, emphasizing the federal government's role in preparing for future changes brought by AI.
->- **Keywords**: artificial-intelligence, policy, advisory-committee, workforce, economy, ethics, regulation, california, congress, technology
->- **Hash Tags**: #artificial-intelligence, #policy, #advisory-committee, #workforce, #economy, #ethics, #regulation, #california, #congress, #technology
+>- **TL;DR Summary**: Senate Joint Resolution No. 6 (Chapter 112) urges the President and Congress of the United States to establish a comprehensive Artificial Intelligence Advisory Committee and adopt a national AI policy. The resolution highlights the increasing adoption and impact of artificial intelligence on businesses, consumers, and the workforce, noting the need for ethical standards, innovation support, and federal planning to address workforce changes and technological advancements. It also points out that other countries are developing AI strategies and emphasizes California's significant role in global AI investment, while warning of a growing gap between technology and regulation.
+>- **Keywords**: artificial-intelligence, policy, us-congress, california, ethics, workforce, technology, regulation, innovation
+>- **Hash Tags**: #artificial-intelligence, #policy, #us-congress, #california, #ethics, #workforce, #technology, #regulation, #innovation
 >- **Sponsor(s)**: [Ling Ling Chang (R, SD29)](https://ballotpedia.org/Ling_Ling_Chang)
 >- **Co-Sponsor(s)**: None
 >- **Joint Sponsor(s)**: None
@@ -88,6 +85,7 @@ modified:
 >- **Status Date**: July 09, 2019
 >- **Last Action**: Chaptered by Secretary of State. Res. Chapter 112, Statutes of 2019.
 >- **Last Action Date**: July 09, 2019
+>- **Chaptered**: True
 >- **Chaptered**: True
 >- **Chapter No**: 112
 >- **Chapter Year**: 2019
@@ -109,4 +107,3 @@ modified:
 ## State Webpage
 
 <iframe src="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200SJR6" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>
-

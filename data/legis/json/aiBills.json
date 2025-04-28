@@ -70102,12 +70102,21 @@
                     "time": "08:30",
                     "location": "State Capitol, Room 437",
                     "description": "Assembly Judiciary Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "c22052fd",
+                    "type": "Hearing",
+                    "date": "2025-05-06",
+                    "time": "13:30",
+                    "location": "State Capitol, Room 437",
+                    "description": "Assembly Privacy And Consumer Protection Hearing"
                 }
             ]
         },
         "AB325": {
             "bill_id": 1943407,
-            "change_hash": "ad6e4e979e5efcc2f0615e0e12636249",
+            "change_hash": "c0578fb17c2007586ec3da33a3fbe1dc",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -70151,6 +70160,10 @@
                 {
                     "date": "2025-04-10",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-24",
+                    "event": 10
                 }
             ],
             "state": "CA",
@@ -70243,6 +70256,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-24",
+                    "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -70269,6 +70289,33 @@
                     "bioguide_id": "",
                     "sponsor_type_id": 1,
                     "sponsor_order": 1,
+                    "committee_sponsor": 0,
+                    "committee_id": 0,
+                    "state_federal": 0
+                },
+                {
+                    "people_id": 21723,
+                    "person_hash": "gev894u1",
+                    "party_id": "1",
+                    "state_id": 5,
+                    "party": "D",
+                    "role_id": 1,
+                    "role": "Rep",
+                    "name": "Chris Ward",
+                    "first_name": "Chris",
+                    "middle_name": "",
+                    "last_name": "Ward",
+                    "suffix": "",
+                    "nickname": "",
+                    "district": "HD-078",
+                    "ftm_eid": 40697966,
+                    "votesmart_id": 176914,
+                    "opensecrets_id": "",
+                    "knowwho_pid": 727294,
+                    "ballotpedia": "Christopher_Ward_(California)",
+                    "bioguide_id": "",
+                    "sponsor_type_id": 2,
+                    "sponsor_order": 2,
                     "committee_sponsor": 0,
                     "committee_id": 0,
                     "state_federal": 0
@@ -70330,6 +70377,24 @@
                     "alt_state_link": "",
                     "alt_text_size": 0,
                     "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3221583,
+                    "date": "2025-04-24",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/AB325/id/3221583",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB325#96AMD",
+                    "text_size": 18905,
+                    "text_hash": "f8745ae41a3c5c3922e06995c1c19bf9",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
                 }
             ],
             "votes": [
@@ -70374,7 +70439,7 @@
         },
         "AB392": {
             "bill_id": 1953081,
-            "change_hash": "7ea00084cd5568000d6939af6daf413f",
+            "change_hash": "de9d2d1ac550d362dc0cdb42539e990f",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -70422,6 +70487,10 @@
                 {
                     "date": "2025-04-22",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-24",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -70435,8 +70504,13 @@
             "current_body_id": 19,
             "title": "Pornographic internet websites: consent.",
             "description": "An act to add Chapter 22.6 (commencing with Section 22605) to Division 8 of the Business and Professions Code, relating to the internet.",
-            "pending_committee_id": 0,
-            "committee": [],
+            "pending_committee_id": 449,
+            "committee": {
+                "committee_id": 449,
+                "chamber": "A",
+                "chamber_id": 19,
+                "name": "Appropriations"
+            },
             "referrals": [
                 {
                     "date": "2025-03-03",
@@ -70523,6 +70597,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 0
+                },
+                {
+                    "date": "2025-04-24",
+                    "action": "Re-referred to Com. on APPR.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -70673,6 +70754,15 @@
                     "time": "08:00",
                     "location": "State Capitol, Room 437",
                     "description": "Assembly Judiciary Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "7cf7e5f9",
+                    "type": "Hearing",
+                    "date": "2025-04-30",
+                    "time": "09:00",
+                    "location": "1021 O Street, Room 1100",
+                    "description": "Assembly Appropriations Hearing"
                 }
             ]
         },
@@ -71776,7 +71866,7 @@
         },
         "AB512": {
             "bill_id": 1964699,
-            "change_hash": "e425bdab4f038a4948b48145f9ecaf2c",
+            "change_hash": "d2bcd3da66594ffa0e6f16210b633299",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -71812,6 +71902,10 @@
                 {
                     "date": "2025-04-21",
                     "event": 9
+                },
+                {
+                    "date": "2025-04-24",
+                    "event": 10
                 }
             ],
             "state": "CA",
@@ -71825,12 +71919,12 @@
             "current_body_id": 19,
             "title": "Health care coverage: prior authorization.",
             "description": "An act to amend Section 1367.01 of the Health and Safety Code, and to amend Section 10123.135 of the Insurance Code, relating to health care coverage.",
-            "pending_committee_id": 457,
+            "pending_committee_id": 449,
             "committee": {
-                "committee_id": 457,
+                "committee_id": 449,
                 "chamber": "A",
                 "chamber_id": 19,
-                "name": "Health"
+                "name": "Appropriations"
             },
             "referrals": [
                 {
@@ -71839,6 +71933,13 @@
                     "chamber": "A",
                     "chamber_id": 19,
                     "name": "Health"
+                },
+                {
+                    "date": "2025-04-24",
+                    "committee_id": 449,
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "name": "Appropriations"
                 }
             ],
             "history": [
@@ -71873,6 +71974,13 @@
                 {
                     "date": "2025-04-21",
                     "action": "Re-referred to Com. on HEALTH.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-24",
+                    "action": "From committee: Amend, and do pass as amended and re-refer to Com. on APPR. (Ayes 13. Noes 0.) (April 22).",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -72368,6 +72476,15 @@
                     "time": "00:00",
                     "location": "State Capitol, Room 437",
                     "description": "Assembly Privacy And Consumer Protection Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "7cf7e5f9",
+                    "type": "Hearing",
+                    "date": "2025-04-30",
+                    "time": "09:00",
+                    "location": "1021 O Street, Room 1100",
+                    "description": "Assembly Appropriations Hearing"
                 }
             ]
         },
@@ -72902,7 +73019,7 @@
         },
         "AB979": {
             "bill_id": 1978731,
-            "change_hash": "aed79c3d9b750069f258083f99f81a6e",
+            "change_hash": "1f6fd6ffc965452a3f76759743b3ac97",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -72942,6 +73059,10 @@
                 {
                     "date": "2025-04-23",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-24",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -73010,6 +73131,13 @@
                 {
                     "date": "2025-04-23",
                     "action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+                    "chamber": "A",
+                    "chamber_id": 19,
+                    "importance": 1
+                },
+                {
+                    "date": "2025-04-24",
+                    "action": "Re-referred to Com. on P. & C.P.",
                     "chamber": "A",
                     "chamber_id": 19,
                     "importance": 1
@@ -75062,6 +75190,15 @@
                     "time": "13:30",
                     "location": "1021 O Street, Room 1100",
                     "description": "Assembly Health Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "02d520af",
+                    "type": "Hearing",
+                    "date": "2025-04-29",
+                    "time": "13:30",
+                    "location": "State Capitol, Room 437",
+                    "description": "Assembly Human Services Hearing"
                 }
             ]
         },
@@ -75377,7 +75514,7 @@
         },
         "SB11": {
             "bill_id": 1893423,
-            "change_hash": "12a0516805da85eea47e96de8dadcd57",
+            "change_hash": "bcc4f6b63c12010cca32b98918235947",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75531,6 +75668,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-25",
+                    "action": "Set for hearing May 5.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -75654,12 +75798,21 @@
                     "time": "08:30",
                     "location": "1021 O Street, Room 2200",
                     "description": "Senate Public Safety Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "2e1692aa",
+                    "type": "Hearing",
+                    "date": "2025-05-05",
+                    "time": "10:00",
+                    "location": "1021 O Street, Room 2200",
+                    "description": "Senate Appropriations Hearing"
                 }
             ]
         },
         "SB16": {
             "bill_id": 1893428,
-            "change_hash": "4b286f8f8a7b748e677489a17f6187c5",
+            "change_hash": "3afe2d40da843d380dbac5713f5a2876",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -75699,6 +75852,10 @@
                 {
                     "date": "2025-04-23",
                     "event": 10
+                },
+                {
+                    "date": "2025-04-24",
+                    "event": 9
                 }
             ],
             "state": "CA",
@@ -75710,8 +75867,8 @@
             "body_id": 20,
             "current_body": "S",
             "current_body_id": 20,
-            "title": "Homeless Housing, Assistance, and Prevention program: housing element: Integrated Plan for Behavioral Health Services and Outcomes.",
-            "description": "An act to amend Section 65583 of the Government Code, to add Article 3 (commencing with Section 50245) to Chapter 6.5 of Part 1 of Division 31 of the Health and Safety Code, and to amend Section 5963.02 of the Welfare and Institutions Code, relating to homelessness.",
+            "title": "Homeless Housing, Assistance, and Prevention program: housing element: unsheltered and chronic homelessness: assessment and financing plan.",
+            "description": "An act to amend Section 65583 of the Government Code, and to amend Section 8257.1 of the Welfare and Institutions Code, relating to homelessness.",
             "pending_committee_id": 480,
             "committee": {
                 "committee_id": 480,
@@ -75798,6 +75955,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-24",
+                    "action": "Read second time and amended. Re-referred to Com. on HEALTH.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 1
                 }
             ],
             "sponsors": [
@@ -75861,6 +76025,24 @@
                     "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB16#98AMD",
                     "text_size": 81392,
                     "text_hash": "d14d7a10c5481f6f6cf42bbef003236e",
+                    "alt_bill_text": 0,
+                    "alt_mime": "",
+                    "alt_mime_id": 0,
+                    "alt_state_link": "",
+                    "alt_text_size": 0,
+                    "alt_text_hash": ""
+                },
+                {
+                    "doc_id": 3221563,
+                    "date": "2025-04-24",
+                    "type": "Amended",
+                    "type_id": 3,
+                    "mime": "text/html",
+                    "mime_id": 1,
+                    "url": "https://legiscan.com/CA/text/SB16/id/3221563",
+                    "state_link": "https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB16#97AMD",
+                    "text_size": 106803,
+                    "text_hash": "402e576808a0464f3f64b94de6b5116e",
                     "alt_bill_text": 0,
                     "alt_mime": "",
                     "alt_mime_id": 0,
@@ -76609,10 +76791,10 @@
                 },
                 {
                     "type_id": 1,
-                    "event_hash": "b5ff70f9",
+                    "event_hash": "9fbe1bed",
                     "type": "Hearing",
                     "date": "2025-04-28",
-                    "time": "10:00",
+                    "time": "10:30",
                     "location": "1021 O Street, Room 2200",
                     "description": "Senate Appropriations Hearing"
                 }
@@ -77832,7 +78014,7 @@
         },
         "SB420": {
             "bill_id": 1974530,
-            "change_hash": "fc6c431595dc2980a92db586984bc8c0",
+            "change_hash": "223feb47f2ddd34183c514059b6ce9df",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -77997,6 +78179,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-25",
+                    "action": "Set for hearing May 5.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -78120,12 +78309,21 @@
                     "time": "09:00",
                     "location": "1021 O Street, Room 1200",
                     "description": "Senate Governmental Organization Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "2e1692aa",
+                    "type": "Hearing",
+                    "date": "2025-05-05",
+                    "time": "10:00",
+                    "location": "1021 O Street, Room 2200",
+                    "description": "Senate Appropriations Hearing"
                 }
             ]
         },
         "SB468": {
             "bill_id": 1976550,
-            "change_hash": "de8de49290adc228d606b5f4ee7c92a3",
+            "change_hash": "17b81ac5f01a3686a1b5c3ad68aa7379",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -78239,6 +78437,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-25",
+                    "action": "Set for hearing May 5.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -78320,6 +78525,15 @@
                     "time": "09:30",
                     "location": "1021 O Street, Room 2100",
                     "description": "Senate Judiciary Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "2e1692aa",
+                    "type": "Hearing",
+                    "date": "2025-05-05",
+                    "time": "10:00",
+                    "location": "1021 O Street, Room 2200",
+                    "description": "Senate Appropriations Hearing"
                 }
             ]
         },
@@ -79956,7 +80170,7 @@
         },
         "SB833": {
             "bill_id": 1980563,
-            "change_hash": "73d167db11330657a4610695527e2b68",
+            "change_hash": "eebab492467a8ba2bcfd3be69a31a436",
             "session_id": 2172,
             "session": {
                 "session_id": 2172,
@@ -80099,6 +80313,13 @@
                     "chamber": "S",
                     "chamber_id": 20,
                     "importance": 1
+                },
+                {
+                    "date": "2025-04-25",
+                    "action": "Set for hearing May 5.",
+                    "chamber": "S",
+                    "chamber_id": 20,
+                    "importance": 0
                 }
             ],
             "sponsors": [
@@ -80198,6 +80419,15 @@
                     "time": "09:00",
                     "location": "1021 O Street, Room 1200",
                     "description": "Senate Governmental Organization Hearing"
+                },
+                {
+                    "type_id": 1,
+                    "event_hash": "2e1692aa",
+                    "type": "Hearing",
+                    "date": "2025-05-05",
+                    "time": "10:00",
+                    "location": "1021 O Street, Room 2200",
+                    "description": "Senate Appropriations Hearing"
                 }
             ]
         }

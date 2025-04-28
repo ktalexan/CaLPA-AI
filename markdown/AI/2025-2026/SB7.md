@@ -12,23 +12,22 @@ tags:
   - 2025-2026-regular-session
   - artificial-intelligence
   - california
-  - employment-law
+  - labor-law
   - automated-decision-systems
   - worker-rights
+  - employment
   - data-privacy
-  - labor-code
   - regulation
-keywords: artificial-intelligence, california, employment-law, automated-decision-systems, worker-rights, data-privacy, labor-code, regulation
-hashTags: '#artificial-intelligence, #california, #employment-law, #automated-decision-systems, #worker-rights, #data-privacy, #labor-code, #regulation'
+keywords: artificial-intelligence, california, labor-law, automated-decision-systems, worker-rights, employment, data-privacy, regulation
+hashTags: '#artificial-intelligence, #california, #labor-law, #automated-decision-systems, #worker-rights, #employment, #data-privacy, #regulation'
 billNumber: 7
 billType: Senate Bill
 billYear: 2024
 legislativeBody: California Legislature
 legislativePeriod: 2025-2026
-session: 2025-2026 Regular Session
 topic: "SB-7: Employment: automated decision systems."
 title': "SB-7: An act to add Part 5.6 (commencing with Section 1520) to Division 2 of the Labor Code, relating to employment."
-summary: "Senate Bill No. 7, introduced in California's 2025-2026 session, would regulate employers' use of automated decision systems (ADS) in employment-related decisions. The bill requires employers or their vendors to provide advance written notice to workers about the use and nature of ADS, maintain updated lists of such systems, and ensure transparency about how worker data is used. Employers are prohibited from using ADS for certain sensitive functions, must involve human reviewers in major employment decisions, and allow workers to access and correct their data. Workers affected by ADS decisions have the right to appeal, with a required human review process and deadlines for responses and rectification. The bill prohibits retaliation against workers asserting these rights, establishes enforcement by the Labor Commissioner, and allows civil actions with penalties for violations."
+summary: "California Senate Bill 7 (2025), introduced by Senator McNerney, would require employers to provide written notice to workers when automated decision systems (ADS) are used for employment-related decisions, maintain a list of such systems, and disclose how they operate. The bill restricts the use of ADS for certain functions, mandates human review for key employment decisions, and grants workers the right to access and correct their data, as well as to appeal ADS-driven decisions with a human reviewer. Employers are prohibited from retaliating against workers who assert these rights, and violations are enforceable by the Labor Commissioner, public prosecutors, or through civil action, with penalties of $500 per violation. The bill seeks to enhance transparency, accountability, and worker protections in the use of AI and automated systems in the workplace."
 sponsors: Jerry McNerney (D, SD05)
 coSponsors: None
 jointSponsors: Isaac Bryan (D, AD55), Sade Elhawary (D, AD57)
@@ -64,19 +63,18 @@ modified:
 ## SB-7: Employment: automated decision systems.
 
 >[!tldr] **SB7 TL;DR Summary**
-> Senate Bill No. 7, introduced in California's 2025-2026 session, would regulate employers' use of automated decision systems (ADS) in employment-related decisions. The bill requires employers or their vendors to provide advance written notice to workers about the use and nature of ADS, maintain updated lists of such systems, and ensure transparency about how worker data is used. Employers are prohibited from using ADS for certain sensitive functions, must involve human reviewers in major employment decisions, and allow workers to access and correct their data. Workers affected by ADS decisions have the right to appeal, with a required human review process and deadlines for responses and rectification. The bill prohibits retaliation against workers asserting these rights, establishes enforcement by the Labor Commissioner, and allows civil actions with penalties for violations.
+> California Senate Bill 7 (2025), introduced by Senator McNerney, would require employers to provide written notice to workers when automated decision systems (ADS) are used for employment-related decisions, maintain a list of such systems, and disclose how they operate. The bill restricts the use of ADS for certain functions, mandates human review for key employment decisions, and grants workers the right to access and correct their data, as well as to appeal ADS-driven decisions with a human reviewer. Employers are prohibited from retaliating against workers who assert these rights, and violations are enforceable by the Labor Commissioner, public prosecutors, or through civil action, with penalties of $500 per violation. The bill seeks to enhance transparency, accountability, and worker protections in the use of AI and automated systems in the workplace.
 
 >[!legislative] **SB7 Metadata**
 >- **Bill Number**: SB-7
->- **Year**: 2024
->- **Legislative Period**: 2025-2026
 >- **Legislative Body**: California Legislature, 2025-2026 Regular Session
 >- **Bill Type**: Senate Bill
 >- **Topic**: SB-7: Employment: automated decision systems.
+>- **Topic**: SB-7: Employment: automated decision systems.
 >- **Title**: SB-7: An act to add Part 5.6 (commencing with Section 1520) to Division 2 of the Labor Code, relating to employment.
->- **TL;DR Summary**: Senate Bill No. 7, introduced in California's 2025-2026 session, would regulate employers' use of automated decision systems (ADS) in employment-related decisions. The bill requires employers or their vendors to provide advance written notice to workers about the use and nature of ADS, maintain updated lists of such systems, and ensure transparency about how worker data is used. Employers are prohibited from using ADS for certain sensitive functions, must involve human reviewers in major employment decisions, and allow workers to access and correct their data. Workers affected by ADS decisions have the right to appeal, with a required human review process and deadlines for responses and rectification. The bill prohibits retaliation against workers asserting these rights, establishes enforcement by the Labor Commissioner, and allows civil actions with penalties for violations.
->- **Keywords**: artificial-intelligence, california, employment-law, automated-decision-systems, worker-rights, data-privacy, labor-code, regulation
->- **Hash Tags**: #artificial-intelligence, #california, #employment-law, #automated-decision-systems, #worker-rights, #data-privacy, #labor-code, #regulation
+>- **TL;DR Summary**: California Senate Bill 7 (2025), introduced by Senator McNerney, would require employers to provide written notice to workers when automated decision systems (ADS) are used for employment-related decisions, maintain a list of such systems, and disclose how they operate. The bill restricts the use of ADS for certain functions, mandates human review for key employment decisions, and grants workers the right to access and correct their data, as well as to appeal ADS-driven decisions with a human reviewer. Employers are prohibited from retaliating against workers who assert these rights, and violations are enforceable by the Labor Commissioner, public prosecutors, or through civil action, with penalties of $500 per violation. The bill seeks to enhance transparency, accountability, and worker protections in the use of AI and automated systems in the workplace.
+>- **Keywords**: artificial-intelligence, california, labor-law, automated-decision-systems, worker-rights, employment, data-privacy, regulation
+>- **Hash Tags**: #artificial-intelligence, #california, #labor-law, #automated-decision-systems, #worker-rights, #employment, #data-privacy, #regulation
 >- **Sponsor(s)**: [Jerry McNerney (D, SD05)](https://ballotpedia.org/Jerry_McNerney)
 >- **Co-Sponsor(s)**: None
 >- **Joint Sponsor(s)**: [Isaac Bryan (D, AD55)](https://ballotpedia.org/Isaac_Bryan), [Sade Elhawary (D, AD57)](https://ballotpedia.org/Sade_Elhawary)
@@ -105,4 +103,3 @@ modified:
 ## State Webpage
 
 <iframe src="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB7" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>
-

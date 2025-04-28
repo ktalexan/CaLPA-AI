@@ -13,24 +13,23 @@ tags:
   - artificial-intelligence
   - international-womens-day
   - gender-equality
-  - womens-rights
-  - california-legislation
+  - women-rights
   - technology
-  - social-justice
+  - california-legislation
+  - history
   - united-nations
-  - women-in-stem
-  - empowerment
-keywords: artificial-intelligence, international-womens-day, gender-equality, womens-rights, california-legislation, technology, social-justice, united-nations, women-in-stem, empowerment
-hashTags: '#artificial-intelligence, #international-womens-day, #gender-equality, #womens-rights, #california-legislation, #technology, #social-justice, #united-nations, #women-in-stem, #empowerment'
+  - women-empowerment
+  - public-policy
+keywords: artificial-intelligence, international-womens-day, gender-equality, women-rights, technology, california-legislation, history, united-nations, women-empowerment, public-policy
+hashTags: '#artificial-intelligence, #international-womens-day, #gender-equality, #women-rights, #technology, #california-legislation, #history, #united-nations, #women-empowerment, #public-policy'
 billNumber: 13
 billType: Senate Concurrent Resolution
 billYear: 2019
 legislativeBody: California Legislature
 legislativePeriod: 2019-2020
-session: 2019-2020 Regular Session
 topic: "SCR-13: International Women’s Day."
 title': "SCR-13: Relative to International Women’s Day."
-summary: "Senate Concurrent Resolution No. 13 designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor and women’s rights movements, its adoption by the United Nations, and its significance as a rallying point for advancing gender equality and women’s empowerment globally. The resolution highlights the need for innovative approaches to achieve gender equality, the importance of women’s participation in science, technology, engineering, mathematics, and design, and the 2019 theme 'Think Equal, Build Smart, Innovate for Change.' It also acknowledges ongoing challenges, such as the gender digital divide and underrepresentation of women in leadership and poverty, and calls for continued progress and celebration of women’s achievements."
+summary: "Senate Concurrent Resolution No. 13 (Chapter 22) designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor movements and women’s rights activism, its evolution into a global event supported by the United Nations, and its ongoing significance in advocating for gender equality, innovation, and the empowerment of women—especially in areas such as technology and public services. The resolution highlights the need for innovative approaches to achieve gender equality, notes the persistent gender digital divide, and calls for continued progress and celebration of women’s contributions throughout history."
 sponsors: Hannah-Beth Jackson (D, SD19)
 coSponsors: None
 jointSponsors: None
@@ -66,19 +65,18 @@ modified:
 ## SCR-13: International Women’s Day.
 
 >[!tldr] **SCR13 TL;DR Summary**
-> Senate Concurrent Resolution No. 13 designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor and women’s rights movements, its adoption by the United Nations, and its significance as a rallying point for advancing gender equality and women’s empowerment globally. The resolution highlights the need for innovative approaches to achieve gender equality, the importance of women’s participation in science, technology, engineering, mathematics, and design, and the 2019 theme 'Think Equal, Build Smart, Innovate for Change.' It also acknowledges ongoing challenges, such as the gender digital divide and underrepresentation of women in leadership and poverty, and calls for continued progress and celebration of women’s achievements.
+> Senate Concurrent Resolution No. 13 (Chapter 22) designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor movements and women’s rights activism, its evolution into a global event supported by the United Nations, and its ongoing significance in advocating for gender equality, innovation, and the empowerment of women—especially in areas such as technology and public services. The resolution highlights the need for innovative approaches to achieve gender equality, notes the persistent gender digital divide, and calls for continued progress and celebration of women’s contributions throughout history.
 
 >[!legislative] **SCR13 Metadata**
 >- **Bill Number**: SCR-13
->- **Year**: 2019
->- **Legislative Period**: 2019-2020
 >- **Legislative Body**: California Legislature, 2019-2020 Regular Session
 >- **Bill Type**: Senate Concurrent Resolution
 >- **Topic**: SCR-13: International Women’s Day.
+>- **Topic**: SCR-13: International Women’s Day.
 >- **Title**: SCR-13: Relative to International Women’s Day.
->- **TL;DR Summary**: Senate Concurrent Resolution No. 13 designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor and women’s rights movements, its adoption by the United Nations, and its significance as a rallying point for advancing gender equality and women’s empowerment globally. The resolution highlights the need for innovative approaches to achieve gender equality, the importance of women’s participation in science, technology, engineering, mathematics, and design, and the 2019 theme 'Think Equal, Build Smart, Innovate for Change.' It also acknowledges ongoing challenges, such as the gender digital divide and underrepresentation of women in leadership and poverty, and calls for continued progress and celebration of women’s achievements.
->- **Keywords**: artificial-intelligence, international-womens-day, gender-equality, womens-rights, california-legislation, technology, social-justice, united-nations, women-in-stem, empowerment
->- **Hash Tags**: #artificial-intelligence, #international-womens-day, #gender-equality, #womens-rights, #california-legislation, #technology, #social-justice, #united-nations, #women-in-stem, #empowerment
+>- **TL;DR Summary**: Senate Concurrent Resolution No. 13 (Chapter 22) designates March 8, 2019, as International Women’s Day in California, recognizing its historical roots in labor movements and women’s rights activism, its evolution into a global event supported by the United Nations, and its ongoing significance in advocating for gender equality, innovation, and the empowerment of women—especially in areas such as technology and public services. The resolution highlights the need for innovative approaches to achieve gender equality, notes the persistent gender digital divide, and calls for continued progress and celebration of women’s contributions throughout history.
+>- **Keywords**: artificial-intelligence, international-womens-day, gender-equality, women-rights, technology, california-legislation, history, united-nations, women-empowerment, public-policy
+>- **Hash Tags**: #artificial-intelligence, #international-womens-day, #gender-equality, #women-rights, #technology, #california-legislation, #history, #united-nations, #women-empowerment, #public-policy
 >- **Sponsor(s)**: [Hannah-Beth Jackson (D, SD19)](https://ballotpedia.org/Hannah-Beth_Jackson)
 >- **Co-Sponsor(s)**: None
 >- **Joint Sponsor(s)**: None
@@ -88,6 +86,7 @@ modified:
 >- **Status Date**: March 27, 2019
 >- **Last Action**: Chaptered by Secretary of State. Res. Chapter 22, Statutes of 2019.
 >- **Last Action Date**: March 27, 2019
+>- **Chaptered**: True
 >- **Chaptered**: True
 >- **Chapter No**: 22
 >- **Chapter Year**: 2019
@@ -109,4 +108,3 @@ modified:
 ## State Webpage
 
 <iframe src="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200SCR13" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>
-
