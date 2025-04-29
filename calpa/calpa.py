@@ -1385,12 +1385,21 @@ class LegiScan:
 
         # Get the legislative links for the bill
         myLinks = getCaLegisLinks(billPeriod, billId)
-
-        # Get the bill notes
+        
+        # Get the bill notes path
         myNotesPath = os.path.join(
             self.prjDirs["pathScriptsMd"], "notes", billPeriod, f"{billId}.md"
         )
-
+        
+        # Check if the notes exist in the disk
+        if not os.path.exists(os.path.dirname(myNotesPath)):
+            os.makedirs(os.path.dirname(myNotesPath))
+        if not os.path.exists(myNotesPath):
+            # Create the notes file if it does not exist
+            with open(myNotesPath, "w", encoding="utf-8") as notesFile:
+                notesFile.write(f"## {billId} AI Notes\n\n")
+            notesFile.close()
+        
         # Read the notes markdown file and determine the sections for AI and LC notes
         with open(myNotesPath, "r", encoding="utf-8") as src:
             # Read the lines of the markdown file
@@ -1550,8 +1559,6 @@ class LegiScan:
             )
             mdf.write(f">- **Bill Type**: {codebook.lookupBillCode[myBillCode]}\n")
 
-            # Titles and Summaries
-            mdf.write(f">- **Topic**: {myBillAlias1}: {myBill['title']}\n")
             # Titles and Summaries
             mdf.write(f">- **Topic**: {myBillAlias1}: {myBill['title']}\n")
             mdf.write(f">- **Title**: {myBillAlias1}: {myBill['description']}\n")
