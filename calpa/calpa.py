@@ -13,6 +13,7 @@ from typing import Dict, List, Any, Optional
 from urllib.parse import urlencode, quote_plus
 from openai import AzureOpenAI
 from dotenv import load_dotenv
+from IPython.display import Markdown, display
 
 # Import environment variables from .env file
 load_dotenv()
@@ -39,6 +40,7 @@ def projectMetadata(
     prjPart: int,
     prjComponent: str = "AI",
     prjVersion: str = "1.0",
+    mdTitle: Optional[bool] = False,    
     silent: Optional[bool] = False
 ) -> Dict[str, Any]:
     """Project Metadata Function.
@@ -55,6 +57,7 @@ def projectMetadata(
             Other: General Project Operations
         prjComponent (string): A string indicating the project component (default is "AI"). Options include AI or LC.
         prjVersion (string): A string indicating the project version (default is "1.0").
+        mdTitle (boolean): A boolean indicating whether to use the metadata to display a markdown title in a markdown cell below on the Jupyter notebook (default is False).
         silent (boolean): A boolean indicating whether to print the metadata information on the console (default is False).
     
     Returns:
@@ -124,6 +127,22 @@ def projectMetadata(
     
     # Set the project part in the metadata dictionary based on the input
     metadata["prjStep"] = prjStep.get(prjPart, "General Project Operations")
+    
+    if mdTitle:
+        # If the markdown title is requested, we will disable the console output
+        silent = True
+        
+        # Print the markdown title in a markdown cell below on the Jupyter notebook
+        display(
+            Markdown(
+                "</center></div>" +
+                "<div style = 'background-color:indigo'><center>" +
+                f"<h1 style='font-size: 50px; font-weight: bold; color:goldenrod; border-top: 3px solid goldenrod; padding-top: 10px'>{metadata['title']} ({metadata['name']})</h1>" +
+                f"<div style='font-size: 35px; font-weight: bold; color: goldenrod'> Part {metadata['prjPart']} - {metadata['prjStep']}</div>" +
+                f"<div style='font-size: 30px; font-weight: bold; color: goldenrod; border-bottom: 3px solid goldenrod; padding-bottom: 20px'>v.{metadata['version']} ({metadata['license']}), {metadata['author']}, {date.today().strftime('%B %Y')}</div>" +
+                "</center></div>"
+            )
+        )
     
     # Print the metadata dictionary on the console
     if not silent:
@@ -1342,9 +1361,10 @@ class LegiScan:
     # region Method: aiBillMarkdown
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: AI Bill Markdown ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    def aiBillMarkdown(self,
+    def createBillMarkdown(self,
         billPeriod: str,
         billId: str,
+        prjPart: str,
         billsDict: Dict[str, Any],
         billsSummariesDict: Dict[str, Any],
         obsidianSync: Optional[bool] = False
@@ -1356,6 +1376,7 @@ class LegiScan:
         Args:
             billPeriod (str): The bill period (e.g., "2023-2024").
             billId (str): The bill ID (e.g., "AB123").
+            prjPart (str): The project part (e.g., "AI" or "LC").
             billsDict (dict): The dictionary containing the AI bills data.
             billsSummariesDict (dict): The dictionary containing the AI bills summaries data.
             obsidianSync (bool): Flag to indicate if the markdown file should be synced with Obsidian.
@@ -1369,6 +1390,10 @@ class LegiScan:
         """
 
         # ~~~~~~~~~~~~~~~~~~~ Part 1: Define Variables and Input Data ~~~~~~~~~~~~~~~~~~~~
+        
+        # Restrict the prjPart to two choices: AI or LC
+        if prjPart not in ("AI", "LC"):
+            raise ValueError("prjPart must be AI or LC")
         
         # Get the bill data from the AI bills dictionary
         myBill = billsDict[billPeriod][billId]
@@ -1423,38 +1448,51 @@ class LegiScan:
         # Get the legislative links for the bill
         myLinks = getCaLegisLinks(billPeriod, billId)
         
-        # Get the bill notes path
-        myNotesPath = os.path.join(
-            self.prjDirs["pathScriptsMd"], "notes", billPeriod, f"{billId}.md"
-        )
+        # Get the bill notes path depending on the project part (AI or LC)
+        myNotesPath = None
+        if prjPart == "AI":
+            myNotesPath = os.path.join(
+                self.prjDirs["pathScriptsMd"], "notes", "AI", billPeriod, f"{billId}.md"
+            )
+        elif prjPart == "LC":
+            myNotesPath = os.path.join(
+                self.prjDirs["pathScriptsMd"], "notes", "LC", billPeriod, f"{billId}.md"
+            )
         
         # Check if the notes exist in the disk
         if not os.path.exists(os.path.dirname(myNotesPath)):
             os.makedirs(os.path.dirname(myNotesPath))
         if not os.path.exists(myNotesPath):
-            # Create the notes file if it does not exist
-            with open(myNotesPath, "w", encoding="utf-8") as notesFile:
-                notesFile.write(f"## {billId} AI Notes\n\n")
-            notesFile.close()
+            # Create the notes file if it does not exist depending on the project part (AI or LC)
+            if prjPart == "AI":
+                with open(myNotesPath, "w", encoding="utf-8") as notesFile:
+                    notesFile.write(f"## {billId} AI Notes\n\n")
+                notesFile.close()
+            elif prjPart == "LC":
+                with open(myNotesPath, "w", encoding="utf-8") as notesFile:
+                    notesFile.write(f"## {billId} LC Notes\n\n")
+                notesFile.close()
         
         # Read the notes markdown file and determine the sections for AI and LC notes
         with open(myNotesPath, "r", encoding="utf-8") as src:
             # Read the lines of the markdown file
             myBillNotes = src.readlines()
+            
+            # No longer need this part - the bills are resting in different folders now.
             # Initialize variables for the sections and notes
-            section = aiNotes = lcNotes = ""
+            #section = aiNotes = lcNotes = ""
             # Loop through the lines of the markdown file
-            for i, line in enumerate(myBillNotes):
+            #for i, line in enumerate(myBillNotes):
                 # Find the section for AI and LC notes and set the section variable
-                if line.startswith(f"## {billId} AI Notes"):
-                    section = "AI"
-                elif line.startswith(f"## {billId} LC Notes"):
-                    section = "LC"
+                #if line.startswith(f"## {billId} AI Notes"):
+                #    section = "AI"
+                #elif line.startswith(f"## {billId} LC Notes"):
+                #    section = "LC"
                 # Append the line to the appropriate notes variable based on the section
-                if section == "AI":
-                    aiNotes += line
-                elif section == "LC":
-                    lcNotes += line
+                #if section == "AI":
+                #    aiNotes += line
+                #elif section == "LC":
+                #    lcNotes += line
 
         # ~~~~~~~ Part 2: Create the YAML Properties Section of the Markdown File ~~~~~~~~
         
@@ -1561,16 +1599,16 @@ class LegiScan:
             mdf.write(f"legiscanSessionId: {myBill['session_id']}\n")
 
             # Related (vector)
-            mdf.write(f"related:\n")
-            mdf.write(f"  - '[[Artificial Intelligence]]'\n")
-            mdf.write(f"  - '[[California Government]]'\n")
+            mdf.write("related:\n")
+            mdf.write("  - '[[Artificial Intelligence]]'\n")
+            mdf.write("  - '[[California Government]]'\n")
 
             # Dates for Obsidian
-            mdf.write(f"generated: \n")
-            mdf.write(f"modified: \n")
+            mdf.write("generated: \n")
+            mdf.write("modified: \n")
 
             # Close the YAML file
-            mdf.write(f"---\n")
+            mdf.write("---\n")
 
             # ~~~~~~~~~ Part 3: Create the Main Markdown Content Section of the File ~~~~~~~~~
             
@@ -1629,13 +1667,9 @@ class LegiScan:
             )
             mdf.write(f">- **Bill Status**: {codebook.lookupStatusType[myBill['status']]}\n")
             mdf.write(f">- **Session Status**: {mySessionStatus}\n")
-            mdf.write(
-                f">- **Status Date**: {convertStrToDate(myBill['status_date'])}\n"
-            )
+            mdf.write(f">- **Status Date**: {convertStrToDate(myBill['status_date'])}\n")
             mdf.write(f">- **Last Action**: {myBillAction}\n")
-            mdf.write(
-                f">- **Last Action Date**: {convertStrToDate(myBill['history'][-1]['date'])}\n"
-            )
+            mdf.write(f">- **Last Action Date**: {convertStrToDate(myBill['history'][-1]['date'])}\n")
             if chaptered:
                 mdf.write(f">- **Chaptered**: {chaptered}\n")
             if chaptered:
@@ -1651,7 +1685,7 @@ class LegiScan:
             mdf.write(f">- **LegiScan Session ID**: {myBill['session_id']}\n")
 
             # Bill Links
-            mdf.write(f">- **Bill Links**: ")
+            mdf.write(">- **Bill Links**: ")
             mdf.write(f"[LegiScan]({myBill['url']}), ")
             mdf.write(f"[State Main]({myLinks['main']}), ")
             mdf.write(f"[State Text]({myLinks['text']}), ")
@@ -1664,8 +1698,7 @@ class LegiScan:
             mdf.write(
                 f">- **Obsidian PDF Link**: [[Documents/CA Legislative Bills/{billPeriod}/{billId}.pdf]]\n"
             )
-            mdf.write(
-                f">- **Related**: [[Artificial Intelligence]], [[California Government]]\n\n")
+            mdf.write(">- **Related**: [[Artificial Intelligence]], [[California Government]]\n\n")
             
             
             # ~~~~~~~~~~~~~~~ Citation Info Box ~~~~~~~~~~~~~~~~
@@ -1673,9 +1706,7 @@ class LegiScan:
             mdf.write(f">[!cite] **{billId} Citation**\n")
             mdf.write(f"> {myBillAlias1}: {myBill['description']}, ")
             mdf.write(f"{codebook.lookupBillCode[myBillCode]} {billId}, ")
-            mdf.write(
-                f"California Legislature, {billPeriod} {myBill['session']['session_tag']}. "
-            )
+            mdf.write(f"California Legislature, {billPeriod} {myBill['session']['session_tag']}. ")
             mdf.write(f"{codebook.lookupStatusType[myBill['status']]} ")
             mdf.write(f"{codebook.lookupBillType[int(myBill['bill_type_id'])]['type']}. ")
             if chaptered:
@@ -1684,28 +1715,34 @@ class LegiScan:
                 mdf.write(f"{mySessionStatus} ")
             mdf.write(f"({myBillYear}). ")
             mdf.write(f"{myLinks['main']}\n\n\n")
-
+            
+            # ~~~~~~~~~~~~~~~ Add Markdown Notes ~~~~~~~~~~~~~~~
+            
             # Write the bill Notes
-            mdf.write(f"{aiNotes}\n\n")
+            mdf.write(f"{myBillNotes}\n\n")
 
             # ~~~~~~~~~~~~~~~~ Webpage (iframe) ~~~~~~~~~~~~~~~~
             
-            mdf.write(f"## State Webpage\n\n")
+            mdf.write("## State Webpage\n\n")
             mdf.write(
                 f"""<iframe src="{myLinks['main']}" allow="fullscreen" allowfullscreen="" style="height: 100%;width:100%;aspect-ratio: 16/ 10;"</iframe>\n"""
             )
 
         # Variables if the obsidianSync is True
         if obsidianSync:
-            # Get the obsidian location for the markdown file
-            obsidianPath = os.path.join(self.prjDirs["pathObsidian"], "AI Bills", billPeriod)
+            # Get the obsidian location for the markdown file depending on the project part (AI or LC)
+            obsidianPath = None
+            if prjPart == "AI":
+                obsidianPath = os.path.join(self.prjDirs["pathObsidian"], "AI Bills", billPeriod)
+            elif prjPart == "LC":
+                obsidianPath = os.path.join(self.prjDirs["pathObsidian"], "Labor Bills", billPeriod)
 
             # Copy the markdown file to the Obsidian vault
             destFile = os.path.join(obsidianPath, f"{billId}.md")
             # Copy the markdown file to the Obsidian vault
             destFile = os.path.join(obsidianPath, f"{billId}.md")
-            with open(mdFile, "r") as src:
-                with open(destFile, "w") as dest:
+            with open(mdFile, "r", encoding="utf-8") as src:
+                with open(destFile, "w", encoding="utf-8") as dest:
                     dest.write(src.read())
     
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1765,4 +1802,4 @@ class LegiScan:
 # endregion Class: legiscan
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF MODULE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ END OF MODULE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
