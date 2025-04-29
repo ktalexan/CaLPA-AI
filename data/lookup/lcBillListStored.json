@@ -1,62 +1,294 @@
 {
     "2025-2026": {
-        "AB21": 1893357,
-        "AB23": 1893359,
-        "AB33": 1943413,
-        "AB96": 1904796,
-        "AB231": 1916611,
-        "AB283": 1936624,
-        "AB288": 1936629,
-        "AB303": 1939179,
-        "AB331": 1943413,
-        "AB339": 1945201,
-        "AB340": 1945202,
-        "AB346": 1947437,
-        "AB423": 1958468,
-        "AB424": 1958469,
-        "AB427": 1958472,
-        "AB478": 1964665,
-        "AB495": 1964682,
-        "AB522": 1964709,
-        "AB569": 1968210,
-        "AB571": 1968212,
-        "AB596": 1970384,
-        "AB672": 1971702,
-        "AB711": 1971741,
-        "AB853": 1976440,
-        "AB882": 1976469,
-        "AB1054": 1978589,
-        "AB1067": 1978602,
-        "AB1109": 1978644,
-        "AB1189": 1980086,
-        "AB1323": 1980220,
-        "AB1331": 1980228,
-        "AB1355": 1980252,
-        "AB1383": 1980280,
-        "ACA1": 1893407,
-        "ACA2": 1893408,
-        "SB7": 1919274,
-        "SB16": 1893428,
-        "SB21": 1893434,
-        "SB23": 1893436,
-        "SB27": 1893440,
-        "SB28": 1893441,
-        "SB35": 1894445,
-        "SB36": 1894446,
-        "SB37": 1894447,
-        "SB70": 1919274,
-        "SB82": 1929344,
-        "SB83": 1929345,
-        "SB237": 1947444,
-        "SB238": 1947445,
-        "SB299": 1964719,
-        "SB301": 1964721,
-        "SB309": 1964729,
-        "SB366": 1970455,
-        "SB458": 1976540,
-        "SB481": 1976563,
-        "SB600": 1978833,
-        "SB853": 1991553,
-        "SJR2": 1990396
+        "AB21": {
+            "bill_id": 1893357,
+            "number": "AB21",
+            "change_hash": "5f3361aa250b5a9d9a4b7656b38376bd"
+        },
+        "AB23": {
+            "bill_id": 1893359,
+            "number": "AB23",
+            "change_hash": "f897c52cf5c224bcd00cc97aaf63e566"
+        },
+        "AB33": {
+            "bill_id": 1893370,
+            "number": "AB33",
+            "change_hash": "3d2f557845ea4d9971fd2fca001b5ad8"
+        },
+        "AB96": {
+            "bill_id": 1904796,
+            "number": "AB96",
+            "change_hash": "35fd8ecae46b63d87dbc776dac320122"
+        },
+        "AB231": {
+            "bill_id": 1916611,
+            "number": "AB231",
+            "change_hash": "28fed4b8a1cc45e5583099e4dbadbaee"
+        },
+        "AB283": {
+            "bill_id": 1936624,
+            "number": "AB283",
+            "change_hash": "24df4511c082dea0b5ceee6627e4caac"
+        },
+        "AB288": {
+            "bill_id": 1936629,
+            "number": "AB288",
+            "change_hash": "f15eace287928665e12311a7674af119"
+        },
+        "AB303": {
+            "bill_id": 1939179,
+            "number": "AB303",
+            "change_hash": "ca641ddb2fc8bc042d153488614774a8"
+        },
+        "AB331": {
+            "bill_id": 1943413,
+            "number": "AB331",
+            "change_hash": "3ad9b56cedd98e0538775a7f227ab8ca"
+        },
+        "AB339": {
+            "bill_id": 1945201,
+            "number": "AB339",
+            "change_hash": "26578949be4dcb8de271e64780a3e31e"
+        },
+        "AB340": {
+            "bill_id": 1945202,
+            "number": "AB340",
+            "change_hash": "b81567debe07257c572293f486e22384"
+        },
+        "AB346": {
+            "bill_id": 1947437,
+            "number": "AB346",
+            "change_hash": "0eb7a64c3e658c4b0109e4fd0d6bd15c"
+        },
+        "AB423": {
+            "bill_id": 1958468,
+            "number": "AB423",
+            "change_hash": "5c49505bad0db0092da134a1f6bc832e"
+        },
+        "AB424": {
+            "bill_id": 1958469,
+            "number": "AB424",
+            "change_hash": "f8b1e9686d7d4fdbd47cb066dfd5f1cb"
+        },
+        "AB427": {
+            "bill_id": 1958472,
+            "number": "AB427",
+            "change_hash": "b6b0a26bd2113169aea1116c6d952907"
+        },
+        "AB478": {
+            "bill_id": 1964665,
+            "number": "AB478",
+            "change_hash": "099fc53cb84bc34b42201cafe2798212"
+        },
+        "AB495": {
+            "bill_id": 1964682,
+            "number": "AB495",
+            "change_hash": "e299f5a4126182fadea9d8d5ea5af99c"
+        },
+        "AB522": {
+            "bill_id": 1964709,
+            "number": "AB522",
+            "change_hash": "4ebe81026b5d37435a8b8a20330ab237"
+        },
+        "AB569": {
+            "bill_id": 1968210,
+            "number": "AB569",
+            "change_hash": "e2489978db6c9a45c8c9f94d221803bc"
+        },
+        "AB571": {
+            "bill_id": 1968212,
+            "number": "AB571",
+            "change_hash": "ddeed1008cbddbdb5d647ef8c5c5d98c"
+        },
+        "AB596": {
+            "bill_id": 1970384,
+            "number": "AB596",
+            "change_hash": "902297ab1866ec0a006025b9fb29f5c9"
+        },
+        "AB672": {
+            "bill_id": 1971702,
+            "number": "AB672",
+            "change_hash": "02f9ade5c654e39d4077d461f6e8305f"
+        },
+        "AB711": {
+            "bill_id": 1971741,
+            "number": "AB711",
+            "change_hash": "717161860520df8524fd5fde40c881d3"
+        },
+        "AB853": {
+            "bill_id": 1976440,
+            "number": "AB853",
+            "change_hash": "2bc703f921940160a40aad0a282f73c6"
+        },
+        "AB882": {
+            "bill_id": 1976469,
+            "number": "AB882",
+            "change_hash": "87c9c4d19fdd6dae7f48a9f734b70c1f"
+        },
+        "AB1054": {
+            "bill_id": 1978589,
+            "number": "AB1054",
+            "change_hash": "26955e750b394c223911d65987026389"
+        },
+        "AB1067": {
+            "bill_id": 1978602,
+            "number": "AB1067",
+            "change_hash": "3efc0b05f4e1f406058f14cfaa266a80"
+        },
+        "AB1109": {
+            "bill_id": 1978644,
+            "number": "AB1109",
+            "change_hash": "d6fbe5d77fc0c49378f397ce4efa6335"
+        },
+        "AB1189": {
+            "bill_id": 1980086,
+            "number": "AB1189",
+            "change_hash": "6f91857eda4dfa2c1c2d9fe7cb03d4e2"
+        },
+        "AB1323": {
+            "bill_id": 1980220,
+            "number": "AB1323",
+            "change_hash": "1436cda60dc277b0d24e7fced39b7041"
+        },
+        "AB1331": {
+            "bill_id": 1980228,
+            "number": "AB1331",
+            "change_hash": "2acd51b332688c90bda4a567c50ff60e"
+        },
+        "AB1355": {
+            "bill_id": 1980252,
+            "number": "AB1355",
+            "change_hash": "1c9a3d9f656697fe2651da8bb4c37e8b"
+        },
+        "AB1383": {
+            "bill_id": 1980280,
+            "number": "AB1383",
+            "change_hash": "32649c96a6c6637a4dff5d9711d55775"
+        },
+        "ACA1": {
+            "bill_id": 1893407,
+            "number": "ACA1",
+            "change_hash": "238b33e9bd540e5fe2b3d73da9f188eb"
+        },
+        "ACA2": {
+            "bill_id": 1893408,
+            "number": "ACA2",
+            "change_hash": "dd0ae13280420c15c72f22104df5fa2d"
+        },
+        "SB7": {
+            "bill_id": 1893452,
+            "number": "SB7",
+            "change_hash": "8873b71a5e97295218fe397ebba254ec"
+        },
+        "SB16": {
+            "bill_id": 1893428,
+            "number": "SB16",
+            "change_hash": "6873e9ac0f9098f3f986a1a31f66e7af"
+        },
+        "SB21": {
+            "bill_id": 1893434,
+            "number": "SB21",
+            "change_hash": "a007e6399301e297f020caf908fef391"
+        },
+        "SB23": {
+            "bill_id": 1893436,
+            "number": "SB23",
+            "change_hash": "d47e04159bdd37aa7752d2906a8e6f21"
+        },
+        "SB27": {
+            "bill_id": 1893440,
+            "number": "SB27",
+            "change_hash": "5f69a6f3fd629d4a3f71c762b38b2742"
+        },
+        "SB28": {
+            "bill_id": 1893441,
+            "number": "SB28",
+            "change_hash": "9b871d6f8f780553c871133f9840ace8"
+        },
+        "SB35": {
+            "bill_id": 1894445,
+            "number": "SB35",
+            "change_hash": "dd443dcc3d5d6d91a70a2b903e74d314"
+        },
+        "SB36": {
+            "bill_id": 1894446,
+            "number": "SB36",
+            "change_hash": "9a2dbd7494c3b15e1e364d02fd50494f"
+        },
+        "SB37": {
+            "bill_id": 1894447,
+            "number": "SB37",
+            "change_hash": "ced2d27559bc490b84daf74deb817b61"
+        },
+        "SB70": {
+            "bill_id": 1919274,
+            "number": "SB70",
+            "change_hash": "aa3894973523ffa5806e6f4f083128d7"
+        },
+        "SB82": {
+            "bill_id": 1929344,
+            "number": "SB82",
+            "change_hash": "4e7e699221d087c4753a422d12b1f818"
+        },
+        "SB83": {
+            "bill_id": 1929345,
+            "number": "SB83",
+            "change_hash": "863d3ae748c2b9a0f01e1164c7bd8a55"
+        },
+        "SB237": {
+            "bill_id": 1947444,
+            "number": "SB237",
+            "change_hash": "21e6391747a8c364c8ac0e3c73afdc9f"
+        },
+        "SB238": {
+            "bill_id": 1947445,
+            "number": "SB238",
+            "change_hash": "8566dace5964143a226bbac4bc100e4c"
+        },
+        "SB299": {
+            "bill_id": 1964719,
+            "number": "SB299",
+            "change_hash": "0459279fa21e987c0d098169399f580c"
+        },
+        "SB301": {
+            "bill_id": 1964721,
+            "number": "SB301",
+            "change_hash": "73656e1246e61a2b6fcaf817d269354d"
+        },
+        "SB309": {
+            "bill_id": 1964729,
+            "number": "SB309",
+            "change_hash": "39146e055f89323dd671bb969ba4baad"
+        },
+        "SB366": {
+            "bill_id": 1970455,
+            "number": "SB366",
+            "change_hash": "bbbdfd600511106a51f61277ef186eb0"
+        },
+        "SB458": {
+            "bill_id": 1976540,
+            "number": "SB458",
+            "change_hash": "28b005673df4bc852e7cf0ab0774b997"
+        },
+        "SB481": {
+            "bill_id": 1976563,
+            "number": "SB481",
+            "change_hash": "1256a85e24e9ad3f097bb8b0d2cbe8ab"
+        },
+        "SB600": {
+            "bill_id": 1978833,
+            "number": "SB600",
+            "change_hash": "169af7262a9c99c27c1d2613c9fc7b38"
+        },
+        "SB853": {
+            "bill_id": 1991553,
+            "number": "SB853",
+            "change_hash": "646edb33d471a2efc3a83d051bdd4f21"
+        },
+        "SJR2": {
+            "bill_id": 1990396,
+            "number": "SJR2",
+            "change_hash": "f3a3be5098cef4a629dcd435764d5c04"
+        }
     }
 }

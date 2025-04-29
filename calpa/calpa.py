@@ -37,6 +37,8 @@ from . import codebook
 # Create a function to hold the project metadata information
 def projectMetadata(
     prjPart: int,
+    prjComponent: str = "AI",
+    prjVersion: str = "1.0",
     silent: Optional[bool] = False
 ) -> Dict[str, Any]:
     """Project Metadata Function.
@@ -51,6 +53,8 @@ def projectMetadata(
             3: Creating Bibliography Entries and Databases
             4: Data Analysis and Visualization
             Other: General Project Operations
+        prjComponent (string): A string indicating the project component (default is "AI"). Options include AI or LC.
+        prjVersion (string): A string indicating the project version (default is "1.0").
         silent (boolean): A boolean indicating whether to print the metadata information on the console (default is False).
     
     Returns:
@@ -64,22 +68,50 @@ def projectMetadata(
         AI Legislative Policy Analysis
     """
     
-    # Create a new python dictionary to hold basic metadata information
-    metadata: Dict[str, Any] = {
-        "name": "CaLPA-AI",
-        "title": "AI Legislative Policy Analysis",
-        "description": "California Legislative Policy Analysis for Artificial Intelligence Related Bills",
-        "prjPart": "General Project Operations",
-        "version": "1.0",
-        "author": "Dr. Kostas Alexandridis, GISP",
-        "date": date.today().strftime("%Y-%m-%d"),
-        "license": "MIT License",
-        "yearsList": ["2009-2010", "2011-2012", "2013-2014", "2015-2016", "2017-2018", "2019-2020", "2021-2022", "2023-2024", "2025-2026"],
-        "years": "2009-2010, 2011-2012, 2013-2014, 2015-2016, 2017-2018, 2019-2020, 2021-2022, 2023-2024, 2025-2026",
-        "startDate": "2010-12-02",
-        "endDate": date.today().strftime("%Y-%m-%d"),
-        "repository": "https://github.com/ktalexan/CaLPA"
-    }
+    # First, make sure the project component is valid (AI or LC)
+    if prjComponent not in ("AI", "LC"):
+        raise ValueError("Project component must be 'AI' or 'LC'.")
+    
+    # Create a new python dictionary to hold metadata information
+    metadata: Dict[str, Any] = {}
+    
+    # Set the project metadata for the AI and LC project component choices
+    if prjComponent == "AI":    
+        # Create a new python dictionary to hold basic metadata information
+        metadata = {
+            "name": "CaLPA-AI",
+            "title": "AI Legislative Policy Analysis",
+            "description": "California Legislative Policy Analysis for Artificial Intelligence Related Bills",
+            "prjPart": prjPart,
+            "prjStep": "General Project Operations",
+            "version": prjVersion,
+            "author": "Dr. Kostas Alexandridis, GISP",
+            "date": date.today().strftime("%Y-%m-%d"),
+            "license": "MIT License",
+            "yearsList": ["2009-2010", "2011-2012", "2013-2014", "2015-2016", "2017-2018", "2019-2020", "2021-2022", "2023-2024", "2025-2026"],
+            "years": "2009-2010, 2011-2012, 2013-2014, 2015-2016, 2017-2018, 2019-2020, 2021-2022, 2023-2024, 2025-2026",
+            "startDate": "2010-12-02",
+            "endDate": date.today().strftime("%Y-%m-%d"),
+            "repository": "https://github.com/ktalexan/CaLPA"
+        }
+    elif prjComponent == "LC":
+        # Create a new python dictionary to hold basic metadata information
+        metadata = {
+            "name": "CaLPA-LC",
+            "title": "OCEA Legislative Policy Analysis",
+            "description": "California Legislative Policy Analysis for OCEA Legislative Committee Related Bills",
+            "prjPart": prjPart,
+            "prjStep": "General Project Operations",
+            "version": prjVersion,
+            "author": "Dr. Kostas Alexandridis, GISP",
+            "date": date.today().strftime("%Y-%m-%d"),
+            "license": "MIT License",
+            "yearsList": ["2025-2026"],
+            "years": "2025-2026",
+            "startDate": "2024-12-02",
+            "endDate": date.today().strftime("%Y-%m-%d"),
+            "repository": "https://github.com/ktalexan/CaLPA"
+        }
     
     # Lookup for project parts
     prjStep = {
@@ -99,7 +131,7 @@ def projectMetadata(
         print(f" {metadata.get('title')} ({metadata.get('name')})")
         print(f" {metadata.get('description')}")
         print(f" Part {prjPart} - {metadata.get('prjStep')}")
-        print(f" Version {metadata.get('version')} ({metadata.get('license')}), {metadata.get('author')}")
+        print(f" Version {prjVersion} ({metadata.get('license')}), {metadata.get('author')}")
         print(f" GitHub Repository: {metadata.get('repository')}")
         print(f" Last Updated: {date.today().strftime('%b %d, %Y')}")
         print("~" * (len(metadata.get("description")) + 2))
@@ -1051,7 +1083,8 @@ class LegiScan:
         stored: Dict[str, Any],
         current: Dict[str, Any],
         hashType: str,
-        silent: Optional[bool] = False
+        silent: Optional[bool] = False,
+        debug: Optional[bool] = False
     ) -> Optional[list]:
         """Compare the hash values of the stored and current session lists.
         
@@ -1064,6 +1097,7 @@ class LegiScan:
             current (dict): The current session list.
             hashType (str): The attribute to compare the hash values Must be one of (dataset, change, text, amendment, supplement, person).
             silent (bool): If True, suppresses print statements. Defaults to False.
+            debug (bool): If True, enables debug mode. Defaults to False.
         
         Returns:
             unmatched (list): A list of keys with mismatched hash values.
@@ -1090,21 +1124,24 @@ class LegiScan:
         unmatched = []
         # Loop the stored dictionary and check if the hash values match
         for key, value in stored.items():
+            if debug:
+                print(f"\nStored:  {key} {value[hashAttr]}")
+                print(f"Current: {key} {current[key][hashAttr]}")
             if current[key][hashAttr] == value[hashAttr]:
                 if not silent:
                     print(f"{key} hash match")
             elif current[key][hashAttr] != value[hashAttr]:
                 unmatched.append(key)
-                if not silent:
+                if not silent or debug:
                     print(f"{key} hash mismatch")
             else:
                 print(f"{key} unknown error")
         if len(unmatched) == 0:
-            if not silent:
+            if not silent or debug:
                 print("All hashes match")
             return None
         else:
-            if not silent:
+            if not silent or debug:
                 print(f"{len(unmatched)} hashes do not match")
             return unmatched
     
