@@ -15,6 +15,9 @@ from openai import AzureOpenAI
 from dotenv import load_dotenv
 from IPython.display import Markdown, display
 
+# Import the codebook from the calpa package
+from . import codebook
+
 # Import environment variables from .env file
 load_dotenv()
 
@@ -25,8 +28,7 @@ except ImportError as exc:
     print("Install using: pip install requests\n")
     raise ImportError from exc
 
-# Import the codebook from the calpa package
-from . import codebook
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # endregion libraries
@@ -146,16 +148,16 @@ def projectMetadata(
     
     # Print the metadata dictionary on the console
     if not silent:
-        print("~" * (len(metadata.get("description")) + 2))
-        print(f" {metadata.get('title')} ({metadata.get('name')})")
-        print(f" {metadata.get('description')}")
-        print(f" Part {prjPart} - {metadata.get('prjStep')}")
-        print(f" Version {prjVersion} ({metadata.get('license')}), {metadata.get('author')}")
-        print(f" GitHub Repository: {metadata.get('repository')}")
+        print("~" * (len(metadata.get("description", "")) + 2))
+        print(f" {metadata.get('title', '')} ({metadata.get('name', '')})")
+        print(f" {metadata.get('description', '')}")
+        print(f" Part {prjPart} - {metadata.get('prjStep', '')}")
+        print(f" Version {prjVersion} ({metadata.get('license', '')}), {metadata.get('author', '')}")
+        print(f" GitHub Repository: {metadata.get('repository', '')}")
         print(f" Last Updated: {date.today().strftime('%b %d, %Y')}")
-        print("~" * (len(metadata.get("description")) + 2))
-        print(f"\nDates: {metadata.get('startDate')} through {metadata.get('endDate')}")
-        print(f"Periods: {metadata.get('years')}")
+        print("~" * (len(metadata.get("description", "")) + 2))
+        print(f"\nDates: {metadata.get('startDate', '')} through {metadata.get('endDate', '')}")
+        print(f"Periods: {metadata.get('years', '')}")
     
     # Return the metadata dictionary
     return metadata
@@ -303,13 +305,16 @@ def getCaLegisLinks(
 # ~~~~~~~~~~~~~~~~~~~~~~~~ Function: Convert Str To Date ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Create a function to convert a string to a date
-def convertStrToDate(dateStr: str) -> str:
+def convertStrToDate(dateStr: str, choice: int = 1) -> str:
     """Convert String to Date Function.
     
     Converts a string to a date object.
     
     Args:
         dateStr (string): A string indicating the date (e.g., "2023-10-01").
+        choice (integer): An integer indicating the choice of date format (default is 1).
+            1. "Month DD, YYYY" format (default).
+            2. "YYYY-MM-DD" format.
     
     Returns:
         dateObj(datetime): A datetime object containing the date.
@@ -319,8 +324,18 @@ def convertStrToDate(dateStr: str) -> str:
         >>> dateObj = calpa.convertStrToDate("2023-10-01")
         >>> print(dateObj)
     """
-    # Convert the string to a date object
-    dateObj = datetime.strptime(dateStr, "%Y-%m-%d").date().strftime("%B %d, %Y")
+    choice = 1 if choice is None else choice
+    # Only allow choices 1 or 2
+    if choice not in (1, 2):
+        raise ValueError("Choice must be 1 or 2.")
+    
+    dateObj = None
+    if choice == 1:
+        # Convert the string to a date object formatted as "Month DD, YYYY"
+        dateObj = datetime.strptime(dateStr, "%Y-%m-%d").date().strftime("%B %d, %Y")
+    elif choice == 2:
+        # Convert the string to a date object formatted as "YYYY-MM-DD"
+        dateObj = datetime.strptime(dateStr, "%Y-%m-%d").date().strftime("%Y-%m-%d")
 
     # Returns the date object
     return dateObj
@@ -1452,11 +1467,11 @@ class LegiScan:
         myNotesPath = None
         if prjPart == "AI":
             myNotesPath = os.path.join(
-                self.prjDirs["pathScriptsMd"], "notes", "AI", billPeriod, f"{billId}.md"
+                self.prjDirs["pathScriptsMd"], "notes", billPeriod, f"{billId}.md"
             )
         elif prjPart == "LC":
             myNotesPath = os.path.join(
-                self.prjDirs["pathScriptsMd"], "notes", "LC", billPeriod, f"{billId}.md"
+                self.prjDirs["pathScriptsMd"], "notes", billPeriod, f"{billId}.md"
             )
         
         # Check if the notes exist in the disk
@@ -1477,28 +1492,12 @@ class LegiScan:
         with open(myNotesPath, "r", encoding="utf-8") as src:
             # Read the lines of the markdown file
             myBillNotes = src.readlines()
-            
-            # No longer need this part - the bills are resting in different folders now.
-            # Initialize variables for the sections and notes
-            #section = aiNotes = lcNotes = ""
-            # Loop through the lines of the markdown file
-            #for i, line in enumerate(myBillNotes):
-                # Find the section for AI and LC notes and set the section variable
-                #if line.startswith(f"## {billId} AI Notes"):
-                #    section = "AI"
-                #elif line.startswith(f"## {billId} LC Notes"):
-                #    section = "LC"
-                # Append the line to the appropriate notes variable based on the section
-                #if section == "AI":
-                #    aiNotes += line
-                #elif section == "LC":
-                #    lcNotes += line
-
+        
         # ~~~~~~~ Part 2: Create the YAML Properties Section of the Markdown File ~~~~~~~~
         
         # Create the markdown file (path)
         mdFile = os.path.join(
-            self.prjDirs["pathScriptsMd"], "AI", billPeriod, f"{billId}.md"
+            self.prjDirs["pathScriptsMd"], billPeriod, f"{billId}.md"
         )
 
         # Create the YAML section
@@ -1663,13 +1662,13 @@ class LegiScan:
                 
             # Dates and Status
             mdf.write(
-                f">- **Introduced Date**: {convertStrToDate(myBill['history'][0]['date'])}\n"
+                f">- **Introduced Date**: {convertStrToDate(myBill['history'][0]['date'], 1)}\n"
             )
             mdf.write(f">- **Bill Status**: {codebook.lookupStatusType[myBill['status']]}\n")
             mdf.write(f">- **Session Status**: {mySessionStatus}\n")
-            mdf.write(f">- **Status Date**: {convertStrToDate(myBill['status_date'])}\n")
+            mdf.write(f">- **Status Date**: {convertStrToDate(myBill['status_date'], 1)}\n")
             mdf.write(f">- **Last Action**: {myBillAction}\n")
-            mdf.write(f">- **Last Action Date**: {convertStrToDate(myBill['history'][-1]['date'])}\n")
+            mdf.write(f">- **Last Action Date**: {convertStrToDate(myBill['history'][-1]['date'], 1)}\n")
             if chaptered:
                 mdf.write(f">- **Chaptered**: {chaptered}\n")
             if chaptered:
