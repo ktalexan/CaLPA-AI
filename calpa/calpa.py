@@ -66,11 +66,26 @@ def projectMetadata(
         metadata(dictionary): A python dictionary containing metadata information such as project name, title, version, author, project years, start date, and end date.
         ValueError: Value error if the prjComponent or prjPart is not valid.
     
+    Raises:
+        ValueError: Error message if the project component is not AI or LC.
+        ValueError: Error message if the project part is not valid.
+    
     Examples:
         >>> calpa = Calpa()
         >>> metadata = calpa.projectMetadata("AI", 1)
         >>> print(metadata["title"])
         AI Legislative Policy Analysis
+    
+    Note:
+        The project metadata function generates a list of metadata for the project based on the component and part.
+        The project component can be either "AI" or "LC", and the project part can be any integer from 0 to 4.
+        The function returns a dictionary containing metadata information such as project name, title, version, author, project years, start date, and end date.
+    
+    See Also:
+        - projectDirectories: Function to create the project directories.
+        - getLegisLinks: Function to get the California Legislative links.
+        - convertStrToDate: Function to convert a string to a date.
+        - legiscan: Class to access the LegiScan API.
     """
     
     # First, make sure the project component is valid (AI or LC)
@@ -184,10 +199,21 @@ def projectDirectories(
     
     Returns:
         prjDirs(dictionary): A python dictionary containing the project directories.
-
+    
+    Raises:
+        ValueError: Error message if the home directory is not valid.
+        TypeError: Error message if the home directory is not a string.
+        
     Examples:
         >>> calpa = Calpa()
-        >>> calpa.projectDirectories()    
+        >>> calpa.projectDirectories()
+    
+    Note:
+        The project directories function creates a list of directories for the project based on the metadata information.
+        The function returns a dictionary containing the project directories.
+    
+    See Also:
+        - projectMetadata: Function to create the project metadata.
     """
     
     # Create a new python dictionary to hold the project directories
@@ -268,12 +294,23 @@ def getCaLegisLinks(
         links(dictionary): A python dictionary containing the California Legislative links.
         ValueError: Value error if the bill period or bill ID is not valid.
         TypeError: Type error if the bill period or bill ID is not a string.
+        
+    Raises:
+        ValueError: Error message if the bill period or bill ID is not valid.
     
     Examples:
         >>> calpa = Calpa()
         >>> links = calpa.getCaLegisLinks("2023-2024", "AB123")
         >>> print(links["main"])
         https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AB123
+        
+    Note:
+        The getLegisLinks function generates a list of links for the California Legislative Bills based on the bill period and bill ID.
+        The function returns a dictionary containing the California Legislative links.
+    
+    See Also:
+        - projectMetadata: Function to create the project metadata.
+        - convertStrToDate: Function to convert a string to a date.
     """
 
     base = "https://leginfo.legislature.ca.gov/faces/"
@@ -319,10 +356,22 @@ def convertStrToDate(dateStr: str, choice: int = 1) -> str:
     Returns:
         dateObj(datetime): A datetime object containing the date.
     
+    Raises:
+        ValueError: Value error if the date string is not valid.
+        TypeError: Type error if the date string is not a string.
+    
     Examples:
         >>> calpa = Calpa()
         >>> dateObj = calpa.convertStrToDate("2023-10-01")
         >>> print(dateObj)
+    
+    Note:
+        The convertStrToDate function converts a string to a date object.
+        The function returns a datetime object containing the date.
+        
+    See Also:
+        - projectMetadata: Function to create the project metadata.
+        - getLegisLinks: Function to get the California Legislative links.
     """
     choice = 1 if choice is None else choice
     # Only allow choices 1 or 2
@@ -365,6 +414,13 @@ class LegiScanError(Exception):
     
     Examples:
         >>> from calpa.legiscan import LegiScanError
+    
+    Note:
+        This class is used to represent errors that occur when accessing the LegiScan API.
+        It inherits from the built-in Exception class and provides a custom error message.
+    
+    See Also:
+        - legiscan: Class to access the LegiScan API.
     """
 
     # No additional implementation needed
@@ -397,6 +453,17 @@ class LegiScan:
     
     Examples:
         >>> from calpa.legiscan import LegiScan
+        
+    Note:
+        This class is used to access the LegiScan API and retrieve data about bills, sessions, and people.
+        It provides methods to store and retrieve data from local JSON files.
+        The class also provides methods to get the list of sessions, people, and datasets from LegiScan.
+    
+    See Also:
+        - projectMetadata: Function to create the project metadata.
+        - getLegisLinks: Function to get the California Legislative links.
+        - convertStrToDate: Function to convert a string to a date.
+        - projectDirectories: Function to create the project directories.
     """
 
     baseUrl = "http://api.legiscan.com/?key={0}&op={1}&{2}"
@@ -428,6 +495,17 @@ class LegiScan:
         Examples:
             >>> calpa = Calpa()
             >>> calpa.legiscan
+            
+        Note:
+            This class is used to access the LegiScan API and retrieve data about bills, sessions, and people.
+            It provides methods to store and retrieve data from local JSON files.
+            The class also provides methods to get the list of sessions, people, and datasets from LegiScan.
+        
+        See Also:
+            - projectMetadata: Function to create the project metadata.
+            - getLegisLinks: Function to get the California Legislative links.
+            - convertStrToDate: Function to convert a string to a date.
+            - projectDirectories: Function to create the project directories.
         """
         # see if API key available as environment variable
         if apiKey is None:
@@ -486,6 +564,13 @@ class LegiScan:
             >>> url = calpa._url("getBill", {"id": "12345"})
             >>> print(url)
             http://api.legiscan.com/?key=YOUR_API_KEY&op=getBill&id=12345
+        
+        Note:
+            This function constructs a URL for querying the LegiScan API based on the provided operation and parameters.
+            It raises a ValueError if the API key is not provided or if the project is not AI or LC.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         if not isinstance(params, str) and params is not None:
             params = urlencode(params)
@@ -522,6 +607,13 @@ class LegiScan:
         Examples:
             >>> calpa = Calpa()
             >>> url = calpa._url("getBill", {"id": "12345"})
+        
+        Note:
+            This function retrieves data from the LegiScan API based on the provided URL.
+            It raises a LegiScanError if the request fails or if the API returns an error.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         req = requests.get(url, timeout=60)
         if not req.ok:
@@ -559,13 +651,23 @@ class LegiScan:
         
         Returns:
             dataDict (dict): A dictionary containing data of the specified type.
-                
+        
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> sessionList = calpa.getStoredData("session")
             >>> sessionPeople = calpa.getStoredData("people")
             >>> aiBills = calpa.getStoredData("bills", project="AI")
             >>> datasetList = calpa.getStoredData("dataset")
             >>> masterList = calpa.getStoredData("master", raw=False)
+        
+        Note:
+            This function retrieves stored data from JSON files based on the specified type.
+            It raises a ValueError if the type is not valid or if the project is not specified for "bills" or "master".
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         if dataType not in (
             "session",
@@ -662,8 +764,19 @@ class LegiScan:
         Returns:
             dataDict (dict): A dictionary with session years as keys and session data as values.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> sessionList = calpa.getSessionList()
+        
+        Note:
+            This function retrieves a list of sessions from LegiScan and returns
+            a dictionary with the session years as keys and session data as values.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         
         # Set default state to "CA" if not provided
@@ -701,8 +814,19 @@ class LegiScan:
         Returns:
             dataDict (dict): A dictionary with session ID as the key and person data as the value.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> sessionPeople = calpa.getSessionPeople(sessionId="12345")
+        
+        Note:
+            This function retrieves a list of people for a given session identifier
+            or state. It returns a dictionary with the session ID as the key and
+            person data as the value. It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         
         if sessionId is not None:
@@ -740,8 +864,19 @@ class LegiScan:
         Returns:
             dataDict (dict): A dictionary with dataset years as keys and dataset data as values.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> datasetList = calpa.getDatasetList()
+        
+        Note:
+            This function retrieves a list of datasets from LegiScan and returns
+            a dictionary with the dataset years as keys and dataset data as values.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         
         # Set default state to "CA" if not provided
@@ -780,8 +915,19 @@ class LegiScan:
         Returns:
             data (list): A list of bill data.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> masterList = calpa.getMasterList(sessionId="12345", raw=True)
+        
+        Note:
+            This function retrieves a list of bills for the current session in a state
+            or for a given session identifier. It returns a list of bill data.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         if raw is False:
             url = self._url("getMasterList", {"id": sessionId})
@@ -826,10 +972,20 @@ class LegiScan:
         
         Returns:
             data (dict): A dictionary with bill data.
-                    
+        
+        Raises:
+            ValueError: Error message if the type is not valid.
+            
         Examples:
             >>> bill = calpa.getBill(billId="12345")
             >>> bill = calpa.getBill(billNumber="AB123")
+        
+        Note:
+            This function retrieves the bill detail information for a given bill identifier and bill number.
+            It returns a dictionary with the bill data. It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
                 
         # Set default state to "CA"
@@ -864,8 +1020,18 @@ class LegiScan:
         Returns:
             text (str): The bill text.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> billText = calpa.getBillText(docId="12345")
+        
+        Note:
+            This function retrieves the bill text, including date, draft revision information, and MIME type.
+            It returns the bill text as a string. It raises a ValueError if the type is not valid.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         url = self._url("getBillText", {"id": docId})
         return self._get(url)["text"]
@@ -893,8 +1059,19 @@ class LegiScan:
         Returns:
             data (dict): A dictionary with amendment data.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> amendment = calpa.getAmendment(amendmentId="12345")
+        
+        Note:
+            This function retrieves the amendment text, including date, adoption status, MIME type,
+            and title/description information.  It returns the amendment data as a dictionary.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         url = self._url("getAmendment", {"id": amendmentId})
         return self._get(url)["amendment"]
@@ -922,8 +1099,19 @@ class LegiScan:
         Returns:
             data (dict): A dictionary with supplement data.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> supplement = calpa.getSupplement(supplementId="12345")
+        
+        Note:
+            This function retrieves the supplement text, including type of supplement, date, MIME type, 
+            and text/description information.  It returns the supplement data as a dictionary.
+            It raises a ValueError if the type is not valid.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         url = self._url("getSupplement", {"id": supplementId})
         return self._get(url)["supplement"]
@@ -950,8 +1138,18 @@ class LegiScan:
         Returns:
             data (dict): A dictionary with roll call data.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> rollCall = calpa.getRollCall(rollCallId="12345")
+        
+        Note:
+            This function retrieves the roll call information for a given roll call identifier.
+            It returns the roll call data as a dictionary. It raises a ValueError if the type is not valid.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         data = self._get(self._url("getRollcall", {"id": rollCallId}))
         return data["roll_call"]
@@ -979,8 +1177,19 @@ class LegiScan:
         Returns:
             data (dict): A dictionary with sponsor data.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> sponsor = calpa.getSponsor(peopleId="12345")
+        
+        Note:
+            This function retrieves the sponsor information for a given people identifier.
+            It returns the sponsor data as a dictionary.
+            It raises a ValueError if the type is not valid.
+            
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         url = self._url("getSponsor", {"id": peopleId})
         return self._get(url)["person"]
@@ -1011,8 +1220,20 @@ class LegiScan:
         Returns:
             results (dict): A dictionary with the search summary and the results.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
         >>> searchResults = calpa.aiSearchQuery(sessionId=12345, query="example query")
+        >>> searchResults = calpa.aiSearchQuery(sessionId=12345, query="example query", threshold=60)
+        
+        Note:
+            This function retrieves a list of bills for a given session identifier and query string.
+            It returns a summary of the search and the results as a dictionary.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         
         # Set default AI query search term if not provided.
@@ -1085,9 +1306,20 @@ class LegiScan:
         Returns:
             results (dict): A dictionary with the search summary and the results.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> searchResults = calpa.searchBills(billNumber="AB123")
             >>> searchResults = calpa.searchBills(query="example query")
+        
+        Note:
+            This function retrieves a list of bills for a given bill number or query string.
+            It returns a summary of the search and the results as a dictionary.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         
         # Set default state to "CA"
@@ -1136,8 +1368,19 @@ class LegiScan:
         Returns:
             unmatched (list): A list of keys with mismatched hash values.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> matchHash(stored, current, hashAttr)
+            >>> matchHash(stored, current, hashAttr, silent=True)
+        
+        Note:
+            This function compares the hash values of the stored and current session lists.
+            It returns a list of keys with mismatched hash values.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         # Check if the hashType is one of ("dataset", "change", "text", "amendment", "supplement", "person"). If it is, append "_hash" at the end of it. Else raise an error
         if hashType in (
@@ -1203,10 +1446,20 @@ class LegiScan:
         Returns:
             dict: A dictionary containing the sponsors categorized by type.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> bill = {"sponsors": [{"sponsor_type_id": 1, "name": "John Doe", "party": "D", "district": "HD-01", "ballotpedia": "John_Doe"}, {"sponsor_type_id": 2, "name": "Jane Smith", "party": "R", "district": "SD-02", "ballotpedia": "Jane_Smith"}]}
             >>> summarizeBillSponsors(bill, output="dict")
             {'Primary Sponsor': ['John Doe (D, AD01)'], 'Co-Sponsor': ['Jane Smith (R, SD02)']}
+        
+        Note:
+            This function summarizes the bill sponsors by type and formats the output as a dictionary or markdown list.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         # Create a dictionary to store the sponsors by type
         sponsorList = {}
@@ -1279,9 +1532,19 @@ class LegiScan:
         Returns:
             billSummary (dict): A dictionary containing the bill number, document ID, summary, tags, and bill text.
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> summarizeBillText(billText)
             >>> summarizeBillText(billText, model="gpt-4")
+        
+        Note:
+            This function summarizes the bill text using a custom Azure OpenAI's GPT-4 model, and produces a one-paragraph TL;DR summary and a list of tags.
+            It raises a ValueError if the type is not valid.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         # Get the last bill text from the texts object
         # if it exists, otherwise return None
@@ -1373,7 +1636,86 @@ class LegiScan:
     # endregion Method: summarizeBillText
     
     
-    # region Method: aiBillMarkdown
+    # region Method: createBillTextSummary
+    # ~~~~~~~~~~~~~~~~~~~~~~~ Method: Create Bill Text summary ~~~~~~~~~~~~~~~~~~~~~~~
+    
+    # Create a function that loops through the aiBills dictionary, gets the bill text for each bill, and then processes the text through Azure OpenAI to obtain the summary and keywords.
+    def createBillTextSummary(self, billList: Dict[str, Any]) -> Dict[str, Any]:
+        """Create a dictionary of bill text objects from the bill list.
+        
+        This function creates a dictionary of bill text objects from the bill list.
+        It loops through the legislative sessions in the bill list and retrieves the bill text for each bill. The function returns a dictionary with the legislative session period as the key and the bill text objects as the value.
+        
+        Args:
+            billList (dict): The bill list.
+        
+        Returns:
+            billTextDict (dict): A dictionary of bill text objects.
+        
+        Raises:
+            ValueError: Error message if the type is not valid.
+            
+        Examples:
+            >>> createBillTextSummary(billList)
+        
+        Note:
+            This function creates a dictionary of bill text objects from the bill list.
+            It loops through the legislative sessions in the bill list and retrieves the bill text for each bill.
+            The function returns a dictionary with the legislative session period as the key and the bill text objects as the value.
+            It raises a ValueError if the type is not valid.
+            Important - It requires billLists with hierarchical structure of legislative sessions and bills.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
+        """
+        # Create a dictionary to store the bill text objects
+        billTextDict = {}
+        # First, loop through the legislative sessions in the bill list
+        for mySection, myBillList in billList.items():
+            # Set the key to the legislative session period
+            billTextDict[mySection] = {}
+            # Count the number of bills in the legislative session
+            billCount = len(myBillList)
+            print(f"\n{mySection} Legislative Session ({billCount} bills)")
+            # Reset the counter for the number of bills processed
+            i = 1        
+            # Loop through the bills for the legislative session
+            for billKey, billContent in myBillList.items():
+                # Set the number of retries if the Azure OpenAI API fails
+                maxRetries = 5
+                # Initialize the attempts counter
+                attempts = 0
+                # Initialize the success flag
+                success = False
+                # Loop until the bill text is successfully retrieved or the maximum number of retries is reached
+                while not success and attempts < maxRetries:
+                    try:
+                        # Get the bill text from LegiScan
+                        billTextJson = self.summarizeBillText(billContent)
+                        success = True
+                    except (ValueError, TypeError, json.JSONDecodeError, requests.RequestException):
+                        attempts += 1
+                        #print(f"  - Error fetching bill text for {billKey}: {error}")
+                if success:
+                    # If the bill text is processed,
+                    if i < billCount:
+                        print(f"{billKey} ({i}/{billCount})", end =", ")
+                    else:
+                        print(f"{billKey} ({i}/{billCount})")
+                    # Add the bill text to the billTextDict dictionary
+                    billTextDict[mySection][billKey] = billTextJson
+                    # Increment the counter for the number of bills processed
+                    i += 1
+                else:
+                    break
+        # Return the billTextDict dictionary
+        return billTextDict    
+    
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # endregion Method: createBillTextSummary
+    
+    
+    # region Method: createBillMarkdown
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Method: AI Bill Markdown ~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     def createBillMarkdown(self,
@@ -1399,9 +1741,19 @@ class LegiScan:
         Returns:
             None
         
+        Raises:
+            ValueError: Error message if the type is not valid.
+        
         Examples:
             >>> aiBillMarkdown("2023-2024", "AB123")
             >>> aiBillMarkdown("2023-2024", "AB123", obsidianSync=True)
+        
+        Note:
+            This function creates an md file for the AI bill.
+            It includes the bill information, summary, tags, keywords, hash tags, sponsors, session status, action status, chaptered information, legislative links, and notes.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
 
         # ~~~~~~~~~~~~~~~~~~~ Part 1: Define Variables and Input Data ~~~~~~~~~~~~~~~~~~~~
@@ -1745,7 +2097,7 @@ class LegiScan:
                     dest.write(src.read())
     
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # endregion Method: aiBillMarkdown
+    # endregion Method: createBillMarkdown
     
     
     # region Method: __str__
@@ -1762,9 +2114,19 @@ class LegiScan:
 
         Returns:
             str: A string representation of the LegiScan object.
-
+        
         Raises:
             None
+        
+        Example:
+            >>> print(legiscan)
+        
+        Note:
+            This function returns a string representation of the LegiScan object.
+            It is used for debugging and logging purposes.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         return f"<LegiScan API {self.key}>"
     
@@ -1790,6 +2152,13 @@ class LegiScan:
 
         Example:
             >>> print(legiscan)
+        
+        Note:
+            This function returns a string representation of the LegiScan object.
+            It is used for debugging and logging purposes.
+        
+        See Also:
+            - legiscan: Class to access the LegiScan API.
         """
         return str(self)
     

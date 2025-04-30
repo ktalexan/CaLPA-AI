@@ -1401,31 +1401,31 @@
             "last_action": "April 21 hearing: Placed on APPR. suspense file.",
             "title": "Mental health and artificial intelligence working group."
         },
-        "AB412": {
-            "relevance": 99,
-            "state": "CA",
-            "bill_number": "AB412",
-            "bill_id": 1955758,
-            "change_hash": "35da8a2539a858206035788933db3aac",
-            "url": "https://legiscan.com/CA/bill/AB412/2025",
-            "text_url": "https://legiscan.com/CA/text/AB412/2025",
-            "research_url": "https://legiscan.com/CA/research/AB412/2025",
-            "last_action_date": "2025-04-22",
-            "last_action": "Re-referred to Com. on JUD.",
-            "title": "Generative artificial intelligence: training data: copyrighted materials."
-        },
         "AB512": {
             "relevance": 99,
             "state": "CA",
             "bill_number": "AB512",
             "bill_id": 1964699,
-            "change_hash": "d2bcd3da66594ffa0e6f16210b633299",
+            "change_hash": "b58a409f861aab2e108bdeba1db8aad6",
             "url": "https://legiscan.com/CA/bill/AB512/2025",
             "text_url": "https://legiscan.com/CA/text/AB512/2025",
             "research_url": "https://legiscan.com/CA/research/AB512/2025",
-            "last_action_date": "2025-04-24",
-            "last_action": "From committee: Amend, and do pass as amended and re-refer to Com. on APPR. (Ayes 13. Noes 0.) (April 22).",
+            "last_action_date": "2025-04-28",
+            "last_action": "Read second time and amended.",
             "title": "Health care coverage: prior authorization."
+        },
+        "AB412": {
+            "relevance": 99,
+            "state": "CA",
+            "bill_number": "AB412",
+            "bill_id": 1955758,
+            "change_hash": "096ef0bbcd68894090d3bea4ff41d981",
+            "url": "https://legiscan.com/CA/bill/AB412/2025",
+            "text_url": "https://legiscan.com/CA/text/AB412/2025",
+            "research_url": "https://legiscan.com/CA/research/AB412/2025",
+            "last_action_date": "2025-04-28",
+            "last_action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on JUD. Read second time and amended.",
+            "title": "Generative artificial intelligence: training data: copyrighted materials."
         },
         "SB11": {
             "relevance": 99,
@@ -1478,6 +1478,19 @@
             "last_action_date": "2025-04-25",
             "last_action": "Set for hearing May 5.",
             "title": "Critical infrastructure: automated decision systems: human oversight."
+        },
+        "AB316": {
+            "relevance": 99,
+            "state": "CA",
+            "bill_number": "AB316",
+            "bill_id": 1941749,
+            "change_hash": "4b706d05f4e9258581c7783a63411995",
+            "url": "https://legiscan.com/CA/bill/AB316/2025",
+            "text_url": "https://legiscan.com/CA/text/AB316/2025",
+            "research_url": "https://legiscan.com/CA/research/AB316/2025",
+            "last_action_date": "2025-04-28",
+            "last_action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+            "title": "Artificial intelligence: defenses."
         },
         "AB489": {
             "relevance": 99,
@@ -1582,19 +1595,6 @@
             "last_action_date": "2025-04-23",
             "last_action": "From committee: Do pass and re-refer to Com. on JUD. (Ayes 11. Noes 1.) (April 22). Re-referred to Com. on JUD.",
             "title": "California AI Transparency Act."
-        },
-        "AB316": {
-            "relevance": 98,
-            "state": "CA",
-            "bill_number": "AB316",
-            "bill_id": 1941749,
-            "change_hash": "048fd763034c4b574375957b10d8648f",
-            "url": "https://legiscan.com/CA/bill/AB316/2025",
-            "text_url": "https://legiscan.com/CA/text/AB316/2025",
-            "research_url": "https://legiscan.com/CA/research/AB316/2025",
-            "last_action_date": "2025-03-26",
-            "last_action": "From committee: Do pass and re-refer to Com. on P. & C.P. (Ayes 12. Noes 0.) (March 25). Re-referred to Com. on P. & C.P.",
-            "title": "Artificial intelligence: defenses."
         },
         "AB1137": {
             "relevance": 98,
@@ -1744,12 +1744,12 @@
             "state": "CA",
             "bill_number": "AB325",
             "bill_id": 1943407,
-            "change_hash": "c0578fb17c2007586ec3da33a3fbe1dc",
+            "change_hash": "5cfed883e1cf3627c40158083fe49f6f",
             "url": "https://legiscan.com/CA/bill/AB325/2025",
             "text_url": "https://legiscan.com/CA/text/AB325/2025",
             "research_url": "https://legiscan.com/CA/research/AB325/2025",
-            "last_action_date": "2025-04-24",
-            "last_action": "From committee chair, with author's amendments: Amend, and re-refer to Com. on P. & C.P. Read second time and amended.",
+            "last_action_date": "2025-04-28",
+            "last_action": "Re-referred to Com. on P. & C.P.",
             "title": "Cartwright Act: violations."
         },
         "AB1018": {
@@ -1770,12 +1770,12 @@
             "state": "CA",
             "bill_number": "SB57",
             "bill_id": 1908210,
-            "change_hash": "b05f383f3384288cfc3fc14b619eac34",
+            "change_hash": "23204dd85548540d283cd8a389292729",
             "url": "https://legiscan.com/CA/bill/SB57/2025",
             "text_url": "https://legiscan.com/CA/text/SB57/2025",
             "research_url": "https://legiscan.com/CA/research/SB57/2025",
-            "last_action_date": "2025-04-17",
-            "last_action": "Set for hearing April 28.",
+            "last_action_date": "2025-04-28",
+            "last_action": "April 28 hearing: Placed on APPR. suspense file.",
             "title": "Electrical corporations: tariffs."
         },
         "AB723": {
