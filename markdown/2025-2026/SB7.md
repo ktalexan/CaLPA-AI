@@ -96,7 +96,9 @@ modified:
 > SB-7: An act to add Part 5.6 (commencing with Section 1520) to Division 2 of the Labor Code, relating to employment., Senate Bill SB7, California Legislature, 2025-2026 Regular Session. Introduced Bill. Active (2024). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB7
 
 
-['## SB7 AI Notes\n', '\n']
+## SB7 AI Notes
+
+
 
 ## State Webpage
 

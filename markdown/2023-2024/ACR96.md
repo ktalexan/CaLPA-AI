@@ -94,7 +94,9 @@ modified:
 > ACR-96: Relative to the 23 Asilomar AI Principles., Assembly Concurrent Resolution ACR96, California Legislature, 2023-2024 Regular Session. Engrossed Concurrent Resolution. Inactive (2023). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240ACR96
 
 
-['## ACR96 AI Notes\n', '\n']
+## ACR96 AI Notes
+
+
 
 ## State Webpage
 

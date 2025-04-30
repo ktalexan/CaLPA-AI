@@ -97,7 +97,9 @@ modified:
 > SCR-17: Relative to artificial intelligence., Senate Concurrent Resolution SCR17, California Legislature, 2023-2024 Regular Session. Passed Concurrent Resolution. Chaptered by Secretary of State. Res. Chapter 135, Statutes of 2023. (2023). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SCR17
 
 
-['## SCR17 AI Notes\n', '\n']
+## SCR17 AI Notes
+
+
 
 ## State Webpage
 

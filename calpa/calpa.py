@@ -1843,7 +1843,7 @@ class LegiScan:
         # Read the notes markdown file and determine the sections for AI and LC notes
         with open(myNotesPath, "r", encoding="utf-8") as src:
             # Read the lines of the markdown file
-            myBillNotes = src.readlines()
+            myBillNotes = src.read()
         
         # ~~~~~~~ Part 2: Create the YAML Properties Section of the Markdown File ~~~~~~~~
         

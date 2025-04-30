@@ -97,7 +97,9 @@ modified:
 > SJR-2: Relative to classified workers., Senate Joint Resolution SJR2, California Legislature, 2025-2026 Regular Session. Engrossed Joint Resolution. Active (2025). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SJR2
 
 
-['## SJR2 AI Notes\n', '\n']
+## SJR2 AI Notes
+
+
 
 ## State Webpage
 

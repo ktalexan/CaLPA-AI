@@ -100,7 +100,9 @@ modified:
 > SJR-6: Relative to artificial intelligence., Senate Joint Resolution SJR6, California Legislature, 2019-2020 Regular Session. Passed Joint Resolution. Chaptered by Secretary of State. Res. Chapter 112, Statutes of 2019. (2019). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200SJR6
 
 
-['## SJR6 AI Notes\n', '\n']
+## SJR6 AI Notes
+
+
 
 ## State Webpage
 

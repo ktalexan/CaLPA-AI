@@ -95,7 +95,9 @@ modified:
 > AJR-6: Relative to artificial intelligence., Assembly Joint Resolution AJR6, California Legislature, 2023-2024 Regular Session. Introduced Joint Resolution. Inactive (2023). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240AJR6
 
 
-['## AJR6 AI Notes\n', '\n']
+## AJR6 AI Notes
+
+
 
 ## State Webpage
 

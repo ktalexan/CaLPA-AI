@@ -99,7 +99,9 @@ modified:
 > SCR-13: Relative to International Women’s Day., Senate Concurrent Resolution SCR13, California Legislature, 2019-2020 Regular Session. Passed Concurrent Resolution. Chaptered by Secretary of State. Res. Chapter 22, Statutes of 2019. (2019). https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201920200SCR13
 
 
-['## SCR13 AI Notes\n', '\n']
+## SCR13 AI Notes
+
+
 
 ## State Webpage
 
